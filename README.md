@@ -73,3 +73,7 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Inspired by 
+- https://gonzalohirsch.com/blog/zero-to-blog-building-with-nuxt-3/
+- https://erikbern.com/about
