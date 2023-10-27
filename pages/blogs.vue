@@ -1,7 +1,5 @@
 <script setup>
 
-import CategoriesCards from "~/components/CategoriesCards.vue";
-
 const { data: blogs } = await useAsyncData('blogs', () => queryContent('blog')
     .sort({ publishDateTime: -1 })
     .find())

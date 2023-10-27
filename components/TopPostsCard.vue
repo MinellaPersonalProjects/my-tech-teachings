@@ -30,6 +30,7 @@ defineProps({
             cover
             :src="image"
             class="card-image"
+            alt="Post Image"
         />
       </v-card>
     </v-col>

@@ -32,13 +32,6 @@
 
 <style scoped>
 
-.container {
-  height: 100vh; /* Set container to full viewport height */
-  display: flex; /* Use flexbox layout */
-  justify-content: center; /* Center contents horizontally */
-  align-items: center; /* Center contents vertically */
-}
-
 .heading {
   font-style: normal;
   font-size: 250px;

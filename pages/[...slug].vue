@@ -149,17 +149,6 @@ const theme = useTheme()
   padding: 20px; /* Adjust as needed */
 }
 
-.fixed-row {
-  display: flex;
-  align-items: flex-start; /* Align columns at the top */
-  overflow: hidden; /* Hide horizontal overflow in case fixed column is wider */
-}
-
-.fixed-column {
-  flex-shrink: 0; /* Prevent fixed column from shrinking */
-  z-index: 1; /* Adjust the z-index as needed to control stacking */
-  padding: 10px; /* Add padding as needed for spacing */
-}
 
 .row-with-line::before {
   content: '';
@@ -244,43 +233,15 @@ const theme = useTheme()
   text-decoration: none;
 }
 
-.separator {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 /* Define your custom styles as needed */
 
 .italic {
   font-style: italic;
 }
 
-.absolute {
-  position: absolute;
-}
-
-.-top-8 {
-  top: -2rem; /* Adjust as needed */
-}
-
-.text-sm {
-  font-size: 1rem; /* Adjust as needed */
-}
-
-.leading-sm {
-  line-height: 1.25; /* Adjust as needed */
-}
 
 .font-light {
   font-weight: 300; /* Adjust as needed */
-}
-
-.text-typography-primary/75 {
-  color: rgba(0, 0, 0, 0.75); /* Adjust the color and opacity as needed */
-}
-
-.dark--text-typography-primary-dark/75 {
-  color: rgba(0, 0, 0, 0.75); /* Adjust the color and opacity as needed for dark mode */
 }
 
 </style>

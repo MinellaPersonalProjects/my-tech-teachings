@@ -79,21 +79,6 @@ const toggleToc = () => {
   text-decoration: none;
 }
 
-.toc-link_2 {
-  font-weight: bold;
-  color: #333;
-}
-
-.toc-link_3 {
-  color: black; /* Replace with your desired text color */
-  text-decoration: none;
-}
-.toc-link_3::before {
-  color: black; /* Replace with your desired text color */
-  text-decoration: none;
-  content: "-"
-}
-
 /* Hover styles for TOC links */
 .toc-link a:hover {
   text-decoration: underline;

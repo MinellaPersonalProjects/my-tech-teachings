@@ -126,7 +126,5 @@ const displayedPosts = (value) => {
   height: 100%;
   overflow-x: auto; /* Enable horizontal scrolling */
 }
-.no-flex-grow {
-  flex: 0 0 auto; /* Prevent v-col elements from growing */
-}
+
 </style>

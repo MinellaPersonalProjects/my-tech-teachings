@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import {Icon} from "@iconify/vue";
-import { onMounted } from 'vue'
 import { useDisplay } from 'vuetify'
 
 // for small displays and upward you can set custom values
@@ -83,17 +82,3 @@ const submitForm = () => {
     </v-row>
   </v-container>
 </template>
-
-<style scoped>
-.container {
-  height: 100%; /* Set container to full viewport height */
-  display: flex; /* Use flexbox layout */
-  justify-content: center; /* Center contents horizontally */
-  align-items: center; /* Center contents vertically */
-}
-
-.row {
-  flex-direction: column; /* Set row direction to vertical */
-}
-
-</style>

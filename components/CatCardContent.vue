@@ -70,12 +70,7 @@ const theme = useTheme()
 </template>
 
 <style scoped>
-.overflow-container {
-  white-space: nowrap;
-  overflow-x: auto;
-  display: flex;
-  flex-wrap: nowrap;
-}
+
 .v-card--reveal {
   align-items: center;
   bottom: 0;
@@ -83,11 +78,6 @@ const theme = useTheme()
   opacity: .9;
   position: absolute;
   width: 100%;
-}
-
-.no-wrap {
-  width: 100%; /* Set a fixed width to prevent wrapping */
-  margin: 20px;
 }
 
 </style>
