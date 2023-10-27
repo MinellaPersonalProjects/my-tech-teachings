@@ -1,0 +1,99 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import {Icon} from "@iconify/vue";
+import { onMounted } from 'vue'
+import { useDisplay } from 'vuetify'
+
+// for small displays and upward you can set custom values
+const { smAndUp } = useDisplay()
+
+const name = ref('');
+const email = ref('');
+const message = ref('');
+
+const submitForm = () => {
+  // Handle form submission logic here
+  // Access name, email, and message using name.value, email.value, and message.value
+  console.log('Name:', name.value);
+  console.log('Email:', email.value);
+  console.log('Message:', message.value);
+};
+</script>
+
+<template>
+  <v-container>
+    <v-row>
+      <v-col cols="12" sm="12" md="9" lg="9" xl="9">
+        <v-card
+            class="elevation-3"
+            style="position: relative; margin-bottom: 10px;">
+          <v-col cols="12" sm="12" md="9" lg="9" xl="9">
+            <v-card-text style="margin-top: 20px;">
+              <v-form @submit="submitForm">
+                <v-text-field v-model="name" label="Name"></v-text-field>
+                <v-text-field v-model="email" label="Email"></v-text-field>
+                <v-textarea v-model="message" label="Message"></v-textarea>
+                <v-card-item>
+                  <template v-slot:append>
+                    <v-btn type="submit" color="primary">Submit</v-btn>
+                  </template>
+                </v-card-item>
+              </v-form>
+            </v-card-text>
+          </v-col>
+          <v-col cols="4">
+            <v-sheet height="100%"></v-sheet>
+          </v-col>
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="12" md="3" lg="3" xl="3">
+        <v-card
+            class="elevation-5 "
+            height="80%"
+            color="primary"
+            :style="{position: 'relative', left: smAndUp ? '-150px' : '0', width: smAndUp ? '250px' : '100'}"
+            style="margin-top: 60px;"
+        >
+          <v-card-text
+              class="text-center"
+              style="margin-top: 40%"
+          >
+            <v-row align="center" justify="center">
+              <h2>Contact Me</h2>
+            </v-row>
+            <v-row align="center" justify="center">
+              <v-col cols="12">
+                <p>nmogbo2001@gmail.com</p>
+              </v-col>
+            </v-row>
+            <v-row align="center" justify="center">
+              <v-col cols="3">
+                <Icon icon="mdi:github" style="font-size: 36px;" />
+              </v-col>
+              <v-col cols="3">
+                <Icon icon="openmoji:youtube" style="font-size: 36px;" />
+              </v-col>
+              <v-col cols="3">
+                <Icon icon="simple-icons:x" style="font-size: 30px;" />
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<style scoped>
+.container {
+  height: 100%; /* Set container to full viewport height */
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center contents horizontally */
+  align-items: center; /* Center contents vertically */
+}
+
+.row {
+  flex-direction: column; /* Set row direction to vertical */
+}
+
+</style>

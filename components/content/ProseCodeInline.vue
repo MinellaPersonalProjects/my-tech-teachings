@@ -6,9 +6,11 @@
 
 <style scoped>
 .prose-code-inline {
-  background-color: #9898a6;
-  padding: 4px 8px;
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  margin: 2px 2px;
   border-radius: 4px;
+  border: 0.5px solid #ccc;
   font-family: 'Courier New', monospace;
   color: red;
 }

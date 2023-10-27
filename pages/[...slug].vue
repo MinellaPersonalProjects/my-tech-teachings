@@ -1,4 +1,7 @@
 <script setup>
+// from Gonzalo Hirsch
+import {useTheme} from "vuetify";
+
 const { path } = useRoute();
 const cleanPath = path.replace(/\/+$/, '');
 const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
@@ -7,85 +10,110 @@ const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
   let article = queryContent('/blog').where({ _path: cleanPath }).findOne();
   // get the surround information,
   // which is an array of documeents that come before and after the current document
-  let surround = queryContent('/blog').sort({ date: -1 }).only(['_path', 'headline', 'excerpt']).findSurround(cleanPath, { before: 1, after: 1 });
+  let surround = queryContent('/blog').sort({ date: -1 }).only(['_path', 'title', 'summary']).findSurround(cleanPath, { before: 1, after: 1 });
   return {
     article: await article,
     surround: await surround
   };
 });
+
+const theme = useTheme()
 </script>
 <template>
     <NuxtLayout>
-        <v-container>
+        <v-container class="container-height">
             <v-card
-              class="px-4 py-10 mx-auto"
-              :class="{
-                'bg-white': !$vuetify.theme.dark,
-                'dark:bg-gray-800': $vuetify.theme.dark,
+                class="px-4 py-10 mx-auto"
+                :class="{
+                'bg-white': !theme.global.current.value.dark,
+                'dark:bg-gray-800': theme.global.current.value.dark,
               }"
-              :elevation="$vuetify.theme.dark ? 2 : 0"
+                :elevation="theme.global.current.value.dark ? 2 : 0"
             >
               <!-- Fetch and display the Markdown document from the current path -->
               <ContentDoc class="prose prose-gray dark:prose-invert max-w-none">
                 <template v-slot="{ doc }">
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12">
+                  <v-container >
+                      <v-row v-if="doc.tag === 'about_me'">
                         <div class="row-with-line">
                         </div>
-                        <div>
-                          <!-- Headline -->
-                          <h1 class="blog-post-text font-bold mb-4 md-mb-6 text-h3 leading-h3 md-text-h1 md-leading-h1 text-center md-text-left">
-                            {{ doc.title }}
-                          </h1>
+                        <v-row no-gutters>
+                          <v-col cols="12" md="6" sm="12" lg="6">
+                            <v-img
+                                :src="doc.myImage"
+                                alt="About Image"
+                                class="about-image"
+                                aspect-ratio="2"
+                            ></v-img>
+                          </v-col>
+                          <v-col cols="12" md="6" sm="12" lg="6" class="d-flex align-center">
+                            <v-row>
+                              <v-col cols="12"><h2 class="about-title">{{ doc.title }}</h2></v-col>
+                              <v-col cols="12"><p class="about-description">
+                                {{ doc.summary }}
+                              </p></v-col>
+                            </v-row>
+                          </v-col>
+                        </v-row>
+                        <div class="row-with-line">
+                        </div>
+                      </v-row>
+                      <v-row v-else>
+                        <v-col cols="12" >
+                          <div class="row-with-line">
+                          </div>
+                          <div>
+                            <!-- Headline -->
+                            <h1 class="blog-post-text font-bold mb-4 md-mb-6 text-h3 leading-h3 md-text-h1 md-leading-h1 text-center md-text-left">
+                              {{ doc.title }}
+                            </h1>
 
-                          <!-- Excerpt -->
-                          <p class="blog-post-text mb-8 md-w-8/12 md-text-lg md-leading-lg text-center md-text-left">
-                            {{ doc.summary }}
-                          </p>
+                            <!-- Excerpt -->
+                            <p class="blog-post-text mb-8 md-w-8/12 md-text-lg md-leading-lg text-center md-text-left">
+                              {{ doc.summary }}
+                            </p>
 
-                          <!-- Border with Flex Layout -->
-                          <div class="border-typography-primary dark-border-typography-primary-dark mt-12 md-mt-4">
-                            <!-- Author -->
-                            <div class="flex flex-row items-center justify-center">
-                              <span class="blog-post-text text-lg leading-lg font-light">By
-                                <a class="hover-underline italic" >Nkem Mogbo</a>
-                              </span>
+                            <!-- Border with Flex Layout -->
+                            <div class="border-typography-primary dark-border-typography-primary-dark mt-12 md-mt-4">
+                              <!-- Author -->
+                              <div class="flex flex-row items-center justify-center">
+                                <span class="blog-post-text text-lg leading-lg font-light">By
+                                  <a class="hover-underline italic" >Nkem Mogbo</a>
+                                </span>
+                              </div>
+                            </div>
+                            <!-- Social Share -->
+                            <div class="text-center md-text-right mt-6 md-mt-0">
+<!--                              <NavShareIcons :headline="doc.title" :excerpt="doc.summary" :path="doc._path + '/'" />-->
+                              <span
+                                  class="italic"
+                                  style="margin-bottom: 40px"
+                              >(Published: {{ doc.publishDate }})</span>
                             </div>
                           </div>
-                          <!-- Social Share -->
-                          <div class="text-center md-text-right mt-6 md-mt-0">
-                            <NavShareIcons :headline="doc.title" :excerpt="doc.summary" :path="doc._path + '/'" />
+                        </v-col>
+                      </v-row>
+                      <v-row>
+                        <v-col cols="12" md="8" class="relative">
+                          <!-- Blog content -->
+                          <ContentRenderer :value="doc" class="prose blog-content blog-post-text" />
+                        </v-col>
+                        <v-col cols="12" md="4">
+                          <!-- Mobile Table of Content -->
+                          <div class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside">
+                            <TableOfContents :links="doc.body?.toc?.links" class="blog-post-text" />
                           </div>
-                        </div>
-                      </v-col>
-                    </v-row>
-                    <v-row>
-                      <v-col cols="12" md="8" class="relative">
-                        <!-- Update date -->
-                        <span
-                            class="italic absolute -top-8 text-sm leading-sm font-light text-typography-primary/75 dark--text-typography-primary-dark/75"
-                        >(Published: {{ doc.publishDate }})</span>
-                        <!-- Blog content -->
-                        <ContentRenderer :value="doc" class="prose blog-content blog-post-text" />
-                      </v-col>
-                      <v-col cols="12" md="4" class="blog-aside h-fit">
-                        <!-- Mobile Table of Content -->
-                        <div class="hidden-md-flex mb-4 blog-aside-wrapper">
-                          <TableOfContents :links="doc.body?.toc?.links" class="blog-post-text" />
-                        </div>
-                        <!-- Related articles -->
-                        <div v-if="data?.surround?.filter((elem) => elem !== null)?.length > 0" class="blog-aside-wrapper">
-                          <RelatedArticles :surround="data?.surround" class="blog-post-text" />
-                        </div>
-                      </v-col>
-                    </v-row>
+                          <!-- Related articles -->
+                          <div v-if="data?.surround?.filter((elem) => elem !== null)?.length > 0" class="blog-aside-wrapper">
+                            <RelatedArticles :surround="data?.surround" class="blog-post-text" />
+                          </div>
+                        </v-col>
+                      </v-row>
                   </v-container>
+                  <NavScrollTopIcon />
                 </template>
                 <template #not-found>
-                  <h1 class="text-2xl">
-                    Page not found
-                  </h1>
+                    <page-not-found />
                 </template>
               </ContentDoc>
             </v-card>
@@ -96,7 +124,7 @@ const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
 /* Customize headers to remove default underline */
 .prose h2 a,
 .prose h3 a {
-  color: #000;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -111,10 +139,26 @@ const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
   border-bottom: 1px solid #8c8c8c; /* You can adjust the color as needed */
 }
 
+.container-height {
+  height: 100%;
+}
+
 .row-with-line {
   position: relative;
   width: 100%;
   padding: 20px; /* Adjust as needed */
+}
+
+.fixed-row {
+  display: flex;
+  align-items: flex-start; /* Align columns at the top */
+  overflow: hidden; /* Hide horizontal overflow in case fixed column is wider */
+}
+
+.fixed-column {
+  flex-shrink: 0; /* Prevent fixed column from shrinking */
+  z-index: 1; /* Adjust the z-index as needed to control stacking */
+  padding: 10px; /* Add padding as needed for spacing */
 }
 
 .row-with-line::before {
@@ -162,7 +206,7 @@ const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
 
 .blog-aside {
   position: sticky;
-  top: calc(2rem + 0.25rem); /* Replace theme('spacing.nav') with a specific value */
+  top: 0; /* Replace theme('spacing.nav') with a specific value */
 }
 
 .blog-aside-wrapper {
@@ -174,8 +218,29 @@ const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
   padding-bottom: 1rem;
 }
 
+.about-image {
+  max-width: 100%;
+  max-height: 20vh;
+}
+
+.about-title {
+  font-size: 40px;
+  font-family: "Futura", monospace;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.about-description {
+  font-size: 24px;
+  font-family: "Futura", monospace;
+  line-height: 1.5;
+}
+
+.blog-content{
+  font-family: "Futura", monospace;
+}
+
 .blog-post-text {
-  color: black; /* Replace with your desired text color */
   text-decoration: none;
 }
 

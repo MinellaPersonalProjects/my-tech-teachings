@@ -1,13 +1,17 @@
 <template>
   <nav class="toc">
     <header class="toc-header" @click="toggleToc" aria-label="Expand the table of contents.">
-      <span class="blog-aside-title mb-0">Table of Contents</span>
+      <span class="blog-aside-title mb-0">TABLE OF CONTENTS</span>
       <IconsChevronDown class="chevron-icon" width="24" height="24"/>
     </header>
     <ul v-if="links" v-show="isVisible">
       <!-- render each link with depth class -->
       <li v-for="link in links" :key="link.id" :class="['toc-link', `toc-link_${link.depth} first:mt-0 mt-2 md:mt-1`]">
-        <a :href="`#${link.id}`" class="toc-link hover:underline hover:text-brand_primary">
+        <a
+            :href="`#${link.id}`"
+            class="toc-link hover:underline hover:text-brand_primary"
+            :style="{ color: theme.global.current.value.dark? 'white' : 'black' }"
+        >
           {{ link.text }}
         </a>
       </li>
@@ -16,6 +20,8 @@
 </template>
 
 <script setup>
+import {useTheme} from "vuetify";
+
 defineProps({
   links: {
     type: Array,
@@ -25,14 +31,19 @@ defineProps({
 
 import {ref} from 'vue';
 const isVisible = ref(true);
+const theme = useTheme()
 const toggleToc = () => {
   isVisible.value = !isVisible.value;
 }
+
+
 </script>
 
 <style scoped>
 .blog-aside-title{
   margin-left: 10px;
+  font-weight: bolder;
+  font-size: 16px;
 }
 
 .toc-header {
@@ -45,7 +56,7 @@ const toggleToc = () => {
 }
 
 .toc {
-  color: black; /* Replace with your desired text color */
+  color: inherit;
   text-decoration: none;
 }
 
@@ -53,7 +64,7 @@ const toggleToc = () => {
   /* Styles for the TOC header */
   cursor: pointer;
   padding: 0.5rem 0;
-  background-color: #f0f0f0;
+  background-color: inherit;
 }
 
 .toc ul {
@@ -64,7 +75,7 @@ const toggleToc = () => {
 }
 
 .toc-link {
-  color: black; /* Replace with your desired text color */
+  color: inherit;
   text-decoration: none;
 }
 

@@ -1,16 +1,22 @@
 <script setup lang="ts">
-//
-import AppHeader from "~/layouts/AppHeader.vue";
+import RealHeader from "~/layouts/RealHeader.vue";
 // import AppFooter from "~/layouts/AppFooter.vue";
 </script>
 
-<template>
-    <v-container>
-      <app-header />
-    <v-container>
-        <slot />
-    </v-container>
+<!-- layouts/default.vue -->
 
-      <!-- <app-footer /> -->
-    </v-container>
+<template>
+  <div>
+    <header>
+      <real-header />
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <!-- Your site footer content goes here -->
+    </footer>
+  </div>
 </template>

@@ -3,7 +3,7 @@ title: 'Start a Vue Project from Scratch'
 summary: 'Learn how to kickstart your Vue.js project with a step-by-step guide to building a Vue application from the ground up.'
 myImage: '/img/blog1.jpeg'
 tags: 
-  - "Vue"
+  - "vue"
 publishDate: 21 Oct 2023
 publishDateTime: 2023-10-21:17:30
 ---
@@ -367,21 +367,23 @@ If you copy the URL into your web browser, you’ll see your Vue app live in you
 
 By following these steps, you can seamlessly run your Vue app on your local development server and start exploring and testing your project in a real web browser environment.
 
+
+## Conclusion
+
 Starting your Vue App from scratch is great to familiarize yourself with the programming language, but if you want a quick and easy start to your project and to build something fun, quickly, check out my other article :
 
 [Frontend Development: ReCreate the Opening of Marvel's Secret Invasion Website using VueJS and Vuetify]()
 
 For more coding tutorials, also check out my YouTube channel, @NkemEllaMogbo
 
-<aside>
-ℹ️ Sources :
 
-[https://vuejs.org/guide/introduction.html](https://vuejs.org/guide/introduction.html)
+> Sources :
+> 
+>    [Intro to Vue](https://vuejs.org/guide/introduction.html)
+> 
+>    [Get Started with Vue - FreeCodeCamp](https://www.freecodecamp.org/news/get-started-with-vite/#:~:text=Vite%20allows%20you%20to%20have%20more%20control%20over,CLI%20option%2C%20as%20shown%20below%3A%20vite%20--config%20my-config.js)
+> 
+>    [Yarn Installation Tutorial](https://www.hostinger.com/tutorials/how-to-install-yarn#:~:text=Here%E2%80%99s%20how%20to%20install%20Yarn%20using%20npm%3A%20Open,in%20to%20SSH%20to%20enable%20the%20Yarn%20commands).
+> 
+>    [Downloading and Installing Node / NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-[https://www.freecodecamp.org/news/get-started-with-vite/#:~:text=Vite allows you to have more control over,CLI option%2C as shown below%3A vite --config my-config.js](https://www.freecodecamp.org/news/get-started-with-vite/#:~:text=Vite%20allows%20you%20to%20have%20more%20control%20over,CLI%20option%2C%20as%20shown%20below%3A%20vite%20--config%20my-config.js)
-
-[https://www.hostinger.com/tutorials/how-to-install-yarn#:~:text=Here’s how to install Yarn using npm%3A Open,in to SSH to enable the Yarn commands](https://www.hostinger.com/tutorials/how-to-install-yarn#:~:text=Here%E2%80%99s%20how%20to%20install%20Yarn%20using%20npm%3A%20Open,in%20to%20SSH%20to%20enable%20the%20Yarn%20commands).
-
-[https://docs.npmjs.com/downloading-and-installing-node-js-and-npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-
-</aside>

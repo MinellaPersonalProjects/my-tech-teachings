@@ -1,94 +1,60 @@
 <script setup lang="ts">
+import {useTheme} from "vuetify";
 
-  import BlogCardHome from "~/components/BlogCardHome.vue";
-  import BlogContentHome from "~/components/BlogContentHome.vue";
-
-  const blogs = await queryContent('blog')
-      .sort({ publishDateTime: 1 })
-      .limit(4)
-      .find()
-
-  const first = blogs[0]
-  const firstPath = first._path
-
-  const second = blogs[1]
-  const secondPath = second._path
-
-  const third = blogs[2]
-  const thirdPath = third._path
-
-  const fourth = blogs[3]
-  const fourthPath = fourth._path
-
+const theme = useTheme()
 </script>
+
 <template>
   <NuxtLayout>
     <v-container>
       <v-card
           class="px-4 py-10 mx-auto"
           :class="{
-                'bg-white': !$vuetify.theme.dark,
-                'dark:bg-gray-800': $vuetify.theme.dark,
+                'bg-white': !theme.global.current.value.dark,
+                'dark:bg-gray-800': theme.global.current.value.dark,
               }"
-          :elevation="$vuetify.theme.dark ? 2 : 0"
+          :elevation="theme.global.current.value.dark ? 2 : 0"
       >
         <v-row>
-          <v-col cols="12">
-            <v-row>
-              <v-col cols="8">
-                <v-card
-                    height="80%"
-                    :to="firstPath"
-                >
-                  <img :src="first.myImage" alt="Blog Image" class="card-image"/>
-                </v-card>
-              </v-col>
-              <v-col cols="4">
-                <blog-content-home
-                    :title="first.title"
-                    :description="first.summary"
-                    :date="first.publishDate"
-                    :path="firstPath"
-                />
-              </v-col>
+          <v-col cols="12" >
+            <div class="row-with-line">
+            </div>
+            <v-row justify="center">
+              <!-- Headline -->
+              <h1 class="main-head-text">
+                Welcome to my Blog,
+              </h1>
+
+              <p class="main-text">
+                Here, you'll find a treasure trove of coding tutorials, insightful advice for beginners, and a showcase of some fun projects. <br/>
+                Whether you're taking your first steps into the coding universe or looking to level up your skills, this is your go-to destination.<br/>
+                Let's explore the art of programming, one line of code at a time </p>
             </v-row>
+            <div class="row-with-line">
+            </div>
           </v-col>
         </v-row>
-        <v-row class="mt-n6">
-          <v-col cols="4">
-            <blog-card-home
-                :image="second.myImage"
-                :title="second.title"
-                :description="second.summary"
-                :date="second.publishDate"
-                :path="secondPath"
-            />
-          </v-col>
-          <v-col cols="4">
-            <blog-card-home
-                :image="third.myImage"
-                :title="third.title"
-                :description="third.summary"
-                :date="third.publishDate"
-                :path="thirdPath"
-            />
-          </v-col>
-          <v-col cols="4">
-            <blog-card-home
-                :image="fourth.myImage"
-                :title="fourth.title"
-                :description="fourth.summary"
-                :date="fourth.publishDate"
-                :path="fourthPath"
-            />
-          </v-col>
+        <v-row>
+          <categories-cards />
         </v-row>
       </v-card>
     </v-container>
   </NuxtLayout>
 </template>
+
 <style scoped>
-  .card-image {
-    max-width: 100%;
-  }
+.row-with-line {
+  position: relative;
+  width: 100%;
+  padding: 20px; /* Adjust as needed */
+}
+.main-text{
+  font-family: 'PT Sans Caption',sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+}
+.main-head-text{
+  font-family: "American Typewriter",emoji;
+  font-size: 40px;
+}
 </style>

@@ -10,10 +10,14 @@
                   :to="item._path + '/'"
                   class="hover-underline hover-text-brand-primary"
                   :aria-label="item.title"
+                  :style="{ color: theme.global.current.value.dark? 'white' : 'black' }"
               >
                 {{ item.title }}
               </NuxtLink>
-              <p class="no-underline md-hidden text-sm leading-sm md-text-xs md-leading-xs mt-1">
+              <p
+                  class="no-underline md-hidden text-sm leading-sm md-text-xs md-leading-xs mt-1"
+                  :style="{ color: theme.global.current.value.dark? 'white' : 'black' }"
+              >
                 {{ item.summary }}
               </p>
             </li>
@@ -25,7 +29,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import {useTheme} from "vuetify";
 
 defineProps({
   surround: {
@@ -33,19 +37,39 @@ defineProps({
     required: true,
   },
 });
+
+const theme = useTheme()
 </script>
 
 <style scoped>
+.list-none {
+  list-style: none; /* Remove the default bullet point */
+
+  /* Use the ::before pseudo-element to add a black star */
+  & > li::before {
+    content: "★"; /* Unicode character for a black star */
+    color: #000; /* Set the color to black */
+    margin-right: 0.5rem; /* Adjust the spacing between the star and list item */
+  }
+}
+
+
 .blog-aside-title {
   font-size: 1.0rem;
+  text-decoration: none;
 }
 
 .hover-underline:hover {
   text-decoration: underline;
+  color: cornflowerblue;
 }
 
+.hover-text-brand-primary {
+  text-decoration: none;
+  color: black;
+}
 .hover-text-brand-primary:hover {
-  color: #005cc5; /* Set your desired hover color */
+  color: cornflowerblue; /* Set your desired hover color */
 }
 
 .md-hidden {
