@@ -14,11 +14,15 @@ There are readily available templates and commands to build your Vue App and if 
 
 Starting a Vue project from scratch may seem tricky, but with the right guidance, it can be a rewarding and straightforward process. In this blog post, I will take you through the essential steps to start your Vue project from the ground up with Vuetify and Vite. By the end of this guide, you will have a solid foundation for creating dynamic and interactive web applications using VueJS. 
 
-## Step 0: SetUp Computer and Install DevTools
+## Prerequisites
 
-Before diving into your project, you have to ensure that you have the necessary tools ready. If you are already familiar with the command line, have a code editor, and NodeJS installed, feel free to skid ahead. However, if you're new to web devolpment and need guidance setting up your computer I recommend starting with my tutorial for [Getting Started with Web Development](/blog/setup-computer-for-webdevelopment).
+Before diving into your project, you have to ensure that you have the necessary tools ready. For this project you will need :
 
-Once you have completed the initial set up, you can return here and dive into creating your Vue project from scratch. 
+- A command line interface / terminal
+- A code editor (like VSCode or WebStorm)
+- NodeJS installed 
+
+If you're new to web devolpment and need guidance setting up everything I recommend starting with my tutorial for [Getting Started with Web Development](/blog/setup-computer-for-webdevelopment). Once you have completed the initial set up, you can return here and dive into creating your Vue project from scratch. 
 
 ## Step 1: Initialize your Project
 First, create a new folder on your computer where you would like your project to go. Then you can open up the folder in your IDE, for the purpose of this tutorial we will be using an IDE called **Visual Studio Code**. In Visual Studio Code, once you open up the project folder you created, you can go to the terminal and initialize the project using the command :
@@ -260,7 +264,7 @@ or
 
 Once you run the command, you'll see an output in your terminal that resembles the following:
 
-![Screenshot 2023-10-06 at 6.16.59 AM.png](/img/blog1/Screenshot_2023-10-06_at_6.16.59_AM.png)
+![Screenshot 2023-10-06 at 6.16.59 AM.png](/img/start-vue-project-from-scratch/Screenshot_2023-10-06_at_6.16.59_AM.png)
 
 If you copy the URL into your web browser, you’ll see your Vue app live in your browser
 
