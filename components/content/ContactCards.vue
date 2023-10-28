@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import {Icon} from "@iconify/vue";
 import { useDisplay } from 'vuetify'
+import {useSocialsStore} from "~/store/socials";
 
 // for small displays and upward you can set custom values
 const { smAndUp } = useDisplay()
@@ -10,13 +11,22 @@ const name = ref('');
 const email = ref('');
 const message = ref('');
 
-const submitForm = () => {
+const submitForm = async () => {
   // Handle form submission logic here
   // Access name, email, and message using name.value, email.value, and message.value
   console.log('Name:', name.value);
   console.log('Email:', email.value);
   console.log('Message:', message.value);
+
+  const { $csrfFetch } = useNuxtApp()
+
+  const { body } = await $csrfFetch('/api/sendemail', {
+    method: 'post',
+    body: { name: name.value, email:email.value, message:message.value }
+  })
 };
+
+const socials = useSocialsStore()
 </script>
 
 <template>
@@ -62,18 +72,33 @@ const submitForm = () => {
             </v-row>
             <v-row align="center" justify="center">
               <v-col cols="12">
-                <p>nmogbo2001@gmail.com</p>
+                <p :href="socials.gmail" target="_blank">nmogbo2001@gmail.com</p>
               </v-col>
             </v-row>
             <v-row align="center" justify="center">
               <v-col cols="3">
-                <Icon icon="mdi:github" style="font-size: 36px;" />
+                <Icon
+                    icon="mdi:github"
+                    style="font-size: 36px;"
+                    :href="socials.github"
+                    target="_blank"
+                />
               </v-col>
               <v-col cols="3">
-                <Icon icon="openmoji:youtube" style="font-size: 36px;" />
+                <Icon
+                    icon="openmoji:youtube"
+                    style="font-size: 36px;"
+                    :href="socials.youtube"
+                    target="_blank"
+                />
               </v-col>
               <v-col cols="3">
-                <Icon icon="simple-icons:x" style="font-size: 30px;" />
+                <Icon
+                    icon="simple-icons:x"
+                    style="font-size: 30px;"
+                    :href="socials.twitter"
+                    target="_blank"
+                />
               </v-col>
             </v-row>
           </v-card-text>
