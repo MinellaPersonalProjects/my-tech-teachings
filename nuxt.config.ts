@@ -4,13 +4,15 @@ import { resolve } from "path";
 // import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
+  ssr: true,
   alias: {
     "@": resolve(__dirname, "/"),
   },
   modules: [
     '@pinia/nuxt', 
     '@nuxt/content',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    "nuxt-csurf"
   ],
   plugins: [
     '~/plugins/vuetify.ts'
@@ -24,12 +26,11 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
   vite: {
-    ssr: true,
     define: {
       'process.env': {} ,
     },
     vue: {
-      customElement: true
+      customElement: true,
     },
   },
   // app: {
@@ -68,9 +69,26 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark',
       // Define languages you expect to use
-      preload: ['java','javascript','python']
+      preload: ['java','javascript','python','vue']
     },
   },
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  runtimeConfig: {
+    email: '',
+    emailPass: ''
+  },
+  csurf: { // optional
+    https: false, // default true if in production
+    cookieKey: 'csrf', // "__Host-csrf" if https is true otherwise just "csrf"
+    cookie: { // CookieSerializeOptions from unjs/cookie-es
+      path: '/',
+      httpOnly: true,
+      sameSite: 'strict'
+    },
+    methodsToProtect: ['POST', 'PUT', 'PATCH'], // the request methods we want CSRF protection for
+    excludedUrls: ['/nocsrf1', ['/nocsrf2/.*', 'i']], // any URLs we want to exclude from CSRF protection
+    // encryptSecret: /** a 32 bits secret */, // only for non serverless runtime, random bytes by default
+    encryptAlgorithm: 'aes-256-cbc' // by default 'aes-256-cbc' (node), 'AES-CBC' (serverless)
+  }
 })
 
