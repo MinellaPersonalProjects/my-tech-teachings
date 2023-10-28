@@ -67,15 +67,12 @@ function getRandomColor() {
   return colorPalette[randomIndex];
 }
 
-console.log("Before:", groupedPosts.value);
-console.log("Categories:", store.categories);
 
 if (Object.keys(groupedPosts.value).length === 0) {
   // Fetch the grouped posts if not already loaded
   await groupPostsByCombinationsOfTags(store.categories);
 }
 
-console.log("After:", groupedPosts.value);
 
 const filteredPosts = Object.fromEntries(
     Object.entries(groupedPosts.value).filter(([key, value]) => value.length > 0)

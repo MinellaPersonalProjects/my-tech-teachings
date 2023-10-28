@@ -31,12 +31,11 @@ const theme = useTheme()
                 :elevation="theme.global.current.value.dark ? 2 : 0"
             >
               <!-- Fetch and display the Markdown document from the current path -->
-              <ContentDoc class="prose prose-gray dark:prose-invert max-w-none">
+              <ContentDoc>
                 <template v-slot="{ doc }">
                   <v-container >
                       <v-row v-if="doc.tag === 'about_me'">
-                        <div class="row-with-line">
-                        </div>
+                        <div class="row-with-line"></div>
                         <v-row no-gutters>
                           <v-col cols="12" md="6" sm="12" lg="6">
                             <v-img
@@ -49,9 +48,7 @@ const theme = useTheme()
                           <v-col cols="12" md="6" sm="12" lg="6" class="d-flex align-center">
                             <v-row>
                               <v-col cols="12"><h2 class="about-title">{{ doc.title }}</h2></v-col>
-                              <v-col cols="12"><p class="about-description">
-                                {{ doc.summary }}
-                              </p></v-col>
+                              <v-col cols="12"><p class="about-description">{{ doc.summary }}</p></v-col>
                             </v-row>
                           </v-col>
                         </v-row>
@@ -60,18 +57,13 @@ const theme = useTheme()
                       </v-row>
                       <v-row v-else>
                         <v-col cols="12" >
-                          <div class="row-with-line">
-                          </div>
+                          <div class="row-with-line"></div>
                           <div>
                             <!-- Headline -->
-                            <h1 class="blog-post-text font-bold mb-4 md-mb-6 text-h3 leading-h3 md-text-h1 md-leading-h1 text-center md-text-left">
-                              {{ doc.title }}
-                            </h1>
+                            <h1 class="blog-post-text font-bold mb-4 md-mb-6 text-h3 leading-h3 md-text-h1 md-leading-h1 text-center md-text-left">{{ doc.title }}</h1>
 
                             <!-- Excerpt -->
-                            <p class="blog-post-text mb-8 md-w-8/12 md-text-lg md-leading-lg text-center md-text-left">
-                              {{ doc.summary }}
-                            </p>
+                            <p class="blog-post-text mb-8 md-w-8/12 md-text-lg md-leading-lg text-center md-text-left">{{ doc.summary }}</p>
 
                             <!-- Border with Flex Layout -->
                             <div class="border-typography-primary dark-border-typography-primary-dark mt-12 md-mt-4">
@@ -84,11 +76,7 @@ const theme = useTheme()
                             </div>
                             <!-- Social Share -->
                             <div class="text-center md-text-right mt-6 md-mt-0">
-<!--                              <NavShareIcons :headline="doc.title" :excerpt="doc.summary" :path="doc._path + '/'" />-->
-                              <span
-                                  class="italic"
-                                  style="margin-bottom: 40px"
-                              >(Published: {{ doc.publishDate }})</span>
+                              <span class="italic" style="margin-bottom: 40px">(Published: {{ doc.publishDate }})</span>
                             </div>
                           </div>
                         </v-col>
@@ -96,17 +84,13 @@ const theme = useTheme()
                       <v-row>
                         <v-col cols="12" md="8" class="relative">
                           <!-- Blog content -->
-                          <ContentRenderer :value="doc" class="prose blog-content blog-post-text" />
+                          <ContentRenderer :value="doc" class="blog-content blog-post-text" />
                         </v-col>
                         <v-col cols="12" md="4">
                           <!-- Mobile Table of Content -->
-                          <div class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside">
-                            <TableOfContents :links="doc.body?.toc?.links" class="blog-post-text" />
-                          </div>
+                          <div class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside"><TableOfContents :links="doc.body?.toc?.links" class="blog-post-text" /></div>
                           <!-- Related articles -->
-                          <div v-if="data?.surround?.filter((elem) => elem !== null)?.length > 0" class="blog-aside-wrapper">
-                            <RelatedArticles :surround="data?.surround" class="blog-post-text" />
-                          </div>
+                          <div v-if="data?.surround?.filter((elem) => elem !== null)?.length > 0" class="blog-aside-wrapper"><RelatedArticles :surround="data?.surround" class="blog-post-text" /></div>
                         </v-col>
                       </v-row>
                   </v-container>
@@ -120,24 +104,7 @@ const theme = useTheme()
           </v-container>
     </NuxtLayout>
 </template>
-<style lang="postcss">
-/* Customize headers to remove default underline */
-.prose h2 a,
-.prose h3 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.prose h2,
-.prose h3 {
-  padding-top: 30px;
-  padding-bottom: 10px;
-}
-
-.prose h2 a:hover,
-.prose h3 a:hover {
-  border-bottom: 1px solid #8c8c8c; /* You can adjust the color as needed */
-}
+<style lang="scss">
 
 .container-height {
   height: 100%;

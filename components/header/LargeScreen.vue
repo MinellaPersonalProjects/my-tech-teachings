@@ -19,8 +19,10 @@ function getColorLightMapping(social) {
     return '#FF0000'
   }else if (social === 'linkedin'){
     return '#0077B5'
-  }else if (social === 'twitter'){
+  }else if (social === 'twitter') {
     return '#1DA1F2'
+  }else if (social === 'github'){
+      return '#070707'
   }else if (social === 'gmail'){
     return '#D14836'
   }else {
@@ -87,8 +89,8 @@ function getColorMapping(social){
             icon
             variant="plain"
             style="margin-top: 10px"
-            :href="socials.twitter" target="_blank">
-          <v-icon :color="getColorMapping('twitter')" size="large">mdi-twitter</v-icon>
+            :href="socials.github" target="_blank">
+          <v-icon :color="getColorMapping('github')" size="large">mdi-github</v-icon>
         </v-btn>
         <v-btn
             icon
