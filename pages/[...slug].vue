@@ -21,7 +21,7 @@ const theme = useTheme()
 </script>
 <template>
     <NuxtLayout>
-        <v-container class="container-height">
+        <v-container class="container-height" fluid>
             <v-card
                 class="px-4 py-10 mx-auto"
                 :class="{
@@ -33,7 +33,7 @@ const theme = useTheme()
               <!-- Fetch and display the Markdown document from the current path -->
               <ContentDoc>
                 <template v-slot="{ doc }">
-                  <v-container >
+                  <v-container fluid>
                       <v-row v-if="doc.tag === 'about_me'">
                         <div class="row-with-line"></div>
                         <v-row no-gutters>
@@ -99,6 +99,9 @@ const theme = useTheme()
                 <template #not-found>
                     <page-not-found />
                 </template>
+                <template #empty>
+                  <under-construction />
+              </template>
               </ContentDoc>
             </v-card>
           </v-container>

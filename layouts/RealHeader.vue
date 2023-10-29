@@ -27,7 +27,7 @@ function startDownload(link){
 </script>
 
 <template>
-<v-container>
+<v-container fluid>
   <header-large-screen class="hidden-md-and-down"/>
   <header-small-screen :drawer="drawerVisible" @toggle-drawer="toggleDrawer" class="hidden-lg-and-up"/>
   <v-layout>

@@ -38,7 +38,7 @@ function getColorMapping(social){
 </script>
 
 <template>
-  <v-row align="center" class="py-4" color="primary" dark>
+  <v-row align="center" color="primary" dark>
     <v-col cols="12" lg="4" xl="4" >
       <v-btn class="btn positioning" variant="text" to="/">HOME</v-btn>
       <v-btn class="btn positioning" variant="text" to="/about">ABOUT</v-btn>
@@ -47,7 +47,7 @@ function getColorMapping(social){
     </v-col>
 
     <v-col cols="12" lg="4" xl="4">
-      <v-row >
+      <v-row align="center" justify="center">
         <!-- <color-mode-switch :size="'w-8 h-8'" :spacing="'p-0'"/> -->
         <h3 class="name name_positioning " @click="router.push('/')">Nkem's Tech Teachings</h3>
       </v-row>
@@ -67,7 +67,7 @@ function getColorMapping(social){
         <v-divider
             length="25px"
             :thickness="2"
-            style="margin-top: 20px; margin-right: 4px"
+            style="margin-top: 20px;"
             vertical
         ></v-divider>
         <v-btn
@@ -123,10 +123,10 @@ function getColorMapping(social){
   color: #757575;
 }
 .positioning{
-  margin-top: 10px
+  margin-top: 10px;
+  margin-left: 20px;
 }
 .name_positioning{
   margin-top: 10px;
-  margin-left: 25px;
 }
 </style>

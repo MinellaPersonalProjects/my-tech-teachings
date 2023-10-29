@@ -30,9 +30,9 @@ If you’re using a code editor like VSCode or WebStorm, there’s already a bui
 
 However, with a code editor like Sublime Text or Atom, you’ll have to use your computers built in command line interface / terminal. You can follow the [Quick Guide to Using CommandLine](https://towardsdatascience.com/a-quick-guide-to-using-command-line-terminal-96815b97b955) tutorial to access it.
 
-For our tutorial, we are using the VSCode on Mac. To access the terminal , click Terminal in the menu bar and create a New Terminal or you can use the keys  **Contrl + Return + `**
+For our tutorial, we are using the VSCode on Mac. To access the terminal , click Terminal in the menu bar and create a New Terminal or you can use the keys  **Cntrl+Return+`**
 
-![Access New Terminal](/img/setup-computer-for-webdevelopment/Screenshot_2023-10-08_at_10.54.26_AM.png)
+![setup-computer-for-webdev](https://i.imgur.com/3kyXR4f.png)
 
 A terminal window, will open up below and there you can begin typing in commands.
 

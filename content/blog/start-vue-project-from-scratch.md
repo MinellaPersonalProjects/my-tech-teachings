@@ -1,5 +1,5 @@
 ---
-title: 'Start a Vue Project from Scratch'
+title: 'Start a Vue 3 Project from Scratch'
 summary: 'Learn how to kickstart your WebApp with a step-by-step guide to building a Vue application from the ground up'
 myImage: '/img/blog1.jpeg'
 tags:
@@ -10,7 +10,7 @@ publishDateTime: 2023-10-21:10:30
 
 VueJS is a progressive JavaScript framework that makes building modern web applications a breeze. With a good UI framework like Vuetify and a build tool like Vite, building web apps becomes even breezier.
 
-There are readily available templates and commands to build your Vue App and if you are interested in a quick and easy start you can check out the [Start a Vue Project with Shortcuts Tutorial](/blog/start-vue-project-with-shortcuts). However, there are merits to creating your Vue Project from scratch, you can gain insights into the framework itself, as well as insight on your project architecture and the underlying intricacies of the Vue Ecosystem. It's great for those who want to learn every detail or make their app just right for their needs.
+There are readily available templates and commands to build your Vue App and if you are interested in a quick and easy start you can check out the [Quick Start Vuetify Project](/blog/start-vue-project-with-shortcuts). However, there are merits to creating your Vue Project from scratch, you can gain insights into the framework itself, as well as insight on your project architecture and the underlying intricacies of the Vue Ecosystem. It's great for those who want to learn every detail or make their app just right for their needs.
 
 Starting a Vue project from scratch may seem tricky, but with the right guidance, it can be a rewarding and straightforward process. In this blog post, I will take you through the essential steps to start your Vue project from the ground up with Vuetify and Vite. By the end of this guide, you will have a solid foundation for creating dynamic and interactive web applications using VueJS. 
 
@@ -264,7 +264,7 @@ or
 
 Once you run the command, you'll see an output in your terminal that resembles the following:
 
-![Screenshot 2023-10-06 at 6.16.59 AM.png](/img/start-vue-project-from-scratch/Screenshot_2023-10-06_at_6.16.59_AM.png)
+![stars-vue-project-from-scratch images](https://i.imgur.com/mFgAoiD.png)
 
 If you copy the URL into your web browser, you’ll see your Vue app live in your browser
 
