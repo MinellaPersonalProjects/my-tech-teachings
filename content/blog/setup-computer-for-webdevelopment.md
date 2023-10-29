@@ -91,11 +91,7 @@ For Windows or Other Operating systems, you can follow the [Node Installation In
 
 
 ## Conclusion
-After wrapping up this tutorial, you finally have the tools you need to explore the vast world of web development. You can create some cool and fun projects by following some of my other tutorials now that you have everything setup like :
-
-[Frontend Development: ReCreate the Opening of Marvel's Secret Invasion Website using VueJS and Vuetify](/blog/recreate-secret-invasion-website)
-
-or you can learn gain familiarity with a whole new Development Framework using the 
+After wrapping up this tutorial, you finally have the tools you need to explore the vast world of web development. You can create some cool and fun projects by following some of my other tutorials or you can learn gain familiarity with a whole new Development Framework using the 
 
 [Start a Vue Project from Scratch Draft](/blog/start-vue-project-from-scratch)
 

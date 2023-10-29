@@ -270,7 +270,7 @@ If you copy the URL into your web browser, you’ll see your Vue app live in you
 
 
 ## Conclusion
-Starting your Vue App from scratch is great to familiarize yourself with the programming language, but if you want a quick and easy start to your project and to build something fun, quickly, check out my other article :
+Starting your Vue App from scratch is great to familiarize yourself with the programming language, but if you want a quick and easy start to your project and to build something fun, quickly, watch out for my other article :
 
 [Frontend Development: ReCreate the Opening of Marvel's Secret Invasion Website using VueJS and Vuetify](/blog/recreate-secret-invasion-website)
 
