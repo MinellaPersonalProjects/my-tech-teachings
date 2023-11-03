@@ -8,7 +8,7 @@ publishDate: 2 Nov 2023
 publishDateTime: 2023-11-2:16:30
 ---
 
-If you're coming from [Part 1]() of this tutorial, you finally have the basics down on creating Grids in Vuetify. In this tutorial , we're going to tak a deep dive into different ways we can style our grid.
+If you're coming from [Part 1](/blog/quick-look-vuetify-grids.md) of this tutorial, you finally have the basics down on creating Grids in Vuetify. In this tutorial , we're going to tak a deep dive into different ways we can style our grid.
 
 ### Your First Grid Column 
 
@@ -135,4 +135,4 @@ If you want to do something even fancier, you'll need to know more about **Nesti
 
 ![Imgur](https://i.imgur.com/gTxi15h.png)
 
-If you want to get something like that continue [here]()
+If you want to get something like that continue [here](/blog/nesting-grids.md)
