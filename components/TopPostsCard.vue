@@ -25,9 +25,8 @@ defineProps({
 <template>
   <v-row>
     <v-col cols="4">
-      <v-card height="30vh" align-top :to="path">
+      <v-card height="30vh" align-top :to="path" variant="outlined">
         <img
-            cover
             :src="image"
             class="card-image"
             alt="Post Image"
@@ -51,7 +50,7 @@ defineProps({
 </template>
 <style scoped>
   .card-image {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
     height: 100%;
   }

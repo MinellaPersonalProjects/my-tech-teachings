@@ -10,7 +10,7 @@ const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
   let article = queryContent('/blog').where({ _path: cleanPath }).findOne();
   // get the surround information,
   // which is an array of documeents that come before and after the current document
-  let surround = queryContent('/blog').sort({ date: -1 }).only(['_path', 'title', 'summary']).findSurround(cleanPath, { before: 1, after: 1 });
+  let surround = queryContent('/blog').sort({ publishDateTime: -1 }).sort({ tags: 1 }).only(['_path', 'title', 'summary']).findSurround(cleanPath, { before: 1, after: 1 });
   return {
     article: await article,
     surround: await surround

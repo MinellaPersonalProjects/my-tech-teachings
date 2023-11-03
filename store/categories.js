@@ -13,8 +13,16 @@ export const useCategoriesStore = defineStore('category', {
                 related_tags: ["javascript"],
             },
             {
-                title: "FullStack Development",
+                title: "FullStack Development with Vue + Python",
                 related_tags: ["vue", "python"]
+            },
+            {
+                title: "Quick Start Tutorials",
+                related_tags: ["quick start"]
+            },
+            {
+                title: "General Advice",
+                related_tags: ["general"]
             }
             // Add more categories here
         ],
