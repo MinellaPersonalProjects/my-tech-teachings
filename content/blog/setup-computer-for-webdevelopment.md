@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started with Web Development: Setting Up Your Computer for React, Vue, and JavaScript Programming'
 summary: 'Learn how to set up your computer for web development with React, Vue, and JavaScript programming in this beginners guide.'
-myImage: '/img/blog1.jpeg'
+myImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs3POeqwwwXbfJ_7hEDQGlKUxD_tc_B3jxNT2azHjjuFaw1GCP0usidCJkmFeZIVvHDX8&usqp=CAU'
 tags:
   - "vue"
 publishDate: 26 Oct 2023

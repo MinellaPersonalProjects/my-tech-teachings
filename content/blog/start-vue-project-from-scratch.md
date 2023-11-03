@@ -1,7 +1,7 @@
 ---
 title: 'Start a Vue 3 Project from Scratch'
 summary: 'Learn how to kickstart your WebApp with a step-by-step guide to building a Vue application from the ground up'
-myImage: '/img/blog1.jpeg'
+myImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFWkXDKEKlDIA0N2fnx6n0Lv-JRPOqnpDdsg&usqp=CAU'
 tags:
     - "vue"
 publishDate: 27 Oct 2023

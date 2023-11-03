@@ -1,7 +1,7 @@
 ---
 title: 'Quick Start Vue 3, Vuetify 3 Project'
 summary: 'Learn how to kickstart your Vue.js project with a step-by-step guide to building a Vue application with command line shortcuts'
-myImage: '/img/blog1.jpeg'
+myImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-mD8yJm2YRM3ls1pbiXAEJ_eoLN47IgW8w&usqp=CAU'
 tags:
   - "vue"
 publishDate: 18 Oct 2023
