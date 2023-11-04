@@ -19,9 +19,5 @@ const onClick = () => (colorMode.value === 'light' ? (colorMode.preference = 'da
     <ColorScheme>
       <v-icon icon="mdi-theme-light-dark"></v-icon>
     </ColorScheme>
-    <!-- <ColorScheme placeholder="..."> -->
-      <!-- <v-icon v-show="colorMode.value === 'dark'" icon="heroicons-outline:moon"></v-icon>
-      <v-icon v-show="colorMode.value === 'light'" icon="heroicons-outline:sun"></v-icon> -->
-    <!-- </ColorScheme> -->
-      </v-btn>
+  </v-btn>
 </template>

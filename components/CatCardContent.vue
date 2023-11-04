@@ -8,6 +8,8 @@ const props = defineProps({
   },
 })
 
+const length = props.value.length
+
 function editTitle(title){
   const parts = title.split(':');
 
@@ -26,23 +28,26 @@ const theme = useTheme()
 </script>
 <!-- TODO create longer card with category name as title then smaller cards with blog title and when you hover it shows description-->
 <template>
-  <v-row>
+  <v-row class="cont">
       <v-col
           cols="12"
           sm="3"
-          md="3"
+          md="5"
           lg="4"
           xl="4"
-          v-for="item in props.value"
+          v-for="(item, index) in props.value"
+          class="stacked-cards"
       >
         <v-hover v-slot="{ isHovering, props }">
           <v-card
               height="200px"
-              width="100%"
+              width="300px"
               style="margin: 20px"
               variant="outlined"
               :elevation="isHovering ? 12 : 2"
               :class="{ 'on-hover': isHovering }"
+              :style="{ zIndex: length - index }"
+              class="ml-3 stacked-card"
               v-bind="props"
               :to="item._path"
           >
@@ -60,9 +65,6 @@ const theme = useTheme()
                 {{ item.summary }}
               </div>
             </v-expand-transition>
-<!--            <v-card-text-->
-<!--                style="white-space: normal;"-->
-<!--            >{{ item.summary }}</v-card-text>-->
           </v-card>
         </v-hover>
       </v-col>
@@ -70,6 +72,10 @@ const theme = useTheme()
 </template>
 
 <style scoped>
+.cont{
+  overflow-y: auto;
+  overflow-x: auto;
+}
 
 .v-card--reveal {
   align-items: center;
@@ -78,6 +84,31 @@ const theme = useTheme()
   opacity: .9;
   position: absolute;
   width: 100%;
+}
+
+.stacked-cards {
+  position: relative;
+  height: 500px; /* Adjust based on content */
+}
+
+.stacked-card {
+  position: absolute;
+  top: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.stacked-card:not(:first-child) {
+  top: 20px; /* This value determines the initial stacking offset */
+}
+
+.card-hover {
+  top: 0 !important;
+}
+
+/* When a card is hovered, we apply the hover effect to all previous siblings */
+.stacked-card:hover,
+.stacked-card:hover ~ .stacked-card {
+  transform: translateY(-10px) rotate(-5deg);
 }
 
 </style>
