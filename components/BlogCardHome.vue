@@ -25,9 +25,8 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <v-card height="30vh" align-top :to="path">
+      <v-card height="30vh" align-top :to="path" variant="outlined">
         <img
-            cover
             :src="image"
             class="card-image"
         />
@@ -36,12 +35,6 @@
       <p :ref="path">{{ description }}</p>
       <p>{{ date }}</p>
     </v-col>
-<!--    <v-col cols="12">-->
-<!--      -->
-<!--    </v-col>-->
-<!--    <v-col cols="12">-->
-<!--      -->
-<!--    </v-col>-->
   </v-row>
 </template>
 <style scoped>

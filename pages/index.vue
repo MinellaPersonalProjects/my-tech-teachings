@@ -2,6 +2,25 @@
 import {useTheme} from "vuetify";
 
 const theme = useTheme()
+
+const { data: blogs } = await useAsyncData('blogs', () => queryContent('blog')
+    .sort({ publishDateTime: -1 })
+    .find())
+
+const blog_data = blogs.value
+
+const displayedPosts = (value) => {
+  // Slice the first three items from filteredPosts
+  const maxItems = 6; // Set the maximum number of items to display
+  if (value?.length <= maxItems) {
+    // If there are fewer than or equal to 3 items, display all of them
+    return value;
+  } else {
+    // If there are more than 3 items, display only the first 3
+    return value?.slice(0, maxItems);
+  }
+}
+
 </script>
 
 <template>
@@ -35,7 +54,18 @@ const theme = useTheme()
           </v-col>
         </v-row>
         <v-row>
-          <categories-cards />
+          <v-col cols="4" v-for="item in displayedPosts(blog_data)">
+              <v-card variant="outlined" :to="item._path" height="100%">
+                <v-card-title>{{ item.title }}</v-card-title>
+                <v-card-subtitle>{{ item.tags.join(', ') }}</v-card-subtitle>
+                <v-card-text>{{ item.summary }}</v-card-text>
+              </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="center" align="center">
+          <v-col cols="12" class="text-center">
+            <v-btn to="/blogs" color="blue">See All Articles</v-btn>
+          </v-col>
         </v-row>
       </v-card>
     </v-container>

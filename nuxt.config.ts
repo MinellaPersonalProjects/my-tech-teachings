@@ -72,7 +72,7 @@ export default defineNuxtConfig({
       preload: ['java','javascript','python','vue']
     },
   },
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   runtimeConfig: {
     email: '',
     emailPass: ''

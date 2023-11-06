@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RealHeader from "~/layouts/RealHeader.vue";
-// import AppFooter from "~/layouts/AppFooter.vue";
+import AppFooter from "~/layouts/AppFooter.vue";
 </script>
 
 <!-- layouts/default.vue -->
@@ -15,8 +15,8 @@ import RealHeader from "~/layouts/RealHeader.vue";
       <slot />
     </main>
 
-    <footer>
-      <!-- Your site footer content goes here -->
+    <footer class="bg-grey-lighten-1">
+      <app-footer />
     </footer>
   </div>
 </template>

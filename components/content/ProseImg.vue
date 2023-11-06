@@ -48,8 +48,8 @@ const refinedSrc = computed(() => {
 <style scoped>
 .custom-img {
   object-fit: contain;
-  max-width: 100%; /* Set the maximum width to 100% */
-  max-height: 100%; /* Set the maximum height to 100% */
+  max-width: 80%; /* Set the maximum width to 100% */
+  max-height: 80%; /* Set the maximum height to 100% */
   width: auto; /* Maintain aspect ratio */
   height: auto; /* Maintain aspect ratio */
 }

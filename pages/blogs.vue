@@ -45,7 +45,7 @@ const noResult = computed(() => {
 
 <template>
   <NuxtLayout>
-    <v-container>
+    <v-container class="container-height">
       <v-row>
         <v-col cols="12" lg="12" md="12" sm="12" xl="6">
           <v-text-field
@@ -81,5 +81,7 @@ const noResult = computed(() => {
 </template>
 
 <style scoped>
-
+.container-height {
+  height: 100%;
+}
 </style>
