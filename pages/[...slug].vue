@@ -141,7 +141,7 @@ const theme = useTheme()
                         </v-col>
                         <v-col cols="12" md="4">
                           <!-- Mobile Table of Content -->
-                          <div class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside"><TableOfContents :links="doc.body?.toc?.links" class="blog-post-text" /></div>
+                          <div class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside hidden-sm-and-down"><TableOfContents :links="doc.body?.toc?.links" class="blog-post-text" /></div>
                           <!-- Related articles -->
                           <div v-if="data?.surround?.filter((elem) => elem !== null)?.length > 0" class="blog-aside-wrapper"><RelatedArticles :surround="data?.surround" class="blog-post-text" /></div>
                         </v-col>
