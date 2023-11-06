@@ -1,6 +1,6 @@
 ---
 title: 'Intro to Vuetify Grids'
-summary: 'Tutorial to Arrange your App Layout like a Pro'
+summary: 'Get started with Vuetify grids: an easy guide to building responsive and organized web layouts quickly.'
 myImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsL9XkUkevPc-_1irkVIkr62FfPacYPivJw&usqp=CAU'
 tags:
   - "vue"

@@ -5,19 +5,62 @@ import {useTheme} from "vuetify";
 const { path } = useRoute();
 const cleanPath = path.replace(/\/+$/, '');
 const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
-  // Remove a trailing slash in case the browser adds it, it might break the routing
-  // fetch document where the document path matches with the cuurent route
-  let article = queryContent('/blog').where({ _path: cleanPath }).findOne();
-  // get the surround information,
-  // which is an array of documeents that come before and after the current document
-  let surround = queryContent('/blog').sort({ publishDateTime: -1 }).sort({ tags: 1 }).only(['_path', 'title', 'summary']).findSurround(cleanPath, { before: 1, after: 1 });
-  return {
-    article: await article,
-    surround: await surround
-  };
+    // Remove a trailing slash in case the browser adds it, it might break the routing
+    // fetch document where the document path matches with the cuurent route
+    let article = queryContent('/blog').where({ _path: cleanPath }).findOne();
+    // get the surround information,
+    // which is an array of documeents that come before and after the current document
+    let surround = queryContent('/blog').sort({ publishDateTime: -1 }).sort({ tags: 1 }).only(['_path', 'title', 'summary']).findSurround(cleanPath, { before: 1, after: 1 });
+
+    return {
+      article: await article,
+      surround: await surround
+    };
 });
 
+const items = ref([])
+
+if (cleanPath === '/about'){
+  items.value= [
+          {
+            title: 'Home',
+            disabled: false,
+            href: '/',
+          },
+          {
+            title: 'About',
+            disabled: true,
+          },
+        ]
+} else {
+
+  const articleData = data?.value.article;
+  items.value= [
+          {
+            title: 'Home',
+            disabled: false,
+            href: '/',
+          },
+          {
+            title: 'Blogs',
+            disabled: false,
+            href: '/blogs',
+          },
+          {
+            title: articleData.title,
+            disabled: true,
+            href: articleData._path,
+          },
+        ]
+  
+  if (error) {
+    console.error("Error fetching data:", error);
+  } 
+}
+
 const theme = useTheme()
+
+
 </script>
 <template>
     <NuxtLayout>
@@ -36,6 +79,11 @@ const theme = useTheme()
                   <v-container fluid>
                       <v-row v-if="doc.tag === 'about_me'">
                         <div class="row-with-line"></div>
+                        <v-breadcrumbs :items="items">
+                          <template v-slot:title="{ item }">
+                            <span class="breadcrumb-item">{{ item.title }}</span>
+                          </template>
+                        </v-breadcrumbs>
                         <v-row no-gutters>
                           <v-col cols="12" md="6" sm="12" lg="6">
                             <v-img
@@ -59,6 +107,11 @@ const theme = useTheme()
                         <v-col cols="12" >
                           <div class="row-with-line"></div>
                           <div>
+                            <v-breadcrumbs :items="items">
+                              <template v-slot:title="{ item }">
+                                <span class="breadcrumb-item">{{ item.title }}</span>
+                              </template>
+                            </v-breadcrumbs>
                             <!-- Headline -->
                             <h1 class="blog-post-text font-bold mb-4 md-mb-6 text-h3 leading-h3 md-text-h1 md-leading-h1 text-center md-text-left">{{ doc.title }}</h1>
 
@@ -136,6 +189,10 @@ const theme = useTheme()
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.breadcrumb-item {
+  font-size: 0.8em; /* Change this value to the font size you want */
 }
 
 /* Define other classes accordingly */

@@ -1,75 +1,17 @@
 <script setup lang="ts">
 import {useTheme} from "vuetify";
-import {useCategoriesStore} from "~/store/categories";
 
 const theme = useTheme()
-
-const store = useCategoriesStore()
-// const blogStore = useBlogStore();
-const groupedPosts = ref({})
-
-async function getBlogByTag(tags) {
-  if (Array.isArray(tags) && tags.length > 1) {
-    // Fetch posts that contain all specified tags
-    return await queryContent('blog')
-        .where({ tags: { $contains: tags } })
-        .only(['title','summary','_path'])
-        .sort({ publishDateTime: -1 })
-        .find();
-  } else {
-    // Fetch posts that contain the single specified tag
-    const tag = Array.isArray(tags) ? tags[0] : tags;
-    return await queryContent('blog')
-        .where({ tags: { $in: tag } })
-        .only(['title','summary','_path'])
-        .sort({ publishDateTime: -1 })
-        .find();
-  }
-}
 
 const { data: blogs } = await useAsyncData('blogs', () => queryContent('blog')
     .sort({ publishDateTime: -1 })
     .find())
 
 const blog_data = blogs.value
-const latest = blog_data[0]
-
-async function groupPostsByCombinationsOfTags(tagCombinations) {
-
-  const localGroupedPosts = {};
-
-  const allPromises = tagCombinations.map(async combination => {
-    const { title, related_tags } = combination;
-
-    // Fetch posts for the combination of tags (or single tag)
-    const postsForCombination = await getBlogByTag(related_tags);
-
-    // Assuming you don't want duplicate posts for a combination,
-    // you'd want to de-duplicate them if you're fetching by multiple single tags
-    localGroupedPosts[title] = [...new Set(postsForCombination)];
-
-  });
-
-  await Promise.all(allPromises);
-
-  groupedPosts.value = localGroupedPosts;
-}
-
-
-if (Object.keys(groupedPosts.value).length === 0) {
-  // Fetch the grouped posts if not already loaded
-  await groupPostsByCombinationsOfTags(store.categories);
-}
-
-
-const filteredPosts = Object.fromEntries(
-    Object.entries(groupedPosts.value).filter(([key, value]) => value.length > 0)
-);
-
 
 const displayedPosts = (value) => {
   // Slice the first three items from filteredPosts
-  const maxItems = 9; // Set the maximum number of items to display
+  const maxItems = 6; // Set the maximum number of items to display
   if (value?.length <= maxItems) {
     // If there are fewer than or equal to 3 items, display all of them
     return value;
@@ -113,11 +55,16 @@ const displayedPosts = (value) => {
         </v-row>
         <v-row>
           <v-col cols="4" v-for="item in displayedPosts(blog_data)">
-              <v-card variant="outlined" :to="item._path">
+              <v-card variant="outlined" :to="item._path" height="100%">
                 <v-card-title>{{ item.title }}</v-card-title>
                 <v-card-subtitle>{{ item.tags.join(', ') }}</v-card-subtitle>
                 <v-card-text>{{ item.summary }}</v-card-text>
               </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="center" align="center">
+          <v-col cols="12" class="text-center">
+            <v-btn to="/blogs" color="blue">See All Articles</v-btn>
           </v-col>
         </v-row>
       </v-card>
