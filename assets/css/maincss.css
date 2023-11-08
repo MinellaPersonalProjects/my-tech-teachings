@@ -39,7 +39,3 @@ section {
 html {
     scroll-behavior: smooth;
 }
-
-.code-with-space {
-    padding-right: 20px; /* Adjust the value to control the amount of space */
-}

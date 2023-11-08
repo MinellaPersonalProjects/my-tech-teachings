@@ -40,6 +40,7 @@ const prop = defineProps({
       language: String,
       filename: String,
       highlights: Array,
+      meta: String,
     })
 const languageMap = {
   java: {

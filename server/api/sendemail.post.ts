@@ -20,18 +20,6 @@ export default defineEventHandler(async (event) => {
         replyTo: `${body.name} <${body.email}>`,
     };
 
-// Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.error('Error sending email:', error);
-            // Handle the error (e.g., show an error message to the user)
-        } else {
-            console.log('Email sent:', info.response);
-            // Email sent successfully
-        }
-    });
-
-
     // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
@@ -43,11 +31,4 @@ export default defineEventHandler(async (event) => {
         }
     });
 
-    // const repo = await $fetch('https://api.github.com/repos/nuxt/nuxt', {
-    //     headers: {
-    //         Authorization: `token ${config.githubToken}`
-    //     }
-    // })
-    //
-    // return repo
 })

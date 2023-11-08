@@ -29,15 +29,15 @@ export default defineNuxtConfig({
     define: {
       'process.env': {} ,
     },
+    server: {
+      watch: {
+        usePolling: true
+      }
+    },
     vue: {
       customElement: true,
     },
   },
-  // app: {
-  //   // global transition
-  //   pageTransition: { name: 'page', mode: 'out-in' },
-  //   layoutTransition: { name: 'layout', mode: 'out-in' },
-  // },
   colorMode: {
     preference: 'light', // default value of $colorMode.preference
     fallback: 'light', // fallback value if not system preference found
@@ -68,8 +68,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: 'github-dark',
-      // Define languages you expect to use
-      preload: ['java','javascript','python','vue']
+      preload: ['java','javascript','python','vue', 'html']
     },
   },
   devtools: { enabled: false },
