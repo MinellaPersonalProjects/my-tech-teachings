@@ -58,14 +58,13 @@ const socials = useSocialsStore()
       <v-col cols="12" sm="12" md="3" lg="3" xl="3">
         <v-card
             class="elevation-5 "
-            height="80%"
             color="primary"
-            :style="{position: 'relative', left: smAndUp ? '-150px' : '0', width: smAndUp ? '250px' : '100'}"
+            :style="{position: 'relative', left: smAndUp ? '-150px' : '0', width: smAndUp ? '250px' : '100', height: smAndUp ? '80%' : '250px'}"
             style="margin-top: 60px;"
         >
           <v-card-text
               class="text-center"
-              style="margin-top: 40%"
+              :style="{marginTop: smAndUp ? '40%' : '20%'}"
           >
             <v-row align="center" justify="center">
               <h2>Contact Me</h2>

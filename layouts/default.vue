@@ -6,17 +6,30 @@ import AppFooter from "~/layouts/AppFooter.vue";
 <!-- layouts/default.vue -->
 
 <template>
-  <div>
+  <div class="site-wrapper">
     <header>
       <real-header />
     </header>
 
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
 
-    <footer class="bg-grey-lighten-1">
+    <footer class="bg-grey-darken-1">
       <app-footer />
     </footer>
   </div>
 </template>
+
+<style scoped>
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.flex-grow {
+  flex: 1; /* This will make the main content grow to push the footer down */
+}
+</style>

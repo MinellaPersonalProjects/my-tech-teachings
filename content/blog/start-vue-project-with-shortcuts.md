@@ -1,5 +1,6 @@
 ---
 title: 'Quick Start Vue 3, Vuetify 3 Project'
+headline: 'Start a Vue 3 Project with ShortCuts'
 summary: 'Learn how to kickstart your Vue.js project with a step-by-step guide to building a Vue application with command line shortcuts'
 myImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-mD8yJm2YRM3ls1pbiXAEJ_eoLN47IgW8w&usqp=CAU'
 tags:

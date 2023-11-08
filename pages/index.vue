@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {useTheme} from "vuetify";
+import {useDisplay} from "vuetify";
 
 const theme = useTheme()
 
@@ -21,6 +22,12 @@ const displayedPosts = (value) => {
   }
 }
 
+const { smAndDown } = useDisplay()
+
+function getShortTitle(title) {
+    const splitTitle = title.split(':');
+    return splitTitle[0]; // Return the part before the colon
+  }
 </script>
 
 <template>
@@ -41,7 +48,7 @@ const displayedPosts = (value) => {
             <v-row justify="center">
               <!-- Headline -->
               <h1 class="main-head-text">
-                Welcome to my Blog,
+                Welcome to Nkem's Tech Teachings,
               </h1>
 
               <p class="main-text">
@@ -56,9 +63,15 @@ const displayedPosts = (value) => {
         <v-row>
           <v-col cols="4" v-for="item in displayedPosts(blog_data)">
               <v-card variant="outlined" :to="item._path" height="100%">
-                <v-card-title>{{ item.title }}</v-card-title>
+                <!-- <v-card-title :style="{whiteSpace: smAndDown? 'normal' : 'nowrap' }">{{ item.title }}</v-card-title> -->
+                <v-card-title 
+                  v-if="smAndDown" 
+                  :style="{whiteSpace: 'normal', wordWrap: 'break-word', overflowWrap: 'break-word', fontSize: '14px', hyphens: 'auto'}">
+                  {{ getShortTitle(item.title) }}
+                </v-card-title>
+                <v-card-title v-else>{{ item.title }}</v-card-title>
                 <v-card-subtitle>{{ item.tags.join(', ') }}</v-card-subtitle>
-                <v-card-text>{{ item.summary }}</v-card-text>
+                <v-card-text class="hidden-sm-and-down">{{ item.summary }}</v-card-text>
               </v-card>
           </v-col>
         </v-row>

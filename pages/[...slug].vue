@@ -4,12 +4,8 @@ import {useTheme} from "vuetify";
 
 const { path } = useRoute();
 const cleanPath = path.replace(/\/+$/, '');
-const { data, error } = await useAsyncData(`content-${cleanPath}`, async () => {
-    // Remove a trailing slash in case the browser adds it, it might break the routing
-    // fetch document where the document path matches with the cuurent route
+const { data, error } = await useAsyncData(`${cleanPath}`, async () => {
     let article = queryContent('/blog').where({ _path: cleanPath }).findOne();
-    // get the surround information,
-    // which is an array of documeents that come before and after the current document
     let surround = queryContent('/blog').sort({ publishDateTime: -1 }).sort({ tags: 1 }).only(['_path', 'title', 'summary']).findSurround(cleanPath, { before: 1, after: 1 });
 
     return {
@@ -35,6 +31,34 @@ if (cleanPath === '/about'){
 } else {
 
   const articleData = data?.value.article;
+  const title = articleData.title
+
+  // Set the meta
+  const baseUrl = 'https://nkems-tech-teachings.com';
+  const canonicalPath = baseUrl + (path + '/').replace(/\/+$/, '/');
+  const image = baseUrl + articleData.myImage;
+
+  const jsonScripts = [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': 'https://nkems-tech-teachings.com/'
+        },
+        url: canonicalPath,
+        image: image,
+        headline: articleData.headline,
+        abstract: articleData.summary,
+        datePublished: articleData.publishDateTime,
+        author: 'Nkem Mogbo',
+        publisher: 'Nkem Mogbo'
+      })
+    }
+  ];
+
   items.value= [
           {
             title: 'Home',
@@ -47,15 +71,40 @@ if (cleanPath === '/about'){
             href: '/blogs',
           },
           {
-            title: articleData.title,
+            title: title,
             disabled: true,
             href: articleData._path,
           },
         ]
-  
-  if (error) {
-    console.error("Error fetching data:", error);
-  } 
+
+  useHead({
+    title,
+    meta: [
+        {name: 'description', content: articleData.summary},
+        {property: 'article:published_time', content: articleData.publishDateTime },
+        // OG
+        { hid: 'og:title', property: 'og:title', content: articleData.headline },
+        { hid: 'og:url', property: 'og:url', content: canonicalPath },
+        { hid: 'og:description', property: 'og:description', content: articleData.summary },
+        { hid: 'og:image', name: 'image', property: 'og:image', content: image },
+        { hid: 'og:type', property: 'og:type', content: 'Article' },
+
+        // Twitter
+        { hid: 'twitter:card', name: 'twitter:card', content: 'Summary' },
+        { hid: 'twitter:title', name: 'twitter:title', content: articleData.headline },
+        { hid: 'twitter:url', name: 'twitter:url', content: canonicalPath },
+        { hid: 'twitter:description', name: 'twitter:description', content: articleData.summary },
+        { hid: 'twitter:image', name: 'twitter:image', content: image },
+    ],
+    link: [
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: canonicalPath
+      }
+    ],
+    script: jsonScripts
+  })
 }
 
 const theme = useTheme()
@@ -160,7 +209,7 @@ const theme = useTheme()
           </v-container>
     </NuxtLayout>
 </template>
-<style lang="scss">
+<style scoped lang="scss">
 
 .container-height {
   height: 100%;

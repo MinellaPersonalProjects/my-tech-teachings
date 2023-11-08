@@ -1,5 +1,6 @@
 ---
 title: 'Intro to Vuetify Grids'
+headline: 'Intro to Vuetify Grids'
 summary: 'Get started with Vuetify grids: an easy guide to building responsive and organized web layouts quickly.'
 myImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsL9XkUkevPc-_1irkVIkr62FfPacYPivJw&usqp=CAU'
 tags:
