@@ -7,7 +7,7 @@ tag: 'about_me'
 
 # About Me
 
-I am an aspiring and dedicated software engineer with 2 years of hands-on experience in software development and I have had the opportunity to work on several interesting projects that have honed my skills and problem-solving abilities. My journey has included immersive experiences in the dynamic realms of Web Development and AI Platform Development.  
+My name is Nkem, I live in Chicago, IL and I am a Software Engineer at a company called [CCC Intelligent Solutions](https://cccis.com). I have had the opportunity to work on several interesting projects that have honed my skills and problem-solving abilities. My journey has included immersive experiences in the dynamic realms of Web Development and AI Platform Development.  
 
 I'm committed to continuous learning and growth, regularly participating in online courses and coding projects to expand my skill set. Here is some more information about me :
 
@@ -15,27 +15,30 @@ I'm committed to continuous learning and growth, regularly participating in onli
 
 **Education:** I hold a Bsc in Software Engineering from [Loyola University Chicago](https://www.luc.edu).
 
-**Experience:** I have worked in various roles in the software industry, from web development to AI platform development. Notably, I participated in the development of a cutting-edge AI Platform utilizing AWS SageMaker, equipping our organization with advanced machine learning capabilities. Additionally, I designed and delivered a range of Vue WebApps, each serving as a captivating showcase of our AI applications, further establishing my prowess in the field.
+**Experience:** I have worked in various roles in the software industry, from web development to AI platform development. Notably, I participated in the development of a cutting-edge AI Platform utilizing , equipping our organization with advanced machine learning capabilities. Additionally, I designed and delivered a range of Vue WebApps, each serving as a captivating showcase of our AI applications.
 
 ## Skills
 
 My skill set includes:
 
-**Programming Languages:** JavaScript, Python, Golang
+**Programming Languages:** JavaScript, TypeScript, Python, Golang, C++
 
-**Web Development:** HTML, CSS, React, Vue.js
+**Web Development:** NuxtJS, Vue.js, HTML, CSS, React, Express  
 
-**Backend Development:** Node.js, Express
+**Tools/Frameworks:** Docker, Kubernates, AWS Sagemaker
 
-**Databases:** MongoDB, SQL
+**Databases:** MongoDB, SQL, DynamoDB
 
-## Hobbies
+## Some Fun Facts About Me
 
-When I'm not coding, I enjoy:
+- I was a published author at the age of 12 and sold hundreds of copies of my book
 
-- Creating Fun Projects
-- Reading Interesting Books
-- Exploring Different Cuisines 
+- I am fluent in English and conversational in French and Igbo
+
+- I am a huge reader and can read about 200 chapters a day of novels
+
+- I like creating fun silly coding projects just for my amusement
+
 
 ## Get in Touch 
 
@@ -45,5 +48,5 @@ When I'm not coding, I enjoy:
 
 ---
 
-Thank you for taking the time to get to know me better. I look forward to connecting with you and exploring new possibilities together.
+Thank you for taking the time to get to know me better. I look forward to connecting with you and exploring new possibilities together. You can also download my [resume](/resume) for more details about me. 
 
