@@ -1,15 +1,15 @@
 ---
-title: 'Intro to Vuetify Grids'
+title: 'Mastering Vuetify Grids Part 1: Intro to Vuetify Grids'
 headline: 'Intro to Vuetify Grids'
 summary: 'Get started with Vuetify grids: an easy guide to building responsive and organized web layouts quickly.'
 myImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsL9XkUkevPc-_1irkVIkr62FfPacYPivJw&usqp=CAU'
 tags:
   - "vue"
-publishDate: 28 Oct 2023
-publishDateTime: 2023-10-28:19:30
+publishDate: 2 Nov 2023
+publishDateTime: 2023-11-2:14:30
 ---
 
-One of the biggest issues I had when I first started using Vuetify was the Grid system. Figuring out how to order components was like trying to understand linear algebra as a third grader. If you're like me and having a hard time with getting your components where you want, worry no more , this guide will give you a quick intro to understanding how the grid system works. 
+One of the biggest issues I had when I first started using Vuetify was the Grid system. Figuring out how to order components was like trying to understand linear algebra as a third grader. If you're like me and having a hard time with getting your components where you want, worry no more , this guide is only part 1 of a three part series to help you go from a beginner to pro with working with the Vuetify Grid System. Let's dive into a quick intro to understanding how the grid system works and set the stage for your future mastery. 
 
 
 ## What's the Vuetify Grid System ?
@@ -18,6 +18,8 @@ A grid system in general, is a layout structure that helps organize and align co
 
 
 ##  The Vuetify Grid Trio: Containers, Rows and Columns
+
+The Vuetify Grid is made up of three major components : the Containers, Rows and Columns 
 
 **Containers:** Think of this as a box that helps you organize and center your website's content. It can also make sure that your content looks good on different screens.
 
@@ -35,7 +37,6 @@ The general understanding of a common grid is that it is made of rows and column
 
 Think of a v-row like a shelf with 12 equal spaces and v-col as a box. 
 
-![daSpace](https://i.imgur.com/nkqrLUZ.png)
 
 Depending on the size of your box, you can fill one or more spaces in the shelf but the total space you can use adds up to 12.  You can determine the full width of your columns using a tag `cols=”x”` where *x* is a number between 1-12 .
 
@@ -49,7 +50,7 @@ So what happens if the total number of spaces your columns take is more than 12 
 
 Let's practice with some code.
 
-## Build a Basic Grid Layout 
+## Building a Basic Grid Layout 
 
 Everything starts with a `<v-container>`. It's your big box.
 
@@ -74,7 +75,7 @@ Then we've got the row. Each row is marked by <v-row>.
   </v-container>
 ```
 
-Now, split that row into columns using <v-col>. You can decide how much space each column should take. 
+Now, split that row into columns using `<v-col>`. You can decide how much space each column should take. 
 
 By default, there's some space between the columns, like a little gap. You can make this gap smaller with a feature called **"dense"**, or you can remove it completely using **"no-gutters"**.
 
@@ -89,10 +90,9 @@ By default, there's some space between the columns, like a little gap. You can m
   </v-container>
 ```
 
-This is what your complete grid looks like,
+This is what your code looks like,
 
 ![fullGrid](https://i.imgur.com/9b1tHRg.png)
 
-I know it looks tiny but be patient, you can create so many fun styles by changing a few values. Head on to [Part 2](/blog/styling-vuetify-grids.md) of this tutorial to try out fun combinations to do more grid styling
-
+It may look small but be patient, now you have the basics down, you can create so many fun styles by changing a few values. Head on to [Part 2](/blog/styling-vuetify-grids.md) of this tutorial to gain more advanced mastery of the Vuetify Grid System.
 

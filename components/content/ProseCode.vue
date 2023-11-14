@@ -32,6 +32,7 @@
 <script setup lang="ts">
 // https://mokkapps.de/blog/how-to-create-a-custom-code-block-with-nuxt-content-v2/
 import { useClipboard } from '@vueuse/core';
+import { computed } from 'vue';
 
 const { copy, copied, text } = useClipboard();
 
@@ -60,6 +61,9 @@ const languageMap = {
   },
   vue: {
     text: 'Vue'
+  },
+  scss: {
+    text: 'SCSS'
   }
 };
 

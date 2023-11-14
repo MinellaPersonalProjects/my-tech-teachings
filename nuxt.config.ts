@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: 'github-dark',
-      preload: ['java','javascript','python','vue', 'html']
+      preload: ['java','javascript','python','vue', 'html', 'scss']
     },
   },
   devtools: { enabled: false },
