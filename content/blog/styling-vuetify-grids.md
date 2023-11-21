@@ -32,18 +32,20 @@ We are going to make a big block that stretches across the screen, so you're con
 
 #code
 
-Follow along the different code examples given in the tutorial by running the command `yarn create vuetify` and under the *src > components > HelloWorld.vue* , delete everything under the `<template></template>` tags and replace the items between with the examples we discuss. You can view the expected result as well in this tutorial, to make sure everything looks right. 
+Follow along the different code examples given in the tutorial by running the command `yarn create vuetify` and under the _src > components > HelloWorld.vue_, delete everything within the `<template></template>` tags and replace the items between with the examples we discuss. You can view the expected result as well in this tutorial, to make sure everything looks right.
 
-Now we're ready to code !
+Now we're ready to code!
 
-## Your First Grid Column 
+# Your First Grid Column
 
 We are going to make a big block that stretches across the screen, so you're content grabs the attention it deserves
 
-::code-image
+::code-image 
+
 ![Image](https://i.imgur.com/ZH7aOpf.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
@@ -163,6 +165,7 @@ Now we need to pair two elements in harmony by placing two blocks next to each o
 ![Imgur](https://i.imgur.com/8OVVlIY.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
@@ -186,10 +189,12 @@ Now we need to pair two elements in harmony by placing two blocks next to each o
 
 Want to stack blocks on top of each other? If you want it to have two rows on top of each other, just make the total values of cols in your `<v-row>` **greater** than 12
 
-::code-image
+::code-image 
+
 ![Imgur](https://i.imgur.com/UvIeiaf.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
@@ -213,17 +218,19 @@ Want to stack blocks on top of each other? If you want it to have two rows on to
 
 **Margins** and **Padding** are two properties used to control the spacing between elements. Imagine your content is a picture in a picture frame.
 
-- **Margins** are like the empty space around a picture frame.
+- **Margins** are like the space around a picture frame.
 - **Padding** is like the space between the picture and the frame.
 
 ![Margin_Padding_Content](https://th.bing.com/th/id/OIP.MbrfOi0Y4G4pBAldfvSJXwHaFu?pid=ImgDet&rs=1)
 
-There are a variety of ways to decalre margins and padding for a Vuetify Element, one of the shortcuts is using classes like `mx`, `mt`, `pb`. These classes use the format `{property}{direction}-{size}` where property is `m` for margin and `p` for padding, direction can be top, bottom, left, right and size can be a value from 0-16. To learn more about these classes read more on Vuetify's [Spacing Documenation](https://vuetifyjs.com/en/styles/spacing/) . Here's a code sample on how it's used :
+There are a variety of ways to declare margins and padding for a Vuetify Element, one of the shortcuts is using classes like `mx`, `mt`, and `pb`. These classes use the format `{property}{direction}-{size}` where property is `m` for margin and `p` for padding, direction can be top, bottom, left, right and size can be a value from 0-16\. To learn more about these classes read more on Vuetify's [Spacing Documentation](https://vuetifyjs.com/en/styles/spacing/) . Here's a code sample on how it's used :
 
-::code-image
+::code-image 
+
 ![Imgur](https://i.imgur.com/ynmkHSh.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
@@ -242,10 +249,12 @@ There are a variety of ways to decalre margins and padding for a Vuetify Element
 
 Not every element needs to stretch to the end of the row width. If we want the row to take less space, change the value of `cols`
 
-::code-image
+::code-image 
+
 ![Imgur](https://i.imgur.com/kViM4LP.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
@@ -270,10 +279,10 @@ You may be wondering why the previous examples were so thin, but if you want on 
 
 #code
 
-::code-image
 ![Imgur](https://i.imgur.com/30tFyOv.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
@@ -298,10 +307,10 @@ If you have two rows but you want them to look different , you can just change t
 
 #code
 
-::code-image
 ![Imgur](https://i.imgur.com/OVMznkn.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
@@ -333,10 +342,12 @@ Just like a headline in a newspaper, sometimes we want our content to be the mai
 
 Just like a headline in a newspaper, sometimes we want our content to be the main focus. Let's make one row look really important :
 
-::code-image
+::code-image 
+
 ![Imgur](https://i.imgur.com/nQmlfKT.png)
 
 #code
+
 ```html
     <v-container>
         <v-row>
