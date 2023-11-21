@@ -3,7 +3,8 @@
 </template>
 <style scoped>
 .custom-list{
-  margin: 0.5em 0; /* Adjust top and bottom margin */
+  margin-left: 2.5em; 
+  margin-bottom: 0.5em;
   padding: 0.25em 0; /* Adjust top and bottom padding */
 }
 </style>
