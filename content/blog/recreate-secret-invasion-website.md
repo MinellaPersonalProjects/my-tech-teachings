@@ -5,7 +5,6 @@ summary: 'Explore Vue.js and Vuetify to recreate the captivating opening of Marv
 myImage: '/img/secret.png'
 tags:
   - "vue"
-  - "python"
 publishDate: 8 Nov 2023
 publishDateTime: 2023-11-08:03:30
 ---
@@ -34,6 +33,17 @@ We'll start our project by running the creating a directory for the project and 
 ```bash
   yarn create vuetify
 ```
+
+You will have to select a set of options and name the application. For this tutorial we're using the following presets :
+
+```bash
+  ✔ Project name: … frontend
+  ✔ Which preset would you like to install? › Essentials (Vuetify, VueRouter, Pinia)
+  ✔ Use TypeScript? … No 
+  ✔ Would you like to install dependencies with yarn, npm, pnpm, or bun? › yarn
+```
+
+Next you can go into your newly created vuetify app folder.
 
 ## Create Component to Enter Secret Password
 ![Enter Password](https://i.imgur.com/7famnqa.png)
