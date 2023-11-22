@@ -10,6 +10,8 @@ export default defineEventHandler(async (event) => {
             user: String(config.email), // Your email address
             pass: config.emailPass, // Your email password or an app-specific password
         },
+        debug: true, 
+        logger: true 
     });
 
     const mailOptions = {
