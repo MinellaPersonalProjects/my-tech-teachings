@@ -55,7 +55,8 @@ My skill set includes:
 
 ## Get in Touch
 
-::contact-cards ::
+::contact-cards 
+::
 
 --------------------------------------------------------------------------------
 
