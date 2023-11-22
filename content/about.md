@@ -23,11 +23,11 @@ I hold a B.Sc. in Software Engineering from [Loyola University Chicago](https://
 
 During my time as a student at Loyola, I received a Mulcahy Fellowship Grant to research the security of DNS Over HTTPS. I presented my findings to my mentor and the fellowship foundation.
 
-I also had an 8-week internship at OntoAdaptive LLC, where I conducted independent research on adopting a modern web stack on an existing reference architecture. Furthermore, I successfully implemented a React TypeScript Infrastructure.
+I also had an 8-week internship at OntoAdaptive LLC, where I conducted independent research on adopting a modern web stack on an existing reference architecture. At the end of the internship, I successfully implemented a React TypeScript Infrastructure as a result of my research.
 
-After graduating from Loyola, I have worked in various roles in the software industry, from web development to AI platform development.
+After graduating from Loyola, I was hired by CCC Intelligent Solutions and since February 2022, I have completed a variety of projects and roles from web development to AI platform development.
 
-At CCC Intelligent Solutions, I started as an AI Enablement Intern and was later promoted to a Software Engineer. I played a significant role in developing a cutting-edge AI Platform and creating Vue Web Apps to showcase our AI applications.
+At CCC, I started as an AI Enablement Intern and was later promoted to a Software Engineer. Here I participated in the development of a cutting-edge AI Platform. I have also created a host of Vue Web Apps to showcase some of the company's AI applications.
 
 When I am not at work, I create fun new projects, many of which I'll talk about in my blog. I am dedicated to learning new things and love creative projects.
 
