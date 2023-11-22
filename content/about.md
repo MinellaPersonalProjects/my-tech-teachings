@@ -15,9 +15,21 @@ I'm committed to continuous learning and growth, regularly participating in onli
 
 ## Background
 
-**Education:** I hold a BSc in Software Engineering from [Loyola University Chicago](https://www.luc.edu).
+### Education
 
-**Experience:** I have worked in various roles in the software industry, from web development to AI platform development. Notably, I participated in the development of a cutting-edge AI Platform utilizing, equipping our organization with advanced machine learning capabilities. Additionally, I designed and delivered a range of Vue Web Apps, each serving as a captivating showcase of our AI applications.
+I hold a B.Sc. in Software Engineering from [Loyola University Chicago](https://www.luc.edu) where I graduated in December 2021 with Honors _Magna Cum Laude_.
+
+### Experience
+
+During my time as a student at Loyola, I received a Mulcahy Fellowship Grant to research the security of DNS Over HTTPS. I presented my findings to my mentor and the fellowship foundation.
+
+I also had an 8-week internship at OntoAdaptive LLC, where I conducted independent research on adopting a modern web stack on an existing reference architecture. Furthermore, I successfully implemented a React TypeScript Infrastructure.
+
+After graduating from Loyola, I have worked in various roles in the software industry, from web development to AI platform development.
+
+At CCC Intelligent Solutions, I started as an AI Enablement Intern and was later promoted to a Software Engineer. I played a significant role in developing a cutting-edge AI Platform and creating Vue Web Apps to showcase our AI applications.
+
+When I am not at work, I create fun new projects, many of which I'll talk about in my blog. I am dedicated to learning new things and love creative projects.
 
 ## Skills
 
@@ -43,8 +55,7 @@ My skill set includes:
 
 ## Get in Touch
 
-::contact-cards 
-::
+::contact-cards ::
 
 --------------------------------------------------------------------------------
 

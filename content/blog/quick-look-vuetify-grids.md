@@ -81,6 +81,7 @@ By default, there's some space between the columns, like a little gap. You can m
     <v-row>
       <v-col cols="12">
         <v-sheet color="blue">
+          Column 1
         </v-sheet>
       </v-col>
     </v-row>

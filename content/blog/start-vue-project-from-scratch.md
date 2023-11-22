@@ -42,15 +42,22 @@ This command creates a file called **package.json** in your project directory, a
 
 The **package.json** is a fundamental file for any Node.js based projects, including those that use frameworks and libraries like Vue, React, Angular, and many others. For the purpose of our project, we need to add some modifications to ensure compatibility and optimization for a Vue + Vite setup.
 
-First, **remove** line :
+First, **remove** lines :
 
 ```javascript{1}[package.json]
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
 ```
 
 This is because our project isn't a typical Node app, and this keeps things simple and clear.
 
-Next, we need to set `"private"` to `true` to make sure our project isn't accidentally published to the NPM registry. Then, we will need to include scripts so that our application can run. Add the following code to your **package.json** after the `description` variable to implement this:
+Next, we need to add the variable `"private": true` to make sure our project isn't accidentally published to the NPM registry. 
+
+Then, we will need to include scripts so that our application can run. 
+
+Add the following code to your **package.json** after the `description` variable to implement this:
 
 ```javascript{4}[package.json]
     {
@@ -73,16 +80,16 @@ Next, we need to set `"private"` to `true` to make sure our project isn't accide
 Now we need to add the essential dependencies for our project. Use the following commands to install :
 
 ```bash
-  npm i vue vuetify vite @vitejs/plugin-vue vite-plugin-vuetify @mdi/font
+  npm i vue vuetify @mdi/font
 ```
 
 ```bash
-  npm install -D sass
+  npm install -D sass vite @vitejs/plugin-vue vite-plugin-vuetify
 ```
 
 You will notice a **node_modules** folder appear in your directory.
 
-Now we need to create the **src** folder, think of the **src** folder as the place where all the important code for your website or web app lives.
+Now we need to create a folder called **src**, think of the **src** folder as the place where all the important code for your website or web app lives.
 
 Inside the **src** folder, create a folder called **plugins**. Since we are using the UI framework, Vuetify for our project, we will need to add some setup information and additional styling or functionality for our project.
 
@@ -109,7 +116,7 @@ Under the **plugins** folder create a file called **vuetify.js**. Within this fi
       })
 ```
 
-Next, create a file called **index.js**. This file plays a crucial role in configuring and registering various plugins for your Vue application:
+Next, create a file called **index.js**, still inside the **plugins** folder. This file plays a crucial role in configuring and registering various plugins for your Vue application:
 
 ```javascript{1-5}[/src/plugins/index.js]
     import vuetify from './vuetify'
@@ -121,22 +128,15 @@ Next, create a file called **index.js**. This file plays a crucial role in confi
 
 # Step 4: SetUp Vite Config
 
-Vite empowers you with greater control over your project's configuration through the use of a config file, **vite.config.js**, which resides in the root directory of your project.
+Next you'll have to create a file called **vite.config.js**, in the root of your project, outside the _src_ folder.
 
-Begin by creating a new file in your project called **vite.config.js**.
+Vite empowers you with greater control over your project's configuration through the use of a config file, **vite.config.js**.
 
-Open the **vite.config.js** file in your editor. For a basic setup, you can start with the following structure:
+Open the **vite.config.js** file in your editor. 
 
-```javascript{}[vite.config.js]
-  // Utilities
-  import { defineConfig } from 'vite'
+In this file we get to define the plugins we'll need to set up Vue and our UI framework, Vuetify.
 
-  export default defineConfig({
-
-  })
-```
-
-Next, we'll define the plugins we'll need to set up Vue and our UI framework, Vuetify
+For a basic setup, you can start with the following structure:
 
 ```javascript{}[vite.config.js]
   // Plugins
@@ -145,7 +145,6 @@ Next, we'll define the plugins we'll need to set up Vue and our UI framework, Vu
 
     // Utilities
     import { defineConfig } from 'vite'
-    import { fileURLToPath, URL } from 'node:url'
 
     export default defineConfig({
         plugins: [
@@ -157,11 +156,7 @@ Next, we'll define the plugins we'll need to set up Vue and our UI framework, Vu
 
             /** add vuetify ui framework into project */
             vuetify({
-                autoImport: true,
-                styles: {
-                    /* set style config file, eg src/styles/settings.scss */
-                    configFile: '',
-                },
+                autoImport: true
             }),
         ]
     })
@@ -226,7 +221,7 @@ Next, we'll create a file called **main.js**. This file serves as the entry poin
     import { createApp } from 'vue'
 
     // Plugins
-    import { registerPlugins } from '@/plugins'
+    import { registerPlugins } from '/src/plugins'
 
     const app = createApp(App)
 
@@ -260,13 +255,13 @@ At the end your file structure should look something like this :
 Now it's time to see your Vue App in action. Run the command
 
 ```bash
-npm run dev
+  npm run dev
 ```
 
 or
 
 ```bash
-yarn dev
+  yarn dev
 ```
 
 Once you run the command, you'll see an output in your terminal that resembles the following:

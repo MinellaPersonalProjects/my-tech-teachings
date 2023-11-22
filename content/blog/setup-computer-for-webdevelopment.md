@@ -10,8 +10,8 @@ myImage: >-
   https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs3POeqwwwXbfJ_7hEDQGlKUxD_tc_B3jxNT2azHjjuFaw1GCP0usidCJkmFeZIVvHDX8&usqp=CAU
 tags:
   - vue
-publishDate: 26 Oct 2023
-publishDateTime: '2023-10-26:17:30'
+publishDate: 17 Oct 2023
+publishDateTime: '2023-10-17:17:30'
 ---
 
 Are you eager to dive into the exciting world of web development, create stunning websites, and bring your coding ideas to life? Whether you're a complete beginner or have some programming experience, taking those first steps can be both thrilling and a bit overwhelming. The good news is that you're in the right place!
