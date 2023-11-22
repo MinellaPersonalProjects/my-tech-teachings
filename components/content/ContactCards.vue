@@ -14,16 +14,26 @@ const message = ref('');
 const submitForm = async () => {
   // Handle form submission logic here
   // Access name, email, and message using name.value, email.value, and message.value
-  console.log('Name:', name.value);
-  console.log('Email:', email.value);
-  console.log('Message:', message.value);
+  try {
+    console.log('Name:', name.value);
+    console.log('Email:', email.value);
+    console.log('Message:', message.value);
 
-  const { $csrfFetch } = useNuxtApp()
+    const { $csrfFetch } = useNuxtApp()
 
-  const { body } = await $csrfFetch('/api/sendemail', {
-    method: 'post',
-    body: { name: name.value, email:email.value, message:message.value }
-  })
+    const { body } = await $csrfFetch('/api/sendemail', {
+      method: 'post',
+      body: { name: name.value, email:email.value, message:message.value }
+    })
+
+    // Handle the successful response
+    console.log('Response:', body);
+  } 
+  catch (error) {
+    // Handle any errors
+    console.error('Error sending email:', error);
+  }
+  
 };
 
 const socials = useSocialsStore()
