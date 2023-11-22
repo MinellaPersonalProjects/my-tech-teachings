@@ -161,7 +161,7 @@ Not every element needs to stretch to the end of the row width. If we want the r
 
 ## Make Columns Tall by Changing Height
 
-You may be wondering why the previous examples were so thin, but if you want on change the way the row looks to fit the content , _just change the height_
+You may be wondering why the previous examples were so thin, but if you want on change the way the row looks to fit the content, _just change the height_
 
 ::code-image 
 
@@ -245,16 +245,16 @@ Just like a headline in a newspaper, sometimes we want our content to be the mai
 
 In a world with myriad devices, responsiveness is non-negotiable. Let's wrap up by ensuring your layout adapts beautifully across all screen sizes.
 
-When defining our v-col, we'll have to include something similar to the following : `<v-col cols="12" sm="6" md="4" lg="3">`, the values sm, md, and lg define the number of columns the `<v-col>` element will occupy for different screen sizes. Here's what each part means :
+When defining our v-col, we'll have to include something similar to the following : `<v-col cols="12" sm="6" md="4" lg="3">`, the values _sm_, _md_, and _lg_ define the number of columns the `<v-col>` element will occupy for different screen sizes. Here's what each part means :
 
 - `sm="6"` : this defines the column size as 6 for **small** screens like tablets or larger mobile phones. It's equivalent to having the tag `<v-col cols="6">` when you have a small screen.
 
-- `md="4"` : this defines the column size as 4 on **medium** sized screens like small laptops
+- `md="4"` : this defines the column size as 4 on **medium-sized** screens like small laptops
 
-- `lg="3"` : this defines the column size as 3 on **large** sized screens like big laptops
+- `lg="3"` : this defines the column size as 3 on **large-sized** screens like big laptops
 
-- `cols="12"` : This is added as a default for any screen sizes that aren't defined eg if i had `<v-col cols="12" sm="6">`, for all screens other than the smaller screens, the col size will be 12.
+- `cols="12"` : This is added as a default for any screen sizes that aren't defined e.g. if I had `<v-col cols="12" sm="6">`, for all screens other than the smaller screens, the col size will be 12.
 
 By specifying different values for the cols attribute at different breakpoints, you can create a responsive layout that adjusts based on the user's screen size.
 
-As we wrap up Part 2 you have some fancier styles in your toolbelt and a higher understanding of Vuetify Grid Styles. Stay tuned for [Part 3](/blog/nesting-grids.md), where we'll get to create even fancier styles using **Nesting**. If you missed Part 1, catch up [here](/blog/quick-look-vuetify-grids.md) to learn the basics of the Vuetify grid system.
+As we wrap up Part 2 you have some fancier styles in your tool belt and a higher understanding of Vuetify Grid Styles. Stay tuned for [Part 3](/blog/nesting-grids.md), where we'll get to create even fancier styles using **Nesting**. If you missed Part 1, catch up [here](/blog/quick-look-vuetify-grids.md) to learn the basics of the Vuetify grid system.

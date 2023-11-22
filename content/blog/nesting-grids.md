@@ -150,7 +150,7 @@ This is what our full code would look like:
   </v-container>
 ```
 
-I just replaced the `<!-- skeleton loader -->` placeholders with vuetify skeleton loader, once you run this code, you'll be able to see your complete nested grid.
+I just replaced the `<!-- skeleton loader -->` placeholders with an actual vuetify skeleton loader, once you run this code, you'll be able to see your complete nested grid.
 
 # Conclusion
 

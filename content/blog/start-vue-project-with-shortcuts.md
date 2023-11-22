@@ -99,7 +99,7 @@ Outside the **/src** folder, there are some other configuration files :
 
 # Conclusion
 
-You can run your newly setup project using the command
+You can navigate into your folder and run your newly setup project using the command
 
 ```bash
   yarn dev
