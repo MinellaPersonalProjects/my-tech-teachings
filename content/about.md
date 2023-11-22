@@ -60,4 +60,4 @@ My skill set includes:
 
 --------------------------------------------------------------------------------
 
-Thank you for taking the time to get to know me better. I look forward to connecting with you and exploring new possibilities together. You can also download my [resume](/resume) for more details about me.
+Thank you for taking the time to get to know me better. I look forward to connecting with you and exploring new possibilities together.
