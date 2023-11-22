@@ -5,7 +5,7 @@ import { useDisplay } from 'vuetify'
 import {useSocialsStore} from "~/store/socials";
 
 // for small displays and upward you can set custom values
-const { smAndUp } = useDisplay()
+const { mdAndUp, smAndUp } = useDisplay()
 
 const name = ref('');
 const email = ref('');
@@ -81,19 +81,19 @@ const socials = useSocialsStore()
         <v-card
             class="elevation-5 "
             color="primary"
-            :style="{position: 'relative', left: smAndUp ? '-150px' : '0', width: smAndUp ? '250px' : '100', height: smAndUp ? '80%' : '250px'}"
+            :style="{position: 'relative', left: mdAndUp ? '-150px' : '0', width: mdAndUp ? '250px' : '100%', height: mdAndUp ? '80%' : '250px'}"
             style="margin-top: 60px;"
         >
           <v-card-text
               class="text-center"
-              :style="{marginTop: smAndUp ? '40%' : '20%'}"
+              :style="{marginTop: mdAndUp ? '40%' : '10%', paddingTop: smAndUp ? '' : '20%'}"
           >
             <v-row align="center" justify="center">
               <h2>Contact Me</h2>
             </v-row>
             <v-row align="center" justify="center">
               <v-col cols="12">
-                <p :href="socials.gmail" target="_blank">nmogbo2001@gmail.com</p>
+                <p :href="socials.gmail" target="_blank">minnoella2001@gmail.com</p>
               </v-col>
             </v-row>
             <v-row align="center" justify="center">
