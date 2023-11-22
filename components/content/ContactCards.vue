@@ -21,13 +21,25 @@ const submitForm = async () => {
 
     const { $csrfFetch } = useNuxtApp()
 
-    const { body } = await $csrfFetch('/api/sendemail', {
-      method: 'post',
-      body: { name: name.value, email:email.value, message:message.value }
+    // const { body } = await $csrfFetch('/api/sendemail', {
+    //   method: 'post',
+    //   body: { name: name.value, email:email.value, message:message.value }
+    // })
+
+    const { body } = await $csrfFetch('/.netlify/functions/send-mail', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        name: name.value, 
+        email:email.value, 
+        message:message.value })
     })
 
     // Handle the successful response
-    console.log('Response:', body);
+    const data = await body.value.json();
+    console.log('Response:', data);
   } 
   catch (error) {
     // Handle any errors
