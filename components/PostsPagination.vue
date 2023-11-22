@@ -5,7 +5,7 @@ const props = defineProps(['data', 'sectiontitle'])
 const perPage = 5; // Number of posts per page
 
 const totalPages = computed(() => {
-  return Math.ceil(props.data.length / perPage);
+  return props.data ? Math.ceil(props.data.length / perPage) : 2;
 })
 
 const currentPage = ref(1)
