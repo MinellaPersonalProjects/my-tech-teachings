@@ -16,13 +16,13 @@ In the first part of our three-part series on Mastering Vuetify Grids, we covere
 
 For this tutorial, we'll be looking through a variety of code samples and how they would look on your webpage. This will give you the building blocks for more complex applications and lay a stronger foundation to help you understand Vuetify Grids.
 
-# Setup
+### Setup
 
 Follow along the different code examples given in the tutorial by running the command `yarn create vuetify` and under the _src > components > HelloWorld.vue_, delete everything within the `<template></template>` tags and replace the items between with the examples we discuss. You can view the expected result as well in this tutorial, to make sure everything looks right.
 
 Now we're ready to code!
 
-# Your First Grid Column
+### Your First Grid Column
 
 We are going to make a big block that stretches across the screen, so you're content grabs the attention it deserves
 
@@ -60,7 +60,7 @@ We are going to make a big block that stretches across the screen, so you're con
 
 ::
 
-## Creating Two Columns Side by Side
+### Creating Two Columns Side by Side
 
 Now we need to pair two elements in harmony by placing two blocks next to each other. Remember, if you want your blocks to be on the same row the total value of cols in this row should be equal to **12.**
 
@@ -89,7 +89,7 @@ Now we need to pair two elements in harmony by placing two blocks next to each o
 
 ::
 
-## Stacking Columns on Top of Each Other
+### Stacking Columns on Top of Each Other
 
 Want to stack blocks on top of each other? If you want it to have two rows on top of each other, just make the total values of cols in your `<v-row>` **greater** than 12
 
@@ -118,7 +118,7 @@ Want to stack blocks on top of each other? If you want it to have two rows on to
 
 ::
 
-## Adjusting Spacing with Margins and Padding
+### Adjusting Spacing with Margins and Padding
 
 **Margins** and **Padding** are two properties used to control the spacing between elements. Imagine your content is a picture in a picture frame.
 
@@ -149,7 +149,7 @@ There are a variety of ways to declare margins and padding for a Vuetify Element
 
 ::
 
-## Change Your Column Size to Take Less Space
+### Change Your Column Size to Take Less Space
 
 Not every element needs to stretch to the end of the row width. If we want the row to take less space, change the value of `cols`
 
@@ -269,7 +269,7 @@ Not every element needs to stretch to the end of the row width. If we want the r
 
 ::
 
-## Make Columns Tall by Changing Height
+### Make Columns Tall by Changing Height
 
 You may be wondering why the previous examples were so thin, but if you want on change the way the row looks to fit the content, _just change the height_
 
@@ -297,7 +297,7 @@ You may be wondering why the previous examples were so thin, but if you want on 
 
 ::
 
-## Tall and Short Neighbors: Mixing Up Column Heights
+### Tall and Short Neighbors: Mixing Up Column Heights
 
 If you have two rows but you want them to look different , you can just change the height or the value for cols. As long as all the cols in the v-row add up to 12, they'll remain on the same row.
 
@@ -330,7 +330,7 @@ If you have two rows but you want them to look different , you can just change t
 
 ::
 
-## The Big Block: Making a Row Stand Out
+### The Big Block: Making a Row Stand Out
 
 Just like a headline in a newspaper, sometimes we want our content to be the main focus. Let's make one row look really important :
 
@@ -367,7 +367,7 @@ Just like a headline in a newspaper, sometimes we want our content to be the mai
 
 ::
 
-## Make Column Responsive Based on Screen Size
+### Make Column Responsive Based on Screen Size
 
 In a world with myriad devices, responsiveness is non-negotiable. Let's wrap up by ensuring your layout adapts beautifully across all screen sizes.
 
