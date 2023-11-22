@@ -9,13 +9,13 @@ publishDate: 8 Nov 2023
 publishDateTime: 2023-11-08:03:30
 ---
 
-If you didn't already know, Marvel created a secret website for its newest tv show , Secret Invasion. This novel promotional stunt had my hands itching to create a something similar. The website, [www.theinvasionhasbegun.com](http://www.theinvasionhasbegun.com/)  gives a black-ops aesthetics and surreptitious layout of this site create an atmosphere of secrecy and intrigue, making users feel like they're part of an underground network.
+If you didn't already know, Marvel created a secret website for its newest TV show, Secret Invasion. This novel promotional stunt had my hands itching to create a something similar. The website, [www.theinvasionhasbegun.com](http://www.theinvasionhasbegun.com/) gives a black-ops aesthetics and surreptitious layout of this site create an atmosphere of secrecy and intrigue, making users feel like they're part of an underground network.
 
 The website starts out with a password prompt page, with an obscure password that I had to get off the internet. 
 
-One might expect the password to have a connection to the show, possibly involving names like "Nick Fury" or "Avengers" However, due to the absence of a character limit on the website, the possibilities appeared to be without boundaries.I couldn't figure out any clues so I just googled it, the password is "RSD3PX5N7S"
+One might expect the password to have a connection to the show, possibly involving names like "Nick Fury" or "Avengers" However, due to the absence of a character limit on the website, the possibilities appeared to be without boundaries.I couldn't figure out any clues, so I just googled it, the password is "RSD3PX5N7S"
 
-In this tutorial I'm going to recreate those processes and have our own secret blackops website hidden under the guise of a regular webpage using VueJS and Vuetify. 
+In this tutorial I'm going to recreate those processes and have our own secret black ops website hidden under the guise of a regular webpage using VueJS and Vuetify. 
 
 ## Prerequisites 
 - Some knowledge of Vue 
@@ -24,12 +24,8 @@ In this tutorial I'm going to recreate those processes and have our own secret b
 
 ## SetUp Project
 
-We'll start our project by running the creating a directory for the project and doing a quick setup using the following commands :
+We'll start our project by running the creating a directory for the project and doing a quick setup using the following command :
 
-```bash
-  mkdir secretweb
-  cd secretweb
-```
 ```bash
   yarn create vuetify
 ```
@@ -37,7 +33,7 @@ We'll start our project by running the creating a directory for the project and 
 You will have to select a set of options and name the application. For this tutorial we're using the following presets :
 
 ```bash
-  ✔ Project name: … frontend
+  ✔ Project name: … secretweb
   ✔ Which preset would you like to install? › Essentials (Vuetify, VueRouter, Pinia)
   ✔ Use TypeScript? … No 
   ✔ Would you like to install dependencies with yarn, npm, pnpm, or bun? › yarn
@@ -49,8 +45,37 @@ Next you can go into your newly created vuetify app folder.
 ![Enter Password](https://i.imgur.com/7famnqa.png)
 
 
-Under the **src/components** folder, create a new file called **EnterPassword.vue** . Then we'll setup the layout for to allow us enter the secret password. 
+Under the **src/components** folder, create a new file called **EnterPassword.vue**. Then we'll set up the layout for to allow us to enter the secret password. 
 
+First, we'll have to create a variable to hold the password value that the user enters and a function that does something with that password
+
+```html{}[enterpassword.vue]
+  <script setup>
+    import {ref} from "vue";
+    import {useRouter} from "vue-router";
+    const password = ref("")
+
+    // used to define webpage routes
+    const route = useRouter()
+
+     /* add your own logic to check if password is correct, 
+      here you can define your own password */
+    const correctPassword = "COWSARECUTE"
+
+    function checkPassword () {
+      if (password.value === correctPassword) {
+        // if password is correct, navigate to another route to show it was granted
+        route.push('/granted');
+      } 
+      else {
+        console.log("Incorrect password");
+      }
+    }
+
+  </script>
+```
+
+Next we have to make sure that the user can actually enter the password. 
 
 ```html{3-6, 10-13}[enterpassword.vue]
   <!-- Enter Password should be in the middle of screen  -->
@@ -90,36 +115,8 @@ Then we'll add some style :
   </style>
 ```
 
-Next we have to make sure that the user can actually enter the password. 
+Then, we have to create a place where the user can actually enter the password on the frontend. So inside the Enter Password heading, you'll have to include the following to your template:
 
-First, we'll create a variable to hold the password value that the user enters and a function that does something with that password
-```html{}[enterpassword.vue]
-  <script setup>
-    import {ref} from "vue";
-    import {useRouter} from "vue-router";
-    const password = ref("")
-
-    // used to define webpage routes
-    const route = useRouter()
-
-     /* add your own logic to check if password is correct, 
-      here you can define your own password */
-    const correctPassword = "COWSARECUTE"
-
-    function checkPassword () {
-      if (password.value === mypass) {
-        // if password is correct, navigate to another route to show it was granted
-        route.push('/granted');
-      } 
-      else {
-        console.log("Incorrect password");
-      }
-    }
-
-  </script>
-```
-
-Then, we have to create a place where the user can actually enter it on the frontend
 ```html{4}[enterpassword.vue]
   
   <template>
@@ -128,6 +125,21 @@ Then, we have to create a place where the user can actually enter it on the fron
     <!-- ...  -->
   </template>
 ```
+
+Then the corresponding style should be added under `<style>`, to define the password input style
+
+```scss
+input[type="password"] {
+  color: chartreuse; /* Change to the color you desire */
+}
+
+input[type="password"]:focus {
+  outline: none; /* Remove the default blue outline */
+}
+
+// other styles ...
+```
+
 
 ## Add Enter Password Component to a View 
 Views are the Vue components that represent different pages of your app. We need to place the Enter Password Component we just created into a view, so the user can access it
@@ -159,9 +171,9 @@ Create a file under the **src/views** folder called **PasswordView.vue** and add
 
 ## Access Granted Component 
 
-Now we have to create a component to show that Access was Granted after entering the right password. Create a file called **grantedPage.vue** under components and add the following code :
+Now we have to create a component to show that Access was Granted after entering the right password. Create a file called **GrantedPage.vue** under **src/components** and add the following code :
 
-```html{}[grantedPage.vue]
+```html{}[GrantedPage.vue]
   <template>
     <v-row justify="center">
       <v-col cols="12">
@@ -195,13 +207,12 @@ The code creates a border box with the text **"Access Granted"** in the middle o
 
 ## Load File Component
 
-The final page we're going to create, is the one that shows that we are accessing the file and indicates the progress, let's name it `accessFilePage.vue`.
+The final page we're going to create, is the one that shows that we are accessing the file and indicates the progress. Let's begin with a component called `AccessFilePage.vue`.
 
-We'll begin by creating a border box in the center of the screen to hold our content.
+We'll begin by creating a border box in the center of the screen to hold our content using the following code :
 
-Under our `<template>` we'll add the following code :
-
-```html{}[accessFilePage.vue]
+```html{}[AccessFilePage.vue]
+<template>
   <v-row justify="center">
     <v-col cols="12">
       <v-row justify="center">
@@ -209,7 +220,7 @@ Under our `<template>` we'll add the following code :
         <v-col cols="6"> 
           <div class="border-box">
             <div class="title">
-              <!-- Enter the Title Here -->
+                <h2 class="title_theme">Accessing the file</h2>
             </div>
             <div class="line-space"></div>
             <div>
@@ -225,18 +236,58 @@ Under our `<template>` we'll add the following code :
       </v-row>
     </v-col>
   </v-row>
-  <!-- my tutorial website password is  ... NKEMISAWESOME-->
+</template>
+  <!-- my tutorial website password is NKEMISAWESOME-->
 ```
 
 And for our styles we'll have :
 
-```scss{}[accessFilePage.vue]
+```scss{}[AccessFilePage.vue]
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .title_theme{
+    font-style: normal;
+    font-family: Courier New,serif, monospace;
+    font-weight: 600;
+    font-size: medium;
+    line-height: 1.25;
+    color: white;
+  }
+  
+  .content{
+    margin: 10px 10px 30px;
+  }
+  
+  .percent_theme{
+    font-style: normal;
+    font-family: Courier New,serif, monospace;
+    font-weight: 600;
+    font-size: x-large;
+    line-height: 1.25;
+    color: chartreuse;
+  }
+  
+  .content_number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
   .border-box {
-    border: 1px solid chartreuse; 
+    border: 1px solid chartreuse; /* Border properties (width, style, and color) */
     padding: 10px;
     margin: 10px;
   }
-
+  
   .line-space {
     height: 2px;
     background-color: chartreuse;
@@ -248,22 +299,39 @@ And for our styles we'll have :
 
 Next, we'll do the logic for the percentage increase 
 
-I created a counter function that counts from 0-100. While the counter, is less than 100 it increases it’s value every 100 milliseconds and once it reaches the limit, it stops the timer and redirects to our next page, the content
+We are using a counter function that counts from 0-100. While the counter is less than 100, it increases its value by 1 every 100 milliseconds and once it reaches the limit, it stops the timer and redirects to our next page. 
 
-```javascript{}[accessFilePage.vue]
+```javascript{}[AccessFilePage.vue]
+<script setup>
+  import {onMounted, onUnmounted, ref} from "vue";
+  import {useRouter} from "vue-router";
+
+  const percentage = ref(0)
+  let percent;
+
   function counter(){
     percent = setInterval(() => {
       if (percentage.value < 100) {
-        percentage.value++;
+          percentage.value++;
       } else {
-        // If counter reaches 100 or more, clear the interval
-        clearInterval(percent);
+          // If counter reaches 100 or more, clear the interval
+          clearInterval(percent);
 
-        // this is a custom route for my view after access is granted, you can change it as you wish
-        route.push('/chat')
+          // this is a custom route for my view after access is granted, you can change it as you wish
+          route.push('/')
       }
     }, 100);
   }
+
+  onMounted(() => {
+    counter() // Runs every 1 second
+  })
+
+  onUnmounted(() => {
+    clearInterval(percent);
+  })
+
+</script>
 ```
 
 The function is tied to vuetify's custom component, the v-progress linear, which shows a progress bar based on the value of `percentage` derived from our counter function :
@@ -271,9 +339,11 @@ The function is tied to vuetify's custom component, the v-progress linear, which
 ```html
   <div class="content">
     <div class="content_number">
+      <!-- Percentage  -->
       <h1 class="percent_theme">{{percentage}}%</h1>
     </div>
     <div>
+      <!-- Loading Animation  -->
       <v-progress-linear
         v-model="percentage"
         color="#7FFF00FF"
@@ -289,11 +359,12 @@ The final result is :
 
 ## Access Granted View
 
-Next we'll have to have a view to show our newly created components. Let's name this view `AccessGrantedView.vue`. What this view does is to show the first access granted page then after a few seconds it switches to the loading screen.
+Next we'll have to have a view component under _src/views_, to show our newly created components. Let's name this view `AccessGrantedView.vue`. What this view does is to show the first access granted page then after a few seconds it switches to the loading screen.
 
 First lets add the template :
 
 ```html
+<template>
   <v-container 
     class="container" 
     fluid 
@@ -302,22 +373,27 @@ First lets add the template :
     <granted-page v-if="!access_file"/>
     <access-file-page v-else />
   </v-container>
+</template>
 ```
 
 Then we'll need some logic to make the switch :
 
 ```javascript
-  const access_file = ref(false)
+  <script setup>
+      import {ref, onMounted} from "vue";
+      import AccessFilePage from "@/components/AccessFilePage.vue";
+      import GrantedPage from "@/components/GrantedPage.vue";
+      const access_file = ref(false)
 
-  onMounted(() => {
-    setTimeout(() => {
-      access_file.value = true
-    }, 3000);
-  })
-
+      onMounted(() => {
+          setTimeout(() => {
+              access_file.value = true
+          }, 3000);
+      })
+  </script>
 ```
 
-Now, we have access. You can create a custom view to route to after your access is given. But before that we have to configire our router so the code doesn't fall apart
+Now, we have access. You can create your own custom view to route to after your access is given. But before that we have to configure our router, so the code doesn't fall apart
 
 ## Router Setup
 
@@ -340,17 +416,10 @@ Under the router folder, in a file called `index.js`, we can define our routes b
 
         // access granted view
         {
-          path: 'granted',
-          name: 'AccessGranted',
-          component: () => import('@/views/AccessGranted.vue'),
+        path: 'granted',
+        name: 'AccessGranted',
+        component: () => import('@/views/AccessGrantedView.vue'),
 
-        },
-
-        // custom view after access granted 
-        {
-          path: 'chat',
-          name: 'ChatPage',
-          component: () => import('@/views/ChatPage.vue'),
         }
       ],
     },
@@ -366,7 +435,7 @@ Under the router folder, in a file called `index.js`, we can define our routes b
 
 ```
 
-Finally, our code is ready to run. You can test the new app out by runnin the command `yarn dev`.
+Finally, our code is ready to run. You can test the new app out by running the command `yarn dev`. The password for this tutorial is **COWSARECUTE**.
 
 ## Conclusion
 
@@ -374,9 +443,9 @@ Now, you can see your features in action
 
 ![WalkThrough](https://i.imgur.com/aowsIDb.gif)
 
-The full tutorial code is located at *github_link*
+The full tutorial code is located on [GitHub](https://github.com/MinellaPersonalProjects/secretweb_frontend)
 
-You can also see the website in action at this [link](), all you have to do is click on the `COMMUNITY` button at the website.
+You can also see the website in action at this [link](https://comfy-melba-927662.netlify.app/), all you have to do is click on the `COMMUNITY` button at the website.
 
 With the secret invasion website, after the password is entered you are led to a video trailer for the show. For our website, I'm adding a fun surprise. You can find the website here, clues to my password are located in this tutorial, have fun finding it. Happy Coding !!!
 

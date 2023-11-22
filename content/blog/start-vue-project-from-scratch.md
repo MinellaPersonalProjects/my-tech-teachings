@@ -255,13 +255,13 @@ At the end your file structure should look something like this :
 Now it's time to see your Vue App in action. Run the command
 
 ```bash
-npm run dev
+  npm run dev
 ```
 
 or
 
 ```bash
-yarn dev
+  yarn dev
 ```
 
 Once you run the command, you'll see an output in your terminal that resembles the following:
