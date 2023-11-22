@@ -26,3 +26,4 @@ logs
 # lock files
 yarn.lock
 package-lock.json
+.vscode/ltex.dictionary.en-US.txt
