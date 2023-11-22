@@ -8,7 +8,7 @@ export const useSocialsStore = defineStore('socials', {
         youtube: 'https://youtube.com/@NkemEllaMogbo?si=MXmW5yDi8OzhjGv8',
         linkedin: 'https://www.linkedin.com/in/mogbonkem2001',
         twitter: 'https://x.com/ellatheoffice?s=21&t=BMdb0B_nuVz3JkIfgcV4aQ',
-        gmail: 'mailto:nmogbo2001@gmail.com',
+        gmail: 'mailto:minnoella2001@gmail.com',
         github: 'https://github.com/Mogboella',
         resume: '/pdf/resume.pdf'
     }),
