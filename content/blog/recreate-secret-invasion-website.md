@@ -129,13 +129,13 @@ Then, we have to create a place where the user can actually enter the password o
 Then the corresponding style should be added under `<style>`, to define the password input style
 
 ```scss
-input[type="password"] {
-  color: chartreuse; /* Change to the color you desire */
-}
+  input[type="password"] {
+    color: chartreuse; /* Change to the color you desire */
+  }
 
-input[type="password"]:focus {
-  outline: none; /* Remove the default blue outline */
-}
+  input[type="password"]:focus {
+    outline: none; /* Remove the default blue outline */
+  }
 
 // other styles ...
 ```
