@@ -7,8 +7,6 @@ export async function handler(event) {
 
   // Create a transporter object using the default SMTP transport
   let transporter = createTransport({
-    port: 587,
-    secure: false, // true for 465, false for other ports
     service: 'Gmail', // Use your email service provider
     auth: {
         user: config_email, // Your email address
