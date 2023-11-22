@@ -22,7 +22,7 @@ export async function handler(event) {
   try {
     let info = await transporter.sendMail({
       from: `"${name}" <${String(config_email)}>`, // Sender address
-      to: email, // List of receivers
+      to: config_email, // List of receivers
       subject: 'Message from your website', // Subject line
       text: message, // Plain text body
       replyTo: `${name} <${email}>`,
