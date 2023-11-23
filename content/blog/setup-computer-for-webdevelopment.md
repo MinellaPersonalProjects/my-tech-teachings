@@ -18,7 +18,7 @@ Are you eager to dive into the exciting world of web development, create stunnin
 
 In this beginner-friendly guide, I'll walk you through the essential steps to set up your computer for web development. Starting from square one, I will walk you through the process of setting up your computer from installing a code editor to mastering the command line, configuring your development environment, and getting your hands dirty with JavaScript, and some of its Frameworks like VueJS or React. In the end, you'll gain all the necessary tools and knowledge to embark on this journey with confidence. Whether you are a beginner or an experienced developer, having the right tools and environment is essential for a smooth development experience, and this tutorial is the right place for you to start.
 
-# Install Code Editor
+## Install Code Editor
 
 Before you begin any web development, you will need a code editor. It provides an environment optimized for writing, editing and reviewing code.
 
@@ -28,7 +28,7 @@ Personally, I recommended using a code editor like **Visual Studio Code (VSCode)
 - [Sublime Text](https://www.sublimetext.com) (Free)
 - [Atom](https://atom-editor.cc) (Free)
 
-# Command Line Mastery
+## Command Line Mastery
 
 The terminal or command line lets you interact with the underlying operating system of your computer. Think of the command line as a way to have a direct conversation with the computer by typing in text-based commands.
 
@@ -42,7 +42,7 @@ For our tutorial, we are using the VS Code on Mac. To access the terminal , clic
 
 A terminal window, will open up below and there you can begin typing in commands.
 
-# Set Up Version Control
+## Set Up Version Control
 
 Version control, is the practice of tracking and managing changes made to your code. It keeps track of every change in your code and if you make a mistake, it is easier to backtrack and make comparisons to what you had before.
 
@@ -75,11 +75,11 @@ To initialize your project with git, you can run the command
 
 For More Information on Git and Version Control, you can check [this](https://www.freecodecamp.org/news/git-and-github-for-beginners/) out.
 
-# Install Homebrew (For Mac Users)
+## Install Homebrew (For Mac Users)
 
 Homebrew is a package management system that simplifies software installation on Apple OS, macOS and Linux. The [Brew](https://brew.sh) home page has an easy command to quickly begin Homebrew installation on your computer.
 
-# Install NodeJS, NPM and Yarn
+## Install NodeJS, NPM and Yarn
 
 Next, we will have to install Node.js . Node.js is a runtime environment that allows you to run JavaScript code on the server-side.
 
@@ -97,7 +97,7 @@ Once, node is installed, install yarn using the following commands on Mac/Linux 
 
 For Windows or Other Operating systems, you can follow the [Node Installation Instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and [Yarn Installation Guide](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 
-# Conclusion
+## Conclusion
 
 After wrapping up this tutorial, you finally have the tools you need to explore the vast world of web development. You can create some cool and fun projects by following some of my other tutorials now that you have everything setup like the [Re-Create the Opening of Marvel's Secret Invasion Website Tutorial using VueJS and Vuetify](/blog/recreate-secret-invasion-website) or you can learn gain familiarity with a whole new Development Framework using the [Quick Start Guide to a Vue 3, Vuetify 3 Project](/blog/start-vue-project-with-shortcuts.md)
 

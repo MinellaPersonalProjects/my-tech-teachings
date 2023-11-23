@@ -94,6 +94,8 @@ Next we have to make sure that the user can actually enter the password.
   </template>
 ```
 
+### Component Style
+
 Then we'll add some style :
 
 ```html{}[enterpassword.vue]
@@ -114,6 +116,8 @@ Then we'll add some style :
   }
   </style>
 ```
+
+### Password Input 
 
 Then, we have to create a place where the user can actually enter the password on the frontend. So inside the Enter Password heading, you'll have to include the following to your template:
 
@@ -209,6 +213,8 @@ The code creates a border box with the text **"Access Granted"** in the middle o
 
 The final page we're going to create, is the one that shows that we are accessing the file and indicates the progress. Let's begin with a component called `AccessFilePage.vue`.
 
+### Frontend Template
+
 We'll begin by creating a border box in the center of the screen to hold our content using the following code :
 
 ```html{}[AccessFilePage.vue]
@@ -239,6 +245,8 @@ We'll begin by creating a border box in the center of the screen to hold our con
 </template>
   <!-- my tutorial website password is NKEMISAWESOME-->
 ```
+
+### Component Style
 
 And for our styles we'll have :
 
@@ -296,6 +304,8 @@ And for our styles we'll have :
     padding-right: 0;
   }
 ```
+
+### Logic to Increase Percentage with Time
 
 Next, we'll do the logic for the percentage increase 
 

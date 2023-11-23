@@ -21,7 +21,7 @@ Assume that in every `v-col` you create, you are essentially making another mini
 
 In our example above, if you notice it is made of two big rows and within one of those rows, it is divided further.
 
-# Two Rows
+## Two Rows
 
 For our code, we'll begin by creating two rows
 
@@ -40,7 +40,7 @@ For our code, we'll begin by creating two rows
   </v-container>
 ```
 
-# Second Division
+## Second Division
 
 Within our top `v-col`, we're going to add another `v-row` and further divide that row into two columns
 
@@ -66,7 +66,7 @@ Within our top `v-col`, we're going to add another `v-row` and further divide th
   </v-container>
 ```
 
-# Even More Rows
+## Even More Rows
 
 To make this even more fun, we're going to add another `v-row` within our first `v-col` to make two smaller rows
 
@@ -99,7 +99,7 @@ To make this even more fun, we're going to add another `v-row` within our first 
   </v-container>
 ```
 
-# Final Result
+## Final Result
 
 This is what our full code would look like:
 

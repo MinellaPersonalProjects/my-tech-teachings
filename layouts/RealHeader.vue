@@ -9,7 +9,7 @@ const socials = useSocialsStore()
 const navLinks = [
   { text: "Home", to: "/" },
   { text: "About", to: "/about" },
-  { text: "Blogs", to: "/blogs" },
+  { text: "Blogs", to: "/blog" },
   { text: "Resumé", download_resume: true },
 ];
 
