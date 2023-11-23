@@ -42,7 +42,7 @@ function getColorMapping(social){
     <v-col cols="12" lg="4" xl="4" >
       <v-btn class="btn positioning" variant="text" to="/">HOME</v-btn>
       <v-btn class="btn positioning" variant="text" to="/about">ABOUT</v-btn>
-      <v-btn class="btn positioning" variant="text" to="/blogs">BLOGS</v-btn>
+      <v-btn class="btn positioning" variant="text" to="/blog">BLOGS</v-btn>
       <v-btn class="btn positioning" variant="text" @click="socials.downloadResume()">RESUMÉ</v-btn>
     </v-col>
 

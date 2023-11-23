@@ -4,7 +4,7 @@ import {useDisplay} from "vuetify";
 
 const theme = useTheme()
 
-const { data: blogs } = await useAsyncData('blogs', () => queryContent('blog')
+const { data: blogs } = await useAsyncData('blog', () => queryContent('blog')
     .sort({ publishDateTime: -1 })
     .find())
 
@@ -77,7 +77,7 @@ function getShortTitle(title) {
         </v-row>
         <v-row justify="center" align="center">
           <v-col cols="12" class="text-center">
-            <v-btn to="/blogs" color="blue">See All Articles</v-btn>
+            <v-btn to="/blog" color="blue">See All Articles</v-btn>
           </v-col>
         </v-row>
       </v-card>

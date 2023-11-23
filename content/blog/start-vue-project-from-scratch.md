@@ -18,7 +18,7 @@ There are readily available templates and commands to build your Vue App and if 
 
 Starting a Vue project from scratch may seem tricky, but with the right guidance, it can be a rewarding and straightforward process. In this blog post, I will take you through the essential steps to start your Vue project from the ground up with Vuetify and Vite. By the end of this guide, you will have a solid foundation for creating dynamic and interactive web applications using VueJS.
 
-# Prerequisites
+## Prerequisites
 
 Before diving into your project, you have to ensure that you have the necessary tools ready. For this project you will need :
 
@@ -28,7 +28,7 @@ Before diving into your project, you have to ensure that you have the necessary 
 
 If you're new to web devolpment and need guidance setting up everything I recommend starting with my tutorial for [Getting Started with Web Development](/blog/setup-computer-for-webdevelopment). Once you have completed the initial set up, you can return here and dive into creating your Vue project from scratch.
 
-# Step 1: Initialize your Project
+## Step 1: Initialize your Project
 
 First, create a new folder on your computer where you would like your project to go. Then you can open up the folder in your IDE, for the purpose of this tutorial we will be using an IDE called **Visual Studio Code**. In Visual Studio Code, once you open up the project folder you created, you can go to the terminal and initialize the project using the command :
 
@@ -38,7 +38,7 @@ First, create a new folder on your computer where you would like your project to
 
 This command creates a file called **package.json** in your project directory, and we will need to edit the file to get your project up and running properly.
 
-# Step 2: Edit Package.json
+## Step 2: Edit Package.json
 
 The **package.json** is a fundamental file for any Node.js based projects, including those that use frameworks and libraries like Vue, React, Angular, and many others. For the purpose of our project, we need to add some modifications to ensure compatibility and optimization for a Vue + Vite setup.
 
@@ -75,7 +75,7 @@ Add the following code to your **package.json** after the `description` variable
     }
 ```
 
-# Step 3: Install Dependencies and SetUp Plugins
+## Step 3: Install Dependencies and SetUp Plugins
 
 Now we need to add the essential dependencies for our project. Use the following commands to install :
 
@@ -126,7 +126,7 @@ Next, create a file called **index.js**, still inside the **plugins** folder. Th
     }
 ```
 
-# Step 4: SetUp Vite Config
+## Step 4: SetUp Vite Config
 
 Next you'll have to create a file called **vite.config.js**, in the root of your project, outside the _src_ folder.
 
@@ -164,7 +164,7 @@ For a basic setup, you can start with the following structure:
 
 Vite provides a host of other configuration options like `build`, `css`, `aliases` and more. Depending on your project's needs, you might want to look into the [official vite documentation](https://vitejs.dev/config/) to explore and implement them.
 
-# Step 5 : Create index.html file
+## Step 5 : Create index.html file
 
 Your Vue app needs an HTML entry point. We'll create an **index.html** file in the project root, where your Vue application will be mounted.
 
@@ -187,13 +187,13 @@ Your Vue app needs an HTML entry point. We'll create an **index.html** file in t
 
 By following these steps, you'll have your **index.html** file ready as the entry point for your Vue app, next we will need a folder to store assets like the favicon, enhancing the appearance and functionality of your web application.
 
-# Step 6: Create public folder
+## Step 6: Create public folder
 
 The **public** folder is used to store static assets that don't need processing or bundling like images or fonts. In your project root create a folder called **public**.
 
 In our **public** folder, we'll save an image and name it **favicon.ico**, this is the small icon you usually see next to the website title in browser tabs or bookmarks. You can use [this image](https://w7.pngwing.com/pngs/603/872/png-transparent-donuts-homer-simpson-drawing-render-simpson-donut-purple-eating-magenta.png) as your icon, alternatively you can choose your own favicon image online
 
-# Step 7: Create the Vue App
+## Step 7: Create the Vue App
 
 We are finally ready to create the core structure of our Vue App.
 
@@ -250,7 +250,7 @@ At the end your file structure should look something like this :
     └── index.html
 ```
 
-# Step 8: Run App
+## Step 8: Run App
 
 Now it's time to see your Vue App in action. Run the command
 
@@ -270,7 +270,7 @@ Once you run the command, you'll see an output in your terminal that resembles t
 
 If you copy the URL into your web browser, you'll see your Vue app live in your browser
 
-# Conclusion
+## Conclusion
 
 Starting your Vue App from scratch is great to familiarize yourself with the programming language, but if you want a quick and easy start to your project and to build something fun, quickly, check out my other article :
 
