@@ -2,11 +2,21 @@
 import {Icon} from "@iconify/vue";
 
 const props = defineProps(['data', 'sectiontitle'])
-const perPage = 5; // Number of posts per page
+const perPage = 2; // Number of posts per page
+const totalPages = ref(2)
 
-const totalPages = computed(() => {
-  return props.data ? Math.ceil(props.data.length / perPage) : 2;
-})
+if (props.data) {
+  totalPages.value = Math.ceil(props.data.length / perPage)
+}
+
+// const totalPages = computed(() => {
+//   if (props.data) {
+//     return Math.ceil(props.data.length / perPage)
+//   }
+//   else {
+//     return 2;
+//   }
+// });
 
 const currentPage = ref(1)
 
@@ -43,7 +53,7 @@ const pageNumbersToShow = computed(() => {
     let startPage = Math.max(currentPage.value - Math.floor(maxPageButtonsToShow / 2), 2);
     let endPage = Math.min(startPage + maxPageButtonsToShow - 1, totalPages-1);
 
-    if (startPage > 3) {
+    if (startPage > 1) {
       // Add ellipsis if there are pages before the first page to show
       pageNumbers.push('...');
     }
