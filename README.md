@@ -1,6 +1,18 @@
-# Nuxt 3 Minimal Starter
+# Nkem's Tech Blog 
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This blog is built with Nuxt 3 and Nuxt Content, showcasing a range of notable features:
+
+- **SEO Optimization**: Ensures high visibility and discoverability.
+- **Composition API**: Utilizes Vue's Composition API for a reactive and efficient user interface.
+- **Pinia State Store**: Manages application state effectively, enhancing performance.
+- **CSRF Token Security**: Protects against unauthorized state-changing requests by verifying unique tokens.
+- **Email Integration**: Offers functionality to send emails from users to a selected address.
+- **Custom Styling and Layouts for Nuxt Content**: Features include:
+    - Custom headers for a unique look.
+    - Elegant code formatting for improved readability.
+    - Well-structured paragraphs and content.
+    - An organized table of contents for easy navigation.
+- **Cloud-Based Image Hosting with Imgur**: Ensures fast and reliable image loading.
 
 ## Setup
 
@@ -38,41 +50,7 @@ yarn dev
 bun run dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Check out the [nuxt deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
 ## Inspired by 
 - https://gonzalohirsch.com/blog/zero-to-blog-building-with-nuxt-3/
