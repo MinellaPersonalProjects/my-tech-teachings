@@ -6,7 +6,7 @@
     </header>
     <ul v-if="links" v-show="isVisible">
       <!-- render each link with depth class -->
-      <li v-for="link in flatlink(links)" :key="link.id" :class="`toc-link toc-link_${link.depth}`">
+      <li v-for="link in links" :key="link.id" :class="['toc-link', `toc-link_${link.depth} first:mt-0 mt-2 md:mt-1`]">
         <a
             :href="`#${link.id}`"
             class="toc-link hover:underline hover:text-brand_primary"
@@ -30,26 +30,11 @@ defineProps({
 });
 
 import {ref} from 'vue';
-
 const isVisible = ref(true);
 const theme = useTheme()
 const toggleToc = () => {
   isVisible.value = !isVisible.value;
 }
-
-const flatlink = (links) => {
-    const flattenedLinks = [];
-
-    links.forEach(link => {
-        flattenedLinks.push(link);
-
-        if (link.children) {
-            flattenedLinks.push(...flatlink(link.children));
-        }
-    });
-
-    return flattenedLinks;
-};
 
 
 </script>
@@ -92,43 +77,12 @@ const flatlink = (links) => {
 .toc-link {
   color: inherit;
   text-decoration: none;
-  margin-top: 0.5rem;
-}
-
-.toc-link a:hover {
-  text-decoration: underline;
-  color: #0078d4;
-}
-
-/* First child has no top margin */
-.toc-link:first-child {
-  margin-top: 0;
-}
-
-/* Adjust top margin for medium screens and up */
-@media screen and (min-width: 768px) {
-  .toc-link {
-    margin-top: 0.25rem; /* Assuming mt-1 is 0.25rem */
-  }
 }
 
 /* Hover styles for TOC links */
-
-.toc-link_1 {
-  font-weight: 'bold';
-  text-decoration: none;
-}
-
-.toc-link_3 {
-  padding-right: 30px;
-  text-decoration: none;
-  font-size: 14px;
-  color: rgba(128, 128, 128, 0.5); ;
-}
-
-.toc-link_3 ::before{
-  content: "--";
-  padding-right: 10px;
+.toc-link a:hover {
+  text-decoration: underline;
+  color: #0078d4;
 }
 
 /* Style for the chevron icon */
