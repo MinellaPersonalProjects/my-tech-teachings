@@ -4,9 +4,14 @@
       <span class="blog-aside-title mb-0">TABLE OF CONTENTS</span>
       <IconsChevronDown class="chevron-icon" width="24" height="24"/>
     </header>
-    <ul v-if="links" v-show="isVisible">
+    <v-list v-if="links" v-show="isVisible" class="toc-list" lines="one">
       <!-- render each link with depth class -->
-      <li v-for="link in links" :key="link.id" :class="['toc-link', `toc-link_${link.depth} first:mt-0 mt-2 md:mt-1`]">
+      <v-list-item 
+        v-for="link in flatlink(links)" 
+        :key="link.id" 
+        :class="getClassDepth(link.depth)" 
+        class="first:mt-0 mt-2 md:mt-1"
+      >
         <a
             :href="`#${link.id}`"
             class="toc-link hover:underline hover:text-brand_primary"
@@ -14,8 +19,8 @@
         >
           {{ link.text }}
         </a>
-      </li>
-    </ul>
+      </v-list-item>
+    </v-list>
   </nav>
 </template>
 
@@ -34,6 +39,21 @@ const isVisible = ref(true);
 const theme = useTheme()
 const toggleToc = () => {
   isVisible.value = !isVisible.value;
+}
+
+const flatlink = (links) => {
+    const flattenedLinks = [];
+    links.forEach(link => {
+        flattenedLinks.push(link);
+        if (link.children) {
+            flattenedLinks.push(...flatlink(link.children));
+        }
+    });
+    return flattenedLinks;
+};
+
+function getClassDepth(depth){
+  return `toc-link toc-link-depth-${depth}`;
 }
 
 
@@ -67,10 +87,9 @@ const toggleToc = () => {
   background-color: inherit;
 }
 
-.toc ul {
+.toc-list {
   /* Styles for the TOC list */
   list-style: none;
-  padding-left: 1rem;
   border-left: 2px solid #ccc;
 }
 
@@ -84,6 +103,34 @@ const toggleToc = () => {
   text-decoration: underline;
   color: #0078d4;
 }
+
+.toc-link-depth-1 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333; 
+  margin-top: 160px;
+  text-transform: uppercase; 
+}
+
+
+.toc-link-depth-2 {
+  font-size: 1.1em;
+  font-weight: 500; /* or medium */
+  color: #555;
+  margin-bottom: -20px;
+  padding-left: 1em; /* optional */
+}
+
+
+.toc-link-depth-3 {
+  font-size: 1em;
+  font-weight: 300;
+  color: #777;
+  margin-bottom: -20px;
+  margin-left: 20px !important; /* more than H2 for nested appearance */
+  list-style-type: disc; /* optional */
+}
+
 
 /* Style for the chevron icon */
 .chevron-icon {
