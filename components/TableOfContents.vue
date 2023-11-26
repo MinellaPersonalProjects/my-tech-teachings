@@ -1,38 +1,65 @@
 <template>
-  <nav class="toc">
-    <header class="toc-header" @click="toggleToc" aria-label="Expand the table of contents.">
-      <span class="blog-aside-title mb-0">TABLE OF CONTENTS</span>
-      <IconsChevronDown class="chevron-icon" width="24" height="24"/>
-    </header>
-    <v-list v-if="links" v-show="isVisible" class="toc-list" lines="one">
-      <!-- render each link with depth class -->
-      <v-list-item 
-        v-for="link in flatlink(links)" 
-        :key="link.id" 
-        :class="getClassDepth(link.depth)" 
-        class="first:mt-0 mt-2 md:mt-1"
-      >
-        <a
-            :href="`#${link.id}`"
-            class="toc-link hover:underline hover:text-brand_primary"
-            :style="{ color: theme.global.current.value.dark? 'white' : 'black' }"
-        >
-          {{ link.text }}
-        </a>
+  <v-layout>
+    <v-navigation-drawer 
+      v-if="haveLinks"
+      class="toc"
+      :rail="rail"
+      location="right" 
+    >
+      <v-list-item title="Table of Contents" class="toc-header">
+        <template v-slot:append>
+          <v-btn
+            variant="text"
+            icon
+            @click.stop="rail = !rail"
+          ><v-icon>{{ rail ? 'mdi-chevron-right' : 'mdi-chevron-left' }}</v-icon></v-btn>
+        </template>
       </v-list-item>
-    </v-list>
-  </nav>
+      <!-- <span class="blog-aside-title mt-4">TABLE OF CONTENTS</span> -->
+      <!-- <header class="toc-header" @click="toggleToc" aria-label="Expand the table of contents.">
+        <span class="blog-aside-title mb-0">TABLE OF CONTENTS</span>
+        <IconsChevronDown class="chevron-icon" width="24" height="24"/>
+      </header> -->
+      <v-divider></v-divider>
+      <v-list lines="one" v-show="!rail">
+        <!-- render each link with depth class -->
+        <v-list-item 
+          v-for="link in flatlink(props.links)" 
+          :key="link.id" 
+          :class="getClassDepth(link.depth)" 
+        >
+          <a
+              :href="`#${link.id}`"
+              class="toc-link hover:underline hover:text-brand_primary"
+              :style="{ color: theme.global.current.value.dark? 'white' : 'black' }"
+          >
+            {{ link.text }}
+          </a>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </v-layout>
 </template>
 
 <script setup>
 import {useTheme} from "vuetify";
 
-defineProps({
+const props = defineProps({
   links: {
     type: Array,
-    required: true
+    required: true,
+    default: () => []
   }
 });
+
+const emits = defineEmits(['open'])
+const rail = ref(false)
+
+function openDrawer(){
+  emit('open')
+}
+
+const haveLinks = computed(() => props.links && props.links.length > 0);
 
 import {ref} from 'vue';
 const isVisible = ref(true);
@@ -73,11 +100,12 @@ function getClassDepth(depth){
   align-items: center;
   cursor: pointer;
   margin-bottom: 2px;
+  font-size: 40px;
 }
 
 .toc {
-  color: inherit;
   text-decoration: none;
+  z-index: 3;
 }
 
 .toc header {
@@ -90,7 +118,6 @@ function getClassDepth(depth){
 .toc-list {
   /* Styles for the TOC list */
   list-style: none;
-  border-left: 2px solid #ccc;
 }
 
 .toc-link {
@@ -117,7 +144,6 @@ function getClassDepth(depth){
   font-size: 1.1em;
   font-weight: 500; /* or medium */
   color: #555;
-  margin-bottom: -20px;
   padding-left: 1em; /* optional */
 }
 
@@ -126,7 +152,7 @@ function getClassDepth(depth){
   font-size: 1em;
   font-weight: 300;
   color: #777;
-  margin-bottom: -20px;
+  margin-top: -10px !important;
   margin-left: 20px !important; /* more than H2 for nested appearance */
   list-style-type: disc; /* optional */
 }

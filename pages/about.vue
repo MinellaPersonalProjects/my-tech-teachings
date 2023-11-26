@@ -58,7 +58,7 @@ const theme = useTheme()
             >
               <!-- Fetch and display the Markdown document from the current path -->
                 <v-card-text>
-                  <v-container fluid>
+                  <v-container>
                       <v-row>
                         <div class="row-with-line"></div>
                         <v-breadcrumbs :items="items">
@@ -87,13 +87,9 @@ const theme = useTheme()
                         </div>
                       </v-row>
                       <v-row>
-                        <v-col cols="12" md="8" class="relative">
+                        <v-col cols="12" class="relative">
                           <!-- About content -->
                           <about-content class="text-font"/>
-                        </v-col>
-                        <v-col cols="12" md="4">
-                          <!-- Table of Content -->
-                          <div class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside hidden-sm-and-down"><TableOfContents :links="links" class="blog-post-text" /></div>
                         </v-col>
                       </v-row>
                   </v-container>

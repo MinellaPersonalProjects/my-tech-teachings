@@ -1,8 +1,16 @@
 <script setup>
 // from Gonzalo Hirsch
-import {useTheme} from "vuetify";
+import {useTheme, useDisplay} from "vuetify";
+
+const { mdAndUp, smAndUp } = useDisplay()
 
 const { path } = useRoute();
+const drawer = ref(false)
+
+function openDrawer() {
+  drawer.value = !drawer.value
+}
+
 const cleanPath = path.replace(/\/+$/, '');
 const { data, error } = await useAsyncData(`${cleanPath}`, async () => {
     let article = queryContent('/blog').where({ _path: cleanPath }).findOne();
@@ -99,14 +107,17 @@ const theme = useTheme()
 </script>
 <template>
     <NuxtLayout>
-        <v-container class="container-height" fluid>
+        <v-container class="container-height">
             <v-card
                 class="px-4 py-10 mx-auto"
                 :class="{
                 'bg-white': !theme.global.current.value.dark,
                 'dark:bg-gray-800': theme.global.current.value.dark,
               }"
-                :elevation="theme.global.current.value.dark ? 2 : 0"
+                :style="{
+                  width: mdAndUp ? '60vw' : ''
+                }"
+                :elevation="theme.global.current.value.dark ? 2 : 1"
             >
               <!-- Fetch and display the Markdown document from the current path -->
               <ContentDoc>
@@ -144,15 +155,37 @@ const theme = useTheme()
                         </v-col>
                       </v-row>
                       <v-row>
-                        <v-col cols="12" md="8" class="relative">
+                        <v-col cols="12" class="relative">
                           <!-- Blog content -->
                           <ContentRenderer :value="doc" class="blog-content blog-post-text" />
                         </v-col>
-                        <v-col cols="12" md="4">
-                          <!-- Mobile Table of Content -->
-                          <div class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside hidden-sm-and-down"><TableOfContents :links="doc.body?.toc?.links" class="blog-post-text" /></div>
-                          <!-- Related articles -->
-                          <div v-if="data?.surround?.filter((elem) => elem !== null)?.length > 0" class="blog-aside-wrapper"><RelatedArticles :surround="data?.surround" class="blog-post-text" /></div>
+                        <!-- class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside hidden-sm-and-down" -->
+                        <TableOfContents 
+                          :links="doc.body?.toc?.links" 
+                          @open="openDrawer"
+                          class="blog-post-text" 
+                        />
+                      </v-row>
+                      <v-row>
+                        <v-col cols="12">
+                          <v-card variant="outlined" >
+                            <!-- Related articles -->
+                            <v-card-title class="related-style">Continue Reading</v-card-title>
+                            <v-card-text>
+                              <v-list >
+                              <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
+                                <v-list-item v-for="post in data?.surround">
+                                  <next-posts-card style="margin-bottom: 10px"
+                                                  :date="post?.publishDate"
+                                                  :description="post?.summary"
+                                                  :image="post?.myImage"
+                                                  :path="post?._path"
+                                                  :title="post?.title"
+                                />
+                                </v-list-item>
+                              </v-list>
+                          </v-card-text>
+                          </v-card>
                         </v-col>
                       </v-row>
                   </v-container>
@@ -253,6 +286,10 @@ const theme = useTheme()
   font-family: "Futura", monospace;
   font-weight: bold;
   margin-bottom: 16px;
+}
+
+.related-style{
+  font-family: 'PT Sans Caption',sans-serif;
 }
 
 .about-description {

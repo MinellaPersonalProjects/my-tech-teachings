@@ -15,7 +15,7 @@ import AppFooter from "~/layouts/AppFooter.vue";
       <slot />
     </main>
 
-    <footer class="bg-grey-darken-1">
+    <footer class="bg-grey-darken-1 fotter-index">
       <app-footer />
     </footer>
   </div>
@@ -31,5 +31,9 @@ import AppFooter from "~/layouts/AppFooter.vue";
 
 .flex-grow {
   flex: 1; /* This will make the main content grow to push the footer down */
+}
+
+.fotter-index{
+  z-index: 2;
 }
 </style>

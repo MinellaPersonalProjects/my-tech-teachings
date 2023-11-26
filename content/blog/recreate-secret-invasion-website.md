@@ -455,7 +455,7 @@ Now, you can see your features in action
 
 The full tutorial code is located on [GitHub](https://github.com/MinellaPersonalProjects/secretweb_frontend)
 
-You can also see the website in action at this [link](https://comfy-melba-927662.netlify.app/), all you have to do is click on the `COMMUNITY` button at the website.
+You can also see the website in action at this [web link](https://comfy-melba-927662.netlify.app), all you have to do is click on the `COMMUNITY` button at the website.
 
 With the secret invasion website, after the password is entered you are led to a video trailer for the show. For our website, I'm adding a fun surprise. You can find the website here, clues to my password are located in this tutorial, have fun finding it. Happy Coding !!!
 
