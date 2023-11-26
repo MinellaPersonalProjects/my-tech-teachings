@@ -39,7 +39,7 @@ onUnmounted(() => {
 .scroll-to-top {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   z-index: 1000;
   background-color: #007BFF; /* Replace with your desired button background color */
   color: #fff; /* Replace with your desired button text color */
