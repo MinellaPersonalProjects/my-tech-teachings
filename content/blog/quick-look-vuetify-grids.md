@@ -92,4 +92,4 @@ This is what your code looks like,
 
 ![fullGrid](https://i.imgur.com/9b1tHRg.png)
 
-It may look small but be patient, now you have the basics down, you can create so many fun styles by changing a few values. Head on to [Part 2](/blog/styling-vuetify-grids.md) of this tutorial to gain more advanced mastery of the Vuetify Grid System.
+It may look small but be patient, now you have the basics down, you can create so many fun styles by changing a few values. Head on to [Part 2](/blog/styling-vuetify-grids ) of this tutorial to gain more advanced mastery of the Vuetify Grid System.

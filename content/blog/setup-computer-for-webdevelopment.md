@@ -99,7 +99,7 @@ For Windows or Other Operating systems, you can follow the [Node Installation In
 
 ## Conclusion
 
-After wrapping up this tutorial, you finally have the tools you need to explore the vast world of web development. You can create some cool and fun projects by following some of my other tutorials now that you have everything setup like the [Re-Create the Opening of Marvel's Secret Invasion Website Tutorial using VueJS and Vuetify](/blog/recreate-secret-invasion-website) or you can learn gain familiarity with a whole new Development Framework using the [Quick Start Guide to a Vue 3, Vuetify 3 Project](/blog/start-vue-project-with-shortcuts.md)
+After wrapping up this tutorial, you finally have the tools you need to explore the vast world of web development. You can create some cool and fun projects by following some of my other tutorials now that you have everything setup like the [Re-Create the Opening of Marvel's Secret Invasion Website Tutorial using VueJS and Vuetify](/blog/recreate-secret-invasion-website) or you can learn gain familiarity with a whole new Development Framework using the [Quick Start Guide to a Vue 3, Vuetify 3 Project](/blog/start-vue-project-with-shortcuts )
 
 Remember that learning and growth in this field are ongoing. Embrace challenges, seek knowledge, and don't hesitate to experiment and build. The path ahead will be filled with exciting projects, problem-solving, and opportunities to turn your creative ideas into digital reality. Keep coding, keep learning, and most importantly, enjoy the incredible adventure that is web development. Welcome aboard, and may your code always run smoothly! Happy coding!
 

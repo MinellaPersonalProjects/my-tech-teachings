@@ -12,7 +12,7 @@ publishDate: 2 Nov 2023
 publishDateTime: '2023-11-2:16:30'
 ---
 
-In the first part of our three-part series on Mastering Vuetify Grids, we covered the basics of creating Grids in Vuetify. As we move into Part 2, we're going to take a deep dive into different ways we can style our grid. If you're just joining us, start with [Part 1](/blog/quick-look-vuetify-grids.md) to get up to speed.
+In the first part of our three-part series on Mastering Vuetify Grids, we covered the basics of creating Grids in Vuetify. As we move into Part 2, we're going to take a deep dive into different ways we can style our grid. If you're just joining us, start with [Part 1](/blog/quick-look-vuetify-grids ) to get up to speed.
 
 For this tutorial, we'll be looking through a variety of code samples and how they would look on your webpage. This will give you the building blocks for more complex applications and lay a stronger foundation to help you understand Vuetify Grids.
 
@@ -257,4 +257,4 @@ When defining our v-col, we'll have to include something similar to the followin
 
 By specifying different values for the cols attribute at different breakpoints, you can create a responsive layout that adjusts based on the user's screen size.
 
-As we wrap up Part 2 you have some fancier styles in your tool belt and a higher understanding of Vuetify Grid Styles. Stay tuned for [Part 3](/blog/nesting-grids.md), where we'll get to create even fancier styles using **Nesting**. If you missed Part 1, catch up [here](/blog/quick-look-vuetify-grids.md) to learn the basics of the Vuetify grid system.
+As we wrap up Part 2 you have some fancier styles in your tool belt and a higher understanding of Vuetify Grid Styles. Stay tuned for [Part 3](/blog/nesting-grids ), where we'll get to create even fancier styles using **Nesting**. If you missed Part 1, catch up [here](/blog/quick-look-vuetify-grids ) to learn the basics of the Vuetify grid system.
