@@ -1,6 +1,6 @@
 # Nkem's Tech Blog 
 
-This blog is built with Nuxt 3 and Nuxt Content, showcasing a range of notable features:
+This blog is built with Nuxt 3 and Nuxt Content, showcasing a range of notable features including :
 
 - **SEO Optimization**: Ensures high visibility and discoverability.
 - **Composition API**: Utilizes Vue's Composition API for a reactive and efficient user interface.
@@ -13,6 +13,8 @@ This blog is built with Nuxt 3 and Nuxt Content, showcasing a range of notable f
     - Well-structured paragraphs and content.
     - An organized table of contents for easy navigation.
 - **Cloud-Based Image Hosting with Imgur**: Ensures fast and reliable image loading.
+
+Live website located at https://nkems-tech-teachings.com/
 
 ## Setup
 
