@@ -6,15 +6,15 @@ defineProps({
   },
   title: {
     type: String,
-    default: 'Blog One'
+    default: 'Home'
   },
   description: {
     type: String,
-    default: 'Learn how to do stuff'
+    default: 'See all the other fun applications available'
   },
   date: {
     type: String,
-    default: 'August 23, 2002'
+    default: 'August 23, 2023'
   },
   path: {
     type: String,
