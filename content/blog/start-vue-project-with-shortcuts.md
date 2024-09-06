@@ -1,15 +1,12 @@
 ---
-title: 'Quick Start Guide to a Vue 3, Vuetify 3 Project'
+title: Quick Start Guide to a Vue 3, Vuetify 3 Project
 headline: Start a Vue 3 Project with ShortCuts
-summary: >-
-  Learn how to kickstart your Vue.js project with a step-by-step guide to
-  building a Vue application with command line shortcuts
-myImage: >-
-  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-mD8yJm2YRM3ls1pbiXAEJ_eoLN47IgW8w&usqp=CAU
+summary: Learn how to kickstart your Vue.js project with a step-by-step guide to building a Vue application with command line shortcuts
+myImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-mD8yJm2YRM3ls1pbiXAEJ_eoLN47IgW8w&usqp=CAU
 tags:
   - vue
 publishDate: 18 Oct 2023
-publishDateTime: '2023-10-18:17:30'
+publishDateTime: 2023-10-18:17:30
 ---
 
 Starting a new project with frameworks like Vue and React couldn't be any easier with popular shortcuts like `vue create` or `create-react-app`. With the new Vue 3, we are still waiting for some features we know and love to catch up with the revamped core.
@@ -39,11 +36,11 @@ or
 
 You'll see a message like this :
 
-![Imgur_1](https://i.imgur.com/avyri9S.png)
+![Imgur\_1](https://i.imgur.com/avyri9S.png)
 
-Next you'll have to choose a preset based on what you want available in your app ![Imgur_2](https://i.imgur.com/YeggS2X.png)
+Next you'll have to choose a preset based on what you want available in your app ![Imgur\_2](https://i.imgur.com/YeggS2X.png)
 
-Finally, you can choose which preset you want to use to install dependencies ![Imgur_3](https://i.imgur.com/SXZEoh5.png)
+Finally, you can choose which preset you want to use to install dependencies ![Imgur\_3](https://i.imgur.com/SXZEoh5.png)
 
 ## Project Structure
 
@@ -67,7 +64,7 @@ A project will be generated with a project structure similar to this
     └── ...
 ```
 
-The **node_modules** directory is where all of your project dependencies are installed.
+The **node\_modules** directory is where all of your project dependencies are installed.
 
 The **public** directory is where you store static assets like the favicon.ico. Files in this folder are not processed by Webpack.
 

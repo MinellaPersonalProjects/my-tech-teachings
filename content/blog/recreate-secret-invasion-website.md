@@ -1,26 +1,27 @@
 ---
-title: 'ReCreate the Opening of Marvel Secret Invasion Website using VueJS and Vuetify'
-headline: 'ReCreate Marvel Secret Invasion with VueJS'
-summary: 'Explore Vue.js and Vuetify to recreate the captivating opening of Marvel Secret Invasion website in this frontend development project.'
-myImage: '/img/secret.png'
+title: ReCreate the Opening of Marvel Secret Invasion Website using VueJS and Vuetify
+headline: ReCreate Marvel Secret Invasion with VueJS
+summary: Explore Vue.js and Vuetify to recreate the captivating opening of Marvel Secret Invasion website in this frontend development project.
+myImage: /img/secret.png
 tags:
-  - "vue"
+  - vue
 publishDate: 8 Nov 2023
 publishDateTime: 2023-11-08:03:30
 ---
 
 If you didn't already know, Marvel created a secret website for its newest TV show, Secret Invasion. This novel promotional stunt had my hands itching to create a something similar. The website, [www.theinvasionhasbegun.com](http://www.theinvasionhasbegun.com/) gives a black-ops aesthetics and surreptitious layout of this site create an atmosphere of secrecy and intrigue, making users feel like they're part of an underground network.
 
-The website starts out with a password prompt page, with an obscure password that I had to get off the internet. 
+The website starts out with a password prompt page, with an obscure password that I had to get off the internet.
 
 One might expect the password to have a connection to the show, possibly involving names like "Nick Fury" or "Avengers" However, due to the absence of a character limit on the website, the possibilities appeared to be without boundaries.I couldn't figure out any clues, so I just googled it, the password is "RSD3PX5N7S"
 
-In this tutorial I'm going to recreate those processes and have our own secret black ops website hidden under the guise of a regular webpage using VueJS and Vuetify. 
+In this tutorial I'm going to recreate those processes and have our own secret black ops website hidden under the guise of a regular webpage using VueJS and Vuetify.
 
-## Prerequisites 
-- Some knowledge of Vue 
-- Node, NPM Installed 
-- Code Editor 
+## Prerequisites
+
+- Some knowledge of Vue
+- Node, NPM Installed
+- Code Editor
 
 ## SetUp Project
 
@@ -42,14 +43,14 @@ You will have to select a set of options and name the application. For this tuto
 Next you can go into your newly created vuetify app folder.
 
 ## Create Component to Enter Secret Password
+
 ![Enter Password](https://i.imgur.com/7famnqa.png)
 
-
-Under the **src/components** folder, create a new file called **EnterPassword.vue**. Then we'll set up the layout for to allow us to enter the secret password. 
+Under the **src/components** folder, create a new file called **EnterPassword.vue**. Then we'll set up the layout for to allow us to enter the secret password.
 
 First, we'll have to create a variable to hold the password value that the user enters and a function that does something with that password
 
-```html{}[enterpassword.vue]
+```html [enterpassword.vue]
   <script setup>
     import {ref} from "vue";
     import {useRouter} from "vue-router";
@@ -75,9 +76,9 @@ First, we'll have to create a variable to hold the password value that the user 
   </script>
 ```
 
-Next we have to make sure that the user can actually enter the password. 
+Next we have to make sure that the user can actually enter the password.
 
-```html{3-6, 10-13}[enterpassword.vue]
+```html [enterpassword.vue]
   <!-- Enter Password should be in the middle of screen  -->
   <template>
     <v-container class="container">
@@ -98,7 +99,7 @@ Next we have to make sure that the user can actually enter the password.
 
 Then we'll add some style :
 
-```html{}[enterpassword.vue]
+```html [enterpassword.vue]
   <style scoped lang="scss">
   .container {
     height: 100vh; /* Set container to full viewport height */
@@ -117,11 +118,11 @@ Then we'll add some style :
   </style>
 ```
 
-### Password Input 
+### Password Input
 
 Then, we have to create a place where the user can actually enter the password on the frontend. So inside the Enter Password heading, you'll have to include the following to your template:
 
-```html{4}[enterpassword.vue]
+```html [enterpassword.vue]
   
   <template>
     <!-- ...  -->
@@ -144,13 +145,13 @@ Then the corresponding style should be added under `<style>`, to define the pass
 // other styles ...
 ```
 
+## Add Enter Password Component to a View
 
-## Add Enter Password Component to a View 
 Views are the Vue components that represent different pages of your app. We need to place the Enter Password Component we just created into a view, so the user can access it
 
-Create a file under the **src/views** folder called **PasswordView.vue** and add the following code
+Create a file under the **src/views** folder called **PasswordView\.vue** and add the following code
 
-```html{}[passwordView.vue]
+```html [passwordView.vue]
   <script setup>
     import EnterPassword from "@/components/EnterPassword.vue";
   </script>
@@ -173,11 +174,11 @@ Create a file under the **src/views** folder called **PasswordView.vue** and add
   </style>
 ```
 
-## Access Granted Component 
+## Access Granted Component
 
 Now we have to create a component to show that Access was Granted after entering the right password. Create a file called **GrantedPage.vue** under **src/components** and add the following code :
 
-```html{}[GrantedPage.vue]
+```html [GrantedPage.vue]
   <template>
     <v-row justify="center">
       <v-col cols="12">
@@ -217,7 +218,7 @@ The final page we're going to create, is the one that shows that we are accessin
 
 We'll begin by creating a border box in the center of the screen to hold our content using the following code :
 
-```html{}[AccessFilePage.vue]
+```html [AccessFilePage.vue]
 <template>
   <v-row justify="center">
     <v-col cols="12">
@@ -231,7 +232,7 @@ We'll begin by creating a border box in the center of the screen to hold our con
             <div class="line-space"></div>
             <div>
               <div class="content_number">
-								<!-- Enter the Percentage Here -->
+                                <!-- Enter the Percentage Here -->
               </div>
               <div>
                 <!-- Enter the Loading Animation Here -->
@@ -250,7 +251,7 @@ We'll begin by creating a border box in the center of the screen to hold our con
 
 And for our styles we'll have :
 
-```scss{}[AccessFilePage.vue]
+```scss [AccessFilePage.vue]
   .title {
     display: flex;
     align-items: center;
@@ -307,11 +308,11 @@ And for our styles we'll have :
 
 ### Logic to Increase Percentage with Time
 
-Next, we'll do the logic for the percentage increase 
+Next, we'll do the logic for the percentage increase
 
-We are using a counter function that counts from 0-100. While the counter is less than 100, it increases its value by 1 every 100 milliseconds and once it reaches the limit, it stops the timer and redirects to our next page. 
+We are using a counter function that counts from 0-100. While the counter is less than 100, it increases its value by 1 every 100 milliseconds and once it reaches the limit, it stops the timer and redirects to our next page.
 
-```javascript{}[AccessFilePage.vue]
+```javascript [AccessFilePage.vue]
 <script setup>
   import {onMounted, onUnmounted, ref} from "vue";
   import {useRouter} from "vue-router";
@@ -442,7 +443,6 @@ Under the router folder, in a file called `index.js`, we can define our routes b
   })
 
   export default router
-
 ```
 
 Finally, our code is ready to run. You can test the new app out by running the command `yarn dev`. The password for this tutorial is **COWSARECUTE**.
@@ -458,5 +458,3 @@ The full tutorial code is located on [GitHub](https://github.com/MinellaPersonal
 You can also see the website in action at this [web link](https://comfy-melba-927662.netlify.app), all you have to do is click on the `COMMUNITY` button at the website.
 
 With the secret invasion website, after the password is entered you are led to a video trailer for the show. For our website, I'm adding a fun surprise. You can find the website here, clues to my password are located in this tutorial, have fun finding it. Happy Coding !!!
-
-

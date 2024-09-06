@@ -1,15 +1,12 @@
 ---
 title: 'Mastering Vuetify Grids Part 1: Intro to Vuetify Grids'
 headline: Intro to Vuetify Grids
-summary: >-
-  Get started with Vuetify grids: an easy guide to building responsive and
-  organized web layouts quickly.
-myImage: >-
-  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsL9XkUkevPc-_1irkVIkr62FfPacYPivJw&usqp=CAU
+summary: 'Get started with Vuetify grids: an easy guide to building responsive and organized web layouts quickly.'
+myImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsL9XkUkevPc-_1irkVIkr62FfPacYPivJw&usqp=CAU
 tags:
   - vue
 publishDate: 2 Nov 2023
-publishDateTime: '2023-11-2:14:30'
+publishDateTime: 2023-11-2:14:30
 ---
 
 One of the biggest issues I had when I first started using Vuetify was the Grid system. Figuring out how to order components was like trying to understand linear algebra as a third-grader. If you're like me and having a hard time with getting your components where you want, worry no more, this guide is only part 1 of a three part series to help you go from a beginner to pro with working with the Vuetify Grid System. Let's dive into a quick intro to understanding how the grid system works and set the stage for your future mastery.
@@ -36,7 +33,7 @@ The general understanding of a common grid is that it is made of rows and column
 
 Think of a v-row like a shelf with 12 equal spaces and v-col as a box.
 
-Depending on the size of your box, you can fill one or more spaces in the shelf but the total space you can use adds up to 12\. You can determine the full width of your columns using a tag `cols=”x”` where _x_ is a number between 1-12.
+Depending on the size of your box, you can fill one or more spaces in the shelf but the total space you can use adds up to 12. You can determine the full width of your columns using a tag `cols=”x”` where _x_ is a number between 1-12.
 
 ![fillSpace](https://i.imgur.com/vOmq5DV.png)
 
@@ -92,4 +89,4 @@ This is what your code looks like,
 
 ![fullGrid](https://i.imgur.com/9b1tHRg.png)
 
-It may look small but be patient, now you have the basics down, you can create so many fun styles by changing a few values. Head on to [Part 2](/blog/styling-vuetify-grids ) of this tutorial to gain more advanced mastery of the Vuetify Grid System.
+It may look small but be patient, now you have the basics down, you can create so many fun styles by changing a few values. Head on to [Part 2](/blog/styling-vuetify-grids) of this tutorial to gain more advanced mastery of the Vuetify Grid System.

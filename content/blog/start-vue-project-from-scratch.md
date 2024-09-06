@@ -1,15 +1,12 @@
 ---
 title: Start a Vue 3 Project from Scratch
 headline: Start a Vue 3 Project from Scratch
-summary: >-
-  Learn how to kickstart your WebApp with a step-by-step guide to building a Vue
-  application from the ground up
-myImage: >-
-  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFWkXDKEKlDIA0N2fnx6n0Lv-JRPOqnpDdsg&usqp=CAU
+summary: Learn how to kickstart your WebApp with a step-by-step guide to building a Vue application from the ground up
+myImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFWkXDKEKlDIA0N2fnx6n0Lv-JRPOqnpDdsg&usqp=CAU
 tags:
   - vue
 publishDate: 27 Oct 2023
-publishDateTime: '2023-10-21:10:30'
+publishDateTime: 2023-10-21:10:30
 ---
 
 VueJS is a progressive JavaScript framework that makes building modern web applications a breeze. With a good UI framework like Vuetify and a build tool like Vite, building web apps becomes even breezier.
@@ -44,7 +41,7 @@ The **package.json** is a fundamental file for any Node.js based projects, inclu
 
 First, **remove** lines :
 
-```javascript{1}[package.json]
+```javascript [package.json]
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -53,13 +50,13 @@ First, **remove** lines :
 
 This is because our project isn't a typical Node app, and this keeps things simple and clear.
 
-Next, we need to add the variable `"private": true` to make sure our project isn't accidentally published to the NPM registry. 
+Next, we need to add the variable `"private": true` to make sure our project isn't accidentally published to the NPM registry.
 
-Then, we will need to include scripts so that our application can run. 
+Then, we will need to include scripts so that our application can run.
 
 Add the following code to your **package.json** after the `description` variable to implement this:
 
-```javascript{4}[package.json]
+```javascript [package.json]
     {
         /* existing code ... */
 
@@ -87,7 +84,7 @@ Now we need to add the essential dependencies for our project. Use the following
   npm install -D sass vite @vitejs/plugin-vue vite-plugin-vuetify
 ```
 
-You will notice a **node_modules** folder appear in your directory.
+You will notice a **node\_modules** folder appear in your directory.
 
 Now we need to create a folder called **src**, think of the **src** folder as the place where all the important code for your website or web app lives.
 
@@ -95,7 +92,7 @@ Inside the **src** folder, create a folder called **plugins**. Since we are usin
 
 Under the **plugins** folder create a file called **vuetify.js**. Within this file add the following code :
 
-```javascript{7-13}[src/plugins/vuetify.js]
+```javascript [src/plugins/vuetify.js]
     import { createVuetify } from 'vuetify'
 
     // Styles
@@ -118,7 +115,7 @@ Under the **plugins** folder create a file called **vuetify.js**. Within this fi
 
 Next, create a file called **index.js**, still inside the **plugins** folder. This file plays a crucial role in configuring and registering various plugins for your Vue application:
 
-```javascript{1-5}[/src/plugins/index.js]
+```javascript [/src/plugins/index.js]
     import vuetify from './vuetify'
 
     export function registerPlugins (app) { 
@@ -132,13 +129,13 @@ Next you'll have to create a file called **vite.config.js**, in the root of your
 
 Vite empowers you with greater control over your project's configuration through the use of a config file, **vite.config.js**.
 
-Open the **vite.config.js** file in your editor. 
+Open the **vite.config.js** file in your editor.
 
 In this file we get to define the plugins we'll need to set up Vue and our UI framework, Vuetify.
 
 For a basic setup, you can start with the following structure:
 
-```javascript{}[vite.config.js]
+```javascript [vite.config.js]
   // Plugins
     import vue from '@vitejs/plugin-vue'
     import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
@@ -168,7 +165,7 @@ Vite provides a host of other configuration options like `build`, `css`, `aliase
 
 Your Vue app needs an HTML entry point. We'll create an **index.html** file in the project root, where your Vue application will be mounted.
 
-```html{1-13}[index.html]
+```html [index.html]
   <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -201,7 +198,7 @@ Navigate to your **src** folder, inside this folder we will add in our core stru
 
 Begin by creating a file called **App.vue** in the project root directory, this is our main Vue component. Most of what you see in a Vue app starts from this component and other components branch out from it.
 
-```html{}[src/app.vue]
+```html [src/app.vue]
   <template>
     <h1> Hello World </h1>
   </template>
@@ -213,7 +210,7 @@ Begin by creating a file called **App.vue** in the project root directory, this 
 
 Next, we'll create a file called **main.js**. This file serves as the entry point for our Vue App, it helps set the stage for our application.
 
-```javascript{9-13}[src/main.js]
+```javascript [src/main.js]
   // Components
     import App from './App.vue'
 
@@ -280,8 +277,8 @@ Starting your Vue App from scratch is great to familiarize yourself with the pro
 >
 > [Intro to Vue](https://vuejs.org/guide/introduction.html)
 >
-> [Get Started with Vue - FreeCodeCamp](https://www.freecodecamp.org/news/get-started-with-vite/#:~:text=Vite%20allows%20you%20to%20have%20more%20control%20over,CLI%20option%2C%20as%20shown%20below%3A%20vite%20--config%20my-config.js)
+> [Get Started with Vue - FreeCodeCamp](https://www.freecodecamp.org/news/get-started-with-vite/#:~\:text=Vite%20allows%20you%20to%20have%20more%20control%20over,CLI%20option%2C%20as%20shown%20below%3A%20vite%20--config%20my-config.js)
 >
-> [Yarn Installation Tutorial](https://www.hostinger.com/tutorials/how-to-install-yarn#:~:text=Here%E2%80%99s%20how%20to%20install%20Yarn%20using%20npm%3A%20Open,in%20to%20SSH%20to%20enable%20the%20Yarn%20commands).
+> [Yarn Installation Tutorial](https://www.hostinger.com/tutorials/how-to-install-yarn#:~\:text=Here%E2%80%99s%20how%20to%20install%20Yarn%20using%20npm%3A%20Open,in%20to%20SSH%20to%20enable%20the%20Yarn%20commands).
 >
 > [Downloading and Installing Node / NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
