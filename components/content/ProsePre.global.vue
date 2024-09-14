@@ -1,27 +1,21 @@
 <template>
-  <v-card class="pre_custom mb-5" variant="outlined">
-    <v-toolbar class="pre_custom-head" density="compact">
+  <v-card class="mb-5" variant="outlined">
+    <v-toolbar density="compact">
       <span v-if="filename" class="ml-2">
         <i>{{ filename }}</i>
       </span>
 
       <v-spacer v-if="filename"></v-spacer>
 
-      <v-btn variant="text" v-if="copied" class="copy-success">
+      <v-btn variant="text" v-if="copied">
         <IconsCheck width="20" height="20" />
       </v-btn>
-      <v-btn
-        variant="text"
-        rounded="0"
-        v-else
-        class="copy-btn"
-        @click="copy(code)"
-      >
-        <IconsCopy icon="mdi-copy" class="w-5 h-5" width="20" height="20" />
+      <v-btn variant="text" rounded="0" v-else @click="copy(code)">
+        <IconsCopy icon="mdi-copy" width="20" height="20" />
       </v-btn>
     </v-toolbar>
-    <div class="pre_custom-body">
-      <pre><slot /></pre>
+    <div>
+      <pre><code><slot /></code></pre>
     </div>
   </v-card>
 </template>
