@@ -1,12 +1,16 @@
 ---
 title: 'Mastering Vuetify Grids Part 3: Nesting with Vuetify Grids'
 headline: Nesting with Vuetify Grids
-summary: Unlock the power of Vuetify grids to create responsive layouts, ensuring your web applications deliver a consistent, user-friendly experience across all devices
-myImage: https://media1.thehungryjpeg.com/thumbs2/ori_4087129_v5lj5kfn4jyiusy6vz7p6cywydqltj8z9sb79480_decorative-russian-dolls-matryoshka-dolls-flat-tourist-souvenirs-fro.jpg
+summary: >-
+  Unlock the power of Vuetify grids to create responsive layouts, ensuring your
+  web applications deliver a consistent, user-friendly experience across all
+  devices
+myImage: >-
+  https://media1.thehungryjpeg.com/thumbs2/ori_4087129_v5lj5kfn4jyiusy6vz7p6cywydqltj8z9sb79480_decorative-russian-dolls-matryoshka-dolls-flat-tourist-souvenirs-fro.jpg
 tags:
   - vue
 publishDate: 2 Nov 2023
-publishDateTime: 2023-11-2:19:30
+publishDateTime: '2023-11-2:19:30'
 ---
 
 If you're coming from the earlier parts of this tutorial, you probably have a basic understanding of how Vuetify Grids work. But how do you handle more complex designs for your web apps ? In this tutorial we'll dive deeper into grid styling and making more complex styles. If you're new here, I recommend you start with [Intro to Vuetify Grids](/blog/quick-look-vuetify-grids) and [Basic Styling with Vuetify Grids](/blog/styling-vuetify-grids)
@@ -17,14 +21,14 @@ Assume that in every `v-col` you create, you are essentially making another mini
 
 In our example above, if you notice it is made of two big rows and within one of those rows, it is divided further.
 
-## Two Rows
+# Two Rows
 
 For our code, we'll begin by creating two rows
 
 ![Rowzzz](https://i.imgur.com/BQyzo9b.png)
 
 ```html
-  <v-container>
+<v-container>
     <v-row>
       <v-col cols="12">
         <!-- skeleton loader -->
@@ -36,14 +40,14 @@ For our code, we'll begin by creating two rows
   </v-container>
 ```
 
-## Second Division
+# Second Division
 
 Within our top `v-col`, we're going to add another `v-row` and further divide that row into two columns
 
 ![Imgur](https://i.imgur.com/dZxx6EO.png)
 
 ```html
-  <v-container>
+<v-container>
     <v-row>
       <v-col cols="12">
         <v-row>
@@ -62,14 +66,14 @@ Within our top `v-col`, we're going to add another `v-row` and further divide th
   </v-container>
 ```
 
-## Even More Rows
+# Even More Rows
 
 To make this even more fun, we're going to add another `v-row` within our first `v-col` to make two smaller rows
 
 ![Imgur](https://i.imgur.com/fcNgkhp.png)
 
 ```html
-  <v-container>
+<v-container>
     <v-row>
       <v-col cols="12">
         <v-row>
@@ -95,12 +99,12 @@ To make this even more fun, we're going to add another `v-row` within our first 
   </v-container>
 ```
 
-## Final Result
+# Final Result
 
 This is what our full code would look like:
 
 ```html
-  <v-container>
+<v-container>
     <v-row>
       <v-col cols="12">
         <v-row>

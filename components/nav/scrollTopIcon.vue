@@ -1,11 +1,10 @@
 <script setup lang="ts">
-
-import {Icon} from "@iconify/vue";
+import { Icon } from "@iconify/vue";
 
 const isVisible = ref(false);
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 const handleScroll = () => {
@@ -14,24 +13,25 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener("scroll", handleScroll);
   handleScroll();
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
 <template>
   <v-btn
-      v-if="isVisible"
-      @click="scrollToTop"
-      class="scroll-to-top"
-      rounded="0"
-      icon
+    v-if="isVisible"
+    @click="scrollToTop"
+    class="scroll-to-top"
+    color="#007BFF"
+    rounded="0"
+    icon
   >
-    <Icon icon="line-md:arrow-up"/>
+    <Icon icon="line-md:arrow-up" />
   </v-btn>
 </template>
 
@@ -39,10 +39,8 @@ onUnmounted(() => {
 .scroll-to-top {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   z-index: 1000;
-  background-color: #007BFF; /* Replace with your desired button background color */
-  color: #fff; /* Replace with your desired button text color */
   border: none;
   border-radius: 50%;
   padding: 10px;

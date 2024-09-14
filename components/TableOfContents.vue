@@ -15,11 +15,6 @@
           ><v-icon>{{ rail ? 'mdi-chevron-right' : 'mdi-chevron-left' }}</v-icon></v-btn>
         </template>
       </v-list-item>
-      <!-- <span class="blog-aside-title mt-4">TABLE OF CONTENTS</span> -->
-      <!-- <header class="toc-header" @click="toggleToc" aria-label="Expand the table of contents.">
-        <span class="blog-aside-title mb-0">TABLE OF CONTENTS</span>
-        <IconsChevronDown class="chevron-icon" width="24" height="24"/>
-      </header> -->
       <v-divider></v-divider>
       <v-list lines="one" v-show="!rail">
         <!-- render each link with depth class -->

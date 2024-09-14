@@ -1,211 +1,247 @@
 <script setup>
-// from Gonzalo Hirsch
-import {useTheme, useDisplay} from "vuetify";
+// adapted from Gonzalo Hirsch
+import { useTheme, useDisplay } from "vuetify";
 
-const { mdAndUp, smAndUp } = useDisplay()
+const { mdAndUp, smAndUp } = useDisplay();
 
 const { path } = useRoute();
-const drawer = ref(false)
+const drawer = ref(false);
 
 function openDrawer() {
-  drawer.value = !drawer.value
+  drawer.value = !drawer.value;
 }
 
-const cleanPath = path.replace(/\/+$/, '');
+const cleanPath = path.replace(/\/+$/, "");
 const { data, error } = await useAsyncData(`${cleanPath}`, async () => {
-    let article = queryContent('/blog').where({ _path: cleanPath }).findOne();
-    let surround = queryContent('/blog').sort({ publishDateTime: -1 }).sort({ tags: 1 }).only(['_path', 'title', 'summary']).findSurround(cleanPath, { before: 1, after: 1 });
+  let article = queryContent("/blog").where({ _path: cleanPath }).findOne();
+  let surround = queryContent("/blog")
+    .sort({ publishDateTime: -1 })
+    .sort({ tags: 1 })
+    .only(["_path", "title", "summary"])
+    .findSurround(cleanPath, { before: 1, after: 1 });
 
-    return {
-      article: await article,
-      surround: await surround
-    };
+  return {
+    article: await article,
+    surround: await surround,
+  };
 });
 
-const items = ref([])
+const items = ref([]);
 
 const articleData = data?.value.article;
-const title = articleData.title
+const title = articleData.title;
 
 // Set the meta
-const baseUrl = 'https://nkems-tech-teachings.com';
-const canonicalPath = baseUrl + (path + '/').replace(/\/+$/, '/');
+const baseUrl = "https://nkems-tech-teachings.com";
+const canonicalPath = baseUrl + (path + "/").replace(/\/+$/, "/");
 const image = baseUrl + articleData.myImage;
 
 const jsonScripts = [
   {
-    type: 'application/ld+json',
+    type: "application/ld+json",
     children: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
       mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': 'https://nkems-tech-teachings.com/'
+        "@type": "WebPage",
+        "@id": "https://nkems-tech-teachings.com/",
       },
       url: canonicalPath,
       image: image,
       headline: articleData.headline,
       abstract: articleData.summary,
       datePublished: articleData.publishDateTime,
-      author: 'Nkem Mogbo',
-      publisher: 'Nkem Mogbo'
-    })
-  }
+      author: "Nkem Mogbo",
+      publisher: "Nkem Mogbo",
+    }),
+  },
 ];
 
-items.value= [
-        {
-          title: 'Home',
-          disabled: false,
-          href: '/',
-        },
-        {
-          title: 'Blogs',
-          disabled: false,
-          href: '/blog',
-        },
-        {
-          title: title,
-          disabled: true,
-          href: articleData._path,
-        },
-      ]
+items.value = [
+  {
+    title: "Home",
+    disabled: false,
+    href: "/",
+  },
+  {
+    title: "Blogs",
+    disabled: false,
+    href: "/blog",
+  },
+  {
+    title: title,
+    disabled: true,
+    href: articleData._path,
+  },
+];
 
 useHead({
   title,
   meta: [
-      {name: 'description', content: articleData.summary},
-      {property: 'article:published_time', content: articleData.publishDateTime },
-      // OG
-      { hid: 'og:title', property: 'og:title', content: articleData.headline },
-      { hid: 'og:url', property: 'og:url', content: canonicalPath },
-      { hid: 'og:description', property: 'og:description', content: articleData.summary },
-      { hid: 'og:image', name: 'image', property: 'og:image', content: image },
-      { hid: 'og:type', property: 'og:type', content: 'Article' },
+    { name: "description", content: articleData.summary },
+    {
+      property: "article:published_time",
+      content: articleData.publishDateTime,
+    },
+    // OG
+    { hid: "og:title", property: "og:title", content: articleData.headline },
+    { hid: "og:url", property: "og:url", content: canonicalPath },
+    {
+      hid: "og:description",
+      property: "og:description",
+      content: articleData.summary,
+    },
+    { hid: "og:image", name: "image", property: "og:image", content: image },
+    { hid: "og:type", property: "og:type", content: "Article" },
 
-      // Twitter
-      { hid: 'twitter:card', name: 'twitter:card', content: 'Summary' },
-      { hid: 'twitter:title', name: 'twitter:title', content: articleData.headline },
-      { hid: 'twitter:url', name: 'twitter:url', content: canonicalPath },
-      { hid: 'twitter:description', name: 'twitter:description', content: articleData.summary },
-      { hid: 'twitter:image', name: 'twitter:image', content: image },
+    // Twitter
+    { hid: "twitter:card", name: "twitter:card", content: "Summary" },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: articleData.headline,
+    },
+    { hid: "twitter:url", name: "twitter:url", content: canonicalPath },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: articleData.summary,
+    },
+    { hid: "twitter:image", name: "twitter:image", content: image },
   ],
   link: [
     {
-      hid: 'canonical',
-      rel: 'canonical',
-      href: canonicalPath
-    }
+      hid: "canonical",
+      rel: "canonical",
+      href: canonicalPath,
+    },
   ],
-  script: jsonScripts
-})
+  script: jsonScripts,
+});
 
-
-const theme = useTheme()
-
-
+const theme = useTheme();
 </script>
 <template>
-    <NuxtLayout>
-        <v-container class="container-height">
-            <v-card
-                class="px-4 py-10 mx-auto"
-                :class="{
-                'bg-white': !theme.global.current.value.dark,
-                'dark:bg-gray-800': theme.global.current.value.dark,
-              }"
-                :style="{
-                  width: mdAndUp ? '60vw' : ''
-                }"
-                :elevation="theme.global.current.value.dark ? 2 : 1"
-            >
-              <!-- Fetch and display the Markdown document from the current path -->
-              <ContentDoc>
-                <template v-slot="{ doc }">
-                  <v-container fluid>
-                      <v-row >
-                        <v-col cols="12" >
-                          <div class="row-with-line"></div>
-                          <div>
-                            <v-breadcrumbs :items="items">
-                              <template v-slot:title="{ item }">
-                                <span class="breadcrumb-item">{{ item.title }}</span>
-                              </template>
-                            </v-breadcrumbs>
-                            <!-- Headline -->
-                            <h1 class="blog-post-text font-bold mb-4 md-mb-6 text-h3 leading-h3 md-text-h1 md-leading-h1 text-center md-text-left">{{ doc.title }}</h1>
+  <NuxtLayout>
+    <v-container class="container-height">
+      <v-card
+        class="px-4 py-10 mx-auto"
+        :class="{
+          'bg-white': !theme.global.current.value.dark,
+          'dark:bg-gray-800': theme.global.current.value.dark,
+        }"
+        :style="{
+          width: mdAndUp ? '60vw' : '',
+        }"
+        :elevation="theme.global.current.value.dark ? 2 : 1"
+      >
+        <!-- Fetch and display the Markdown document from the current path -->
+        <ContentDoc>
+          <template v-slot="{ doc }">
+            <v-container fluid>
+              <v-row>
+                <v-col cols="12">
+                  <div class="row-with-line"></div>
+                  <div>
+                    <v-breadcrumbs :items="items">
+                      <template v-slot:title="{ item }">
+                        <span class="breadcrumb-item">{{ item.title }}</span>
+                      </template>
+                    </v-breadcrumbs>
+                    <!-- Headline -->
+                    <h1 class="blog-post-text font-bold mb-4 text-center">
+                      {{ doc.title }}
+                    </h1>
 
-                            <!-- Excerpt -->
-                            <p class="blog-post-text mb-8 md-w-8/12 md-text-lg md-leading-lg text-center md-text-left">{{ doc.summary }}</p>
+                    <!-- Excerpt -->
+                    <p class="blog-post-text text-center">
+                      {{ doc.summary }}
+                    </p>
 
-                            <!-- Border with Flex Layout -->
-                            <div class="border-typography-primary dark-border-typography-primary-dark mt-12 md-mt-4">
-                              <!-- Author -->
-                              <div class="flex flex-row items-center justify-center">
-                                <span class="blog-post-text text-lg leading-lg font-light">By
-                                  <a class="hover-underline italic" >Nkem Mogbo</a>
-                                </span>
-                              </div>
-                            </div>
-                            <!-- Social Share -->
-                            <div class="text-center md-text-right mt-6 md-mt-0">
-                              <span class="italic" style="margin-bottom: 40px">(Published: {{ doc.publishDate }})</span>
-                            </div>
-                          </div>
-                        </v-col>
-                      </v-row>
-                      <v-row>
-                        <v-col cols="12" class="relative">
-                          <!-- Blog content -->
-                          <ContentRenderer :value="doc" class="blog-content blog-post-text" />
-                        </v-col>
-                        <!-- class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside hidden-sm-and-down" -->
-                        <TableOfContents 
+                    <!-- Border with Flex Layout -->
+                    <div class="text-center">
+                      <!-- Author -->
+                      <div>
+                        <span
+                          >By
+                          <a class="text-hover" href="/about">Nkem Mogbo</a>
+                        </span>
+                      </div>
+                      <div>
+                        <span class="italic" style="margin-bottom: 40px"
+                          >Published: {{ doc.publishDate }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" class="relative">
+                  <!-- Blog content -->
+                  <!-- <ContentRenderer :value="doc" /> -->
+                  <ContentDoc v-slot="{ doc }">
+                    <article>
+                      <ContentRenderer :value="doc" />
+                    </article>
+                  </ContentDoc>
+                </v-col>
+                <!-- class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside hidden-sm-and-down" -->
+                <!-- <TableOfContents 
                           :links="doc.body?.toc?.links" 
                           @open="openDrawer"
                           class="blog-post-text" 
-                        />
-                      </v-row>
-                      <v-row>
-                        <v-col cols="12">
-                          <v-card variant="outlined" >
-                            <!-- Related articles -->
-                            <v-card-title class="related-style">Continue Reading</v-card-title>
-                            <v-card-text>
-                              <v-list >
-                              <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
-                                <v-list-item v-for="post in data?.surround">
-                                  <next-posts-card style="margin-bottom: 10px"
-                                                  :date="post?.publishDate"
-                                                  :description="post?.summary"
-                                                  :image="post?.myImage"
-                                                  :path="post?._path"
-                                                  :title="post?.title"
-                                />
-                                </v-list-item>
-                              </v-list>
-                          </v-card-text>
-                          </v-card>
-                        </v-col>
-                      </v-row>
-                  </v-container>
-                  <NavScrollTopIcon />
-                </template>
-                <template #not-found>
-                    <page-not-found />
-                </template>
-                <template #empty>
-                  <under-construction />
-              </template>
-              </ContentDoc>
-            </v-card>
-          </v-container>
-    </NuxtLayout>
+                        /> -->
+              </v-row>
+              <v-row>
+                <v-col cols="12">
+                  <v-card variant="outlined">
+                    <!-- Related articles -->
+                    <v-card-title class="related-style"
+                      >Continue Reading</v-card-title
+                    >
+                    <v-card-text>
+                      <v-list>
+                        <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
+                        <v-list-item
+                          v-for="post in data?.surround"
+                          :key="post?._path"
+                        >
+                          <next-posts-card
+                            style="margin-bottom: 10px"
+                            :date="post?.publishDate"
+                            :description="post?.summary"
+                            :image="post?.myImage"
+                            :path="post?._path"
+                            :title="post?.title"
+                          />
+                        </v-list-item>
+                      </v-list>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
+          </template>
+          <template #not-found>
+            <page-not-found />
+          </template>
+          <template #empty>
+            <under-construction />
+          </template>
+        </ContentDoc>
+      </v-card>
+      <NavScrollTopIcon class="navscroll" />
+    </v-container>
+  </NuxtLayout>
 </template>
 <style scoped lang="scss">
-
 .container-height {
   height: 100%;
+}
+
+.navscroll {
+  margin-left: 0;
 }
 
 .row-with-line {
@@ -214,9 +250,8 @@ const theme = useTheme()
   padding: 20px; /* Adjust as needed */
 }
 
-
 .row-with-line::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%; /* Adjust the line's vertical position as needed */
   left: 0;
@@ -288,8 +323,8 @@ const theme = useTheme()
   margin-bottom: 16px;
 }
 
-.related-style{
-  font-family: 'PT Sans Caption',sans-serif;
+.related-style {
+  font-family: "PT Sans Caption", sans-serif;
 }
 
 .about-description {
@@ -298,7 +333,7 @@ const theme = useTheme()
   line-height: 1.5;
 }
 
-.blog-content{
+.blog-content {
   font-family: "Futura", monospace;
 }
 
@@ -312,9 +347,7 @@ const theme = useTheme()
   font-style: italic;
 }
 
-
 .font-light {
   font-weight: 300; /* Adjust as needed */
 }
-
 </style>
