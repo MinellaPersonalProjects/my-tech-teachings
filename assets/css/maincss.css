@@ -36,6 +36,7 @@ pre {
     padding: 1.5em; 
     overflow: auto; 
     position: relative; 
+    white-space: pre-wrap;
 }
   
 pre code {
@@ -45,7 +46,7 @@ pre code {
     padding: 0.5em;
     overflow: auto; 
     max-height: 45vh;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 /* global.css */

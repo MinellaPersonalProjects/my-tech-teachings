@@ -164,7 +164,11 @@ const theme = useTheme();
                       <div>
                         <span
                           >By
-                          <a class="text-hover" href="/about">Nkem Mogbo</a>
+                          <a
+                            class="text-hover"
+                            href="https://github.com/Mogboella"
+                            >Nkem Mogbo</a
+                          >
                         </span>
                       </div>
                       <div>
