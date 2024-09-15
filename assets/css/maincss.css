@@ -31,7 +31,7 @@ code {
 }
 
 
-pre { 
+/* pre { 
     border-radius: 5px; 
     padding: 1.5em; 
     overflow: auto; 
@@ -48,7 +48,8 @@ pre code {
     overflow: auto; 
     max-height: 45vh;
     white-space: pre-wrap !important;
-}
+} */
+  
 
 /* global.css */
 .text-hover {
