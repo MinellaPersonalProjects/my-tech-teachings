@@ -120,20 +120,27 @@ useHead({
 });
 
 const theme = useTheme();
+const isDark = ref(false);
+const theme_name = ref("light");
+
+watch(
+  () => theme.global.current.value.dark,
+  (dark) => {
+    isDark.value = dark;
+    theme_name.value = dark ? "light" : "dark";
+  }
+);
 </script>
 <template>
   <NuxtLayout>
     <v-container class="container-height">
       <v-card
         class="px-4 py-10 mx-auto"
-        :class="{
-          'bg-white': !theme.global.current.value.dark,
-          'dark:bg-gray-800': theme.global.current.value.dark,
-        }"
+        theme="theme_name"
         :style="{
           width: mdAndUp ? '60vw' : '',
         }"
-        :elevation="theme.global.current.value.dark ? 2 : 1"
+        :elevation="isDark ? 2 : 1"
       >
         <!-- Fetch and display the Markdown document from the current path -->
         <ContentDoc>
