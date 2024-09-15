@@ -16,9 +16,7 @@
     </v-toolbar>
     <div>
       <pre>
-        <code>
           <ContentSlot :use="$slots.default"/>
-        </code>
       </pre>
     </div>
   </v-card>
@@ -66,7 +64,7 @@ const languageText = computed(() =>
   prop.language ? languageMap[prop.language]?.text : null
 );
 </script>
-<style scoped>
+<!-- <style scoped>
 pre {
   border-radius: 5px;
   padding: 1.5em;
@@ -87,4 +85,4 @@ code {
   border-radius: 4px;
   font-family: "Courier New", monospace;
 }
-</style>
+</style> -->
