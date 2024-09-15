@@ -64,7 +64,7 @@ const languageText = computed(() =>
   prop.language ? languageMap[prop.language]?.text : null
 );
 </script>
-<style scoped>
+<!-- <style scoped>
 pre {
   border-radius: 5px;
   padding: 1.5em;
@@ -89,4 +89,4 @@ code {
 span {
   display: block;
 }
-</style>
+</style> -->
