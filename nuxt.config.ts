@@ -23,12 +23,8 @@ export default defineNuxtConfig({
   ],
 
   build: {
+    analyze: true,
     transpile: ['vuetify'],
-    html: {
-      minify: {
-        collapseWhitespace: false
-      }
-    }
   },
 
   vite: {

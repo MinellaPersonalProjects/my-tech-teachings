@@ -26,8 +26,6 @@ const { data, error } = await useAsyncData(`${cleanPath}`, async () => {
   };
 });
 
-const items = ref([]);
-
 const articleData = data?.value.article;
 const title = articleData.title;
 
@@ -57,23 +55,30 @@ const jsonScripts = [
   },
 ];
 
-items.value = [
-  {
-    title: "Home",
-    disabled: false,
-    href: "/",
-  },
-  {
-    title: "Blogs",
-    disabled: false,
-    href: "/blog",
-  },
-  {
-    title: title,
-    disabled: true,
-    href: articleData._path,
-  },
-];
+const items = computed(() => {
+  const baseItems = [
+    {
+      title: "Home",
+      disabled: false,
+      href: "/",
+    },
+    {
+      title: "Blogs",
+      disabled: false,
+      href: "/blog",
+    },
+  ];
+
+  if (smAndUp.value) {
+    baseItems.push({
+      title: title,
+      disabled: true,
+      href: articleData._path,
+    });
+  }
+
+  return baseItems;
+});
 
 useHead({
   title,

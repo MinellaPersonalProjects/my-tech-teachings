@@ -1,4 +1,6 @@
 <script setup>
+import { useDisplay } from "vuetify";
+
 defineProps({
   image: {
     type: String,
@@ -21,6 +23,8 @@ defineProps({
     default: "/",
   },
 });
+
+const { smAndUp } = useDisplay();
 </script>
 <template>
   <v-card height="60vh" align-top :to="path" variant="outlined">
@@ -33,7 +37,7 @@ defineProps({
         <v-col cols="12">
           <p class="main-web-text-style">{{ date }}</p>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="12" v-show="smAndUp">
           <p :href="path" class="main-web-text-style">{{ description }}</p>
         </v-col>
       </v-row>

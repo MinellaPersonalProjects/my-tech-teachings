@@ -23,7 +23,7 @@ defineProps({
 })
 </script>
 <template>
-    <v-card :to="path" variant="outlined">
+    <v-card :href="path" variant="outlined">
         <v-card-title class="main-web-text-style" >{{ title }}</v-card-title>
           <v-card-text>
             <v-row align-content="center">
