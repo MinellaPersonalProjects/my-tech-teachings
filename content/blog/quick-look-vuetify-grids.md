@@ -1,21 +1,24 @@
 ---
 title: 'Mastering Vuetify Grids Part 1: Intro to Vuetify Grids'
 headline: Intro to Vuetify Grids
-summary: 'Get started with Vuetify grids: an easy guide to building responsive and organized web layouts quickly.'
-myImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsL9XkUkevPc-_1irkVIkr62FfPacYPivJw&usqp=CAU
+summary: >-
+  Get started with Vuetify grids: an easy guide to building responsive and
+  organized web layouts quickly.
+myImage: >-
+  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMsL9XkUkevPc-_1irkVIkr62FfPacYPivJw&usqp=CAU
 tags:
   - vue
 publishDate: 2 Nov 2023
-publishDateTime: 2023-11-2:14:30
+publishDateTime: '2023-11-2:14:30'
 ---
 
 One of the biggest issues I had when I first started using Vuetify was the Grid system. Figuring out how to order components was like trying to understand linear algebra as a third-grader. If you're like me and having a hard time with getting your components where you want, worry no more, this guide is only part 1 of a three part series to help you go from a beginner to pro with working with the Vuetify Grid System. Let's dive into a quick intro to understanding how the grid system works and set the stage for your future mastery.
 
-## What's the Vuetify Grid System ?
+# What's the Vuetify Grid System ?
 
 A grid system in general, is a layout structure that helps organize and align content on a webpage. It consists of rows and columns, allowing you to create a responsive design that automatically adjusts to different screen sizes.
 
-## The Vuetify Grid Trio: Containers, Rows and Columns
+# The Vuetify Grid Trio: Containers, Rows and Columns
 
 The Vuetify Grid is made up of three major components : the Containers, Rows and Columns
 
@@ -29,11 +32,11 @@ The general understanding of a common grid is that it is made of rows and column
 
 ![rowsAndCols](https://i.imgur.com/eFB0NeE.png)
 
-## Understanding the 12 Point V-Row System
+# Understanding the 12 Point V-Row System
 
 Think of a v-row like a shelf with 12 equal spaces and v-col as a box.
 
-Depending on the size of your box, you can fill one or more spaces in the shelf but the total space you can use adds up to 12. You can determine the full width of your columns using a tag `cols=”x”` where _x_ is a number between 1-12.
+Depending on the size of your box, you can fill one or more spaces in the shelf but the total space you can use adds up to 12\. You can determine the full width of your columns using a tag `cols=”x”` where _x_ is a number between 1-12.
 
 ![fillSpace](https://i.imgur.com/vOmq5DV.png)
 
@@ -45,12 +48,12 @@ _It goes to the next line_
 
 Let's practice with some code.
 
-## Building a Basic Grid Layout
+# Building a Basic Grid Layout
 
 Everything starts with a `<v-container>`. It's your big box.
 
 ```html
-  <v-container>
+<v-container>
     <!-- Your grid will go here -->
   </v-container>
 ```
@@ -62,7 +65,7 @@ You can use a special feature or tag called **fluid** to make this box stretch a
 Then we've got the row. Each row is marked by `<v-row></v-row>`
 
 ```html
-  <v-container>
+<v-container>
     <v-row>
       <!-- Your columns go here -->
     </v-row>
@@ -74,7 +77,7 @@ Now, split that row into columns using `<v-col>`. You can decide how much space 
 By default, there's some space between the columns, like a little gap. You can make this gap smaller with a feature called **"dense"**, or you can remove it completely using **"no-gutters"**.
 
 ```html
-  <v-container>
+<v-container>
     <v-row>
       <v-col cols="12">
         <v-sheet color="blue">
