@@ -50,7 +50,7 @@ pre code {
     white-space: pre-wrap !important;
 }
   
-span {
+span.line {
  display: block;
 }
 
