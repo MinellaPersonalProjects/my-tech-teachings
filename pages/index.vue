@@ -3,10 +3,6 @@ import { ref, watch } from "vue";
 import { useTheme } from "vuetify";
 import { useDisplay } from "vuetify";
 
-const theme = useTheme();
-const isDark = ref(false);
-const theme_name = ref("light");
-
 const { data: blogs } = await useAsyncData("blog", () =>
   queryContent("blog").sort({ publishDateTime: -1 }).find()
 );
@@ -32,6 +28,10 @@ function getShortTitle(title) {
   return splitTitle[0]; // Return the part before the colon
 }
 
+const theme = useTheme();
+const isDark = ref(false);
+const theme_name = ref("light");
+
 watch(
   () => theme.global.current.value.dark,
   (dark) => {
@@ -46,7 +46,7 @@ watch(
     <v-container>
       <v-card
         class="px-4 py-10 mx-auto"
-        :theme="theme_name"
+        theme="theme_name"
         :elevation="isDark ? 2 : 0"
       >
         <v-row>
