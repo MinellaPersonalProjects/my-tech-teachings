@@ -40,8 +40,8 @@ function getColorMapping(social) {
 <template>
   <v-row align="center" color="primary" dark>
     <v-col cols="12" lg="4" xl="4">
-      <v-btn class="btn positioning" variant="text" to="/">HOME</v-btn>
-      <v-btn class="btn positioning" variant="text" to="/blog">ARTICLES</v-btn>
+      <v-btn class="btn positioning" variant="text" href="/">HOME</v-btn>
+      <v-btn class="btn positioning" variant="text" href="/blog">ARTICLES</v-btn>
     </v-col>
 
     <v-col cols="12" lg="4" xl="4">

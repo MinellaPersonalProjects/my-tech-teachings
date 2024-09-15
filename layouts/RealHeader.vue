@@ -53,7 +53,7 @@ function getColorMapping(social) {
             v-for="link in navLinks"
             :key="link.to"
             link
-            :to="link.to"
+            :href="link.to"
           >
             <v-list-item-title
               @click="startDownload(link)"
