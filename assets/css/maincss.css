@@ -32,7 +32,8 @@ code {
 
 
 pre { 
-    border-radius: 5px; 
+    border-radius: 2px; 
+    background-color: #0f0000;
     padding: 1.5em; 
     overflow: auto; 
     position: relative; 
