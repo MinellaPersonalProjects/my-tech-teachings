@@ -15,7 +15,11 @@
       </v-btn>
     </v-toolbar>
     <div>
-      <pre><ContentSlot :use="$slots.default" unwrap="code" /></pre>
+      <pre>
+        <code>
+          <ContentSlot :use="$slots.default"/>
+        </code>
+      </pre>
     </div>
   </v-card>
 </template>
