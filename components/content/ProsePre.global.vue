@@ -64,29 +64,3 @@ const languageText = computed(() =>
   prop.language ? languageMap[prop.language]?.text : null
 );
 </script>
-<!-- <style scoped>
-pre {
-  border-radius: 5px;
-  padding: 1.5em;
-  overflow: auto;
-  position: relative;
-  white-space: pre-wrap; /* Ensure new lines are respected */
-  background-color: #0f0000;
-  color: #f5f1f1; /* Or any other text color */
-}
-
-code {
-  display: block;
-  line-height: 1.5;
-  padding: 0.5em;
-  overflow: auto;
-  background-color: #0f0000; /* Match pre background */
-  border: 0.5px solid #ccc;
-  border-radius: 4px;
-  font-family: "Courier New", monospace;
-}
-
-span {
-  display: block;
-}
-</style> -->
