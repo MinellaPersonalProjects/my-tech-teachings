@@ -41,6 +41,7 @@ function getColorMapping(social) {
   <v-row align="center" color="primary" dark>
     <v-col cols="12" lg="4" xl="4">
       <v-btn class="btn positioning" variant="text" href="/">HOME</v-btn>
+      <v-btn class="btn positioning" variant="text" href="/about">ABOUT</v-btn>
       <v-btn class="btn positioning" variant="text" href="/blog">ARTICLES</v-btn>
     </v-col>
 
