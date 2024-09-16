@@ -66,6 +66,9 @@ span.line {
     border-bottom: 1px solid; /* Adds underline on hover */
 }
 
+.text-size {
+    font-size : 16px;
+}
 
 
 
