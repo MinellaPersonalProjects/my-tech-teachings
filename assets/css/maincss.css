@@ -87,13 +87,9 @@ span {
     &.line {
         display: block;
 
-        span {
-            background-color: transparent !important;
-        }
-
         &.highlight,
         &.highlighted {
-            background-color: color-mix(in srgb, #1a1b26 70%, #888888);
+            background-color: #88888874;
         }
 
         &::before {
@@ -101,20 +97,18 @@ span {
             padding-right: 1.25rem;
             display: inline-block;
             opacity: 1;
-            color: rgb(249, 246, 246);
+            color: rgb(185, 185, 185);
         }
 
         &.diff.remove {
-            background-color: color-mix(in srgb, #1a1b26 65%, #F43F5E);
+            background-color: #f43f5d7c;
         }
 
         &.diff.add {
-            background-color: color-mix(in srgb, #1a1b26 75%, #10B981);
+            background-color: #10b9816e;
 
         }
     }
-
-
 }
 
 .text-hover {
