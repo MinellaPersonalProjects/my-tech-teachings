@@ -7,6 +7,7 @@ img {
 
 p {
     margin-bottom: 1em;
+    font-size: 18px;
     font-family: "Futura", monospace;
 }
 
@@ -27,6 +28,17 @@ h6 a {
     color: inherit;
     text-decoration: none;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hover-grey:hover {
+    background-color: color-mix(in srgb, #1a1b26 30%, #e0e0e0) !important; 
+    border-radius: 10px;
+}
+
 
 code {
     background-color: #f5f1f1;
@@ -101,6 +113,12 @@ span {
     border-bottom: none;
 }
 
+.card-space {
+    font-family: "Futura", monospace;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
 .text-hover:hover {
     border-bottom: 1px solid;
     /* Adds underline on hover */
@@ -117,6 +135,7 @@ li {
     margin-bottom: 0.5em;
     padding: 0.25em 0;
     font-family: "Futura", monospace;
+    font-size: 18px;
 }
 
 .svg-border-waves .v-image {

@@ -145,7 +145,7 @@ watch(
         :style="{
           width: mdAndUp ? '60vw' : '',
         }"
-        :elevation="isDark ? 2 : 1"
+        :elevation="0"
       >
         <!-- Fetch and display the Markdown document from the current path -->
         <ContentDoc>
@@ -194,9 +194,8 @@ watch(
               </v-row>
               <v-row>
                 <v-col cols="12" class="relative">
-                  <!-- Blog content -->
-                  <!-- <ContentRenderer :value="doc" /> -->
                   <ContentDoc v-slot="{ doc }">
+                    <table-of-contents :links="doc.body?.toc?.links" />
                     <article>
                       <ContentRenderer :value="doc" />
                     </article>
@@ -209,34 +208,6 @@ watch(
                           class="blog-post-text" 
                         /> -->
               </v-row>
-              <v-row>
-                <v-col cols="12">
-                  <v-card variant="outlined">
-                    <!-- Related articles -->
-                    <v-card-title class="related-style"
-                      >Continue Reading</v-card-title
-                    >
-                    <v-card-text>
-                      <v-list>
-                        <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
-                        <v-list-item
-                          v-for="post in data?.surround"
-                          :key="post?._path"
-                        >
-                          <next-posts-card
-                            style="margin-bottom: 10px"
-                            :date="post?.publishDate"
-                            :description="post?.summary"
-                            :image="post?.myImage"
-                            :path="post?._path"
-                            :title="post?.title"
-                          />
-                        </v-list-item>
-                      </v-list>
-                    </v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
             </v-container>
           </template>
           <template #not-found>
@@ -246,6 +217,34 @@ watch(
             <under-construction />
           </template>
         </ContentDoc>
+        <v-row>
+          <v-col cols="12">
+            <v-card variant="outlined">
+              <!-- Related articles -->
+              <v-card-title class="related-style"
+                >Continue Reading</v-card-title
+              >
+              <v-card-text>
+                <v-list>
+                  <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
+                  <v-list-item
+                    v-for="post in data?.surround"
+                    :key="post?._path"
+                  >
+                    <next-posts-card
+                      style="margin-bottom: 10px"
+                      :date="post?.publishDate"
+                      :description="post?.summary"
+                      :image="post?.myImage"
+                      :path="post?._path"
+                      :title="post?.title"
+                    />
+                  </v-list-item>
+                </v-list>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-card>
       <NavScrollTopIcon class="navscroll" />
     </v-container>

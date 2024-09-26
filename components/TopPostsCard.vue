@@ -38,7 +38,9 @@ const { smAndUp } = useDisplay();
           <p class="main-web-text-style">{{ date }}</p>
         </v-col>
         <v-col cols="12" v-show="smAndUp">
-          <p :href="path" class="main-web-text-style">{{ description }}</p>
+          <span :href="path" class="main-web-text-style">{{
+            description
+          }}</span>
         </v-col>
       </v-row>
     </v-card-text>

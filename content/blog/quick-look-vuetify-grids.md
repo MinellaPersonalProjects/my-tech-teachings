@@ -14,11 +14,11 @@ publishDateTime: '2023-11-2:14:30'
 
 One of the biggest issues I had when I first started using Vuetify was the Grid system. Figuring out how to order components was like trying to understand linear algebra as a third-grader. If you're like me and having a hard time with getting your components where you want, worry no more, this guide is only part 1 of a three part series to help you go from a beginner to pro with working with the Vuetify Grid System. Let's dive into a quick intro to understanding how the grid system works and set the stage for your future mastery.
 
-# What's the Vuetify Grid System ?
+## What's the Vuetify Grid System ?
 
 A grid system in general, is a layout structure that helps organize and align content on a webpage. It consists of rows and columns, allowing you to create a responsive design that automatically adjusts to different screen sizes.
 
-# The Vuetify Grid Trio: Containers, Rows and Columns
+## The Vuetify Grid Trio: Containers, Rows and Columns
 
 The Vuetify Grid is made up of three major components : the Containers, Rows and Columns
 
@@ -32,7 +32,7 @@ The general understanding of a common grid is that it is made of rows and column
 
 ![rowsAndCols](https://i.imgur.com/eFB0NeE.png)
 
-# Understanding the 12 Point V-Row System
+## Understanding the 12 Point V-Row System
 
 Think of a v-row like a shelf with 12 equal spaces and v-col as a box.
 
@@ -48,7 +48,7 @@ _It goes to the next line_
 
 Let's practice with some code.
 
-# Building a Basic Grid Layout
+## Building a Basic Grid Layout
 
 Everything starts with a `<v-container>`. It's your big box.
 
