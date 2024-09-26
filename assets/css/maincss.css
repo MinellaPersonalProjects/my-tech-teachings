@@ -35,31 +35,31 @@ a {
 }
 
 .hover-grey:hover {
-    background-color: color-mix(in srgb, #1a1b26 30%, #e0e0e0) !important; 
+    background-color: color-mix(in srgb, #1a1b26 30%, #e0e0e0) !important;
     border-radius: 10px;
 }
 
-.sticky-btn{
+.sticky-btn {
     position: fixed;
     left: 50%;
     bottom: 40px;
     transform: translateX(-50%);
-    z-index: 200;
-    
-    &.freeze{
-        bottom: 0 !important;
-        position: absolute !important;   
-        transition: none !important;
-    }
-    &.active {
-        bottom: 40px
-    }
-    &.animation {
-        transition: .2s all;
-        transition-timing-function: ease-in;
-    }
-    
-   
+    z-index: 100;
+}
+
+.sticky-btn.freeze {
+    bottom: 0 !important;
+    position: absolute !important;
+    transition: none !important;
+}
+
+.sticky-btn.active {
+    bottom: 40px
+}
+
+.sticky-btn.animation {
+    transition: .2s all;
+    transition-timing-function: ease-in;
 }
 
 
