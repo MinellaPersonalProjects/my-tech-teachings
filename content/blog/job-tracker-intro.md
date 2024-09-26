@@ -154,3 +154,5 @@ const port = process.env.BACKEND_PORT || 4000;
 const frontend = process.env.FRONTEND_PORT || 3000; 
 ...
 ```
+
+Now that our database setup is complete, we can create the routes necessary for our frontend to access or make changes to the table 

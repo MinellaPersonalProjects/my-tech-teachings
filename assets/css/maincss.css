@@ -39,6 +39,29 @@ a {
     border-radius: 10px;
 }
 
+.sticky-btn{
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    z-index: 200;
+    
+    &.freeze{
+        bottom: 0 !important;
+        position: absolute !important;   
+        transition: none !important;
+    }
+    &.active {
+        bottom: 40px
+    }
+    &.animation {
+        transition: .2s all;
+        transition-timing-function: ease-in;
+    }
+    
+   
+}
+
 
 code {
     background-color: #f5f1f1;
