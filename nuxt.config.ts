@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 
   build: {
     analyze: true,
-    transpile: ['vuetify'],
+    transpile: ['vuetify', 'shiki'],
   },
 
   vite: {
