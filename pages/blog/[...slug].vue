@@ -11,6 +11,35 @@ function openDrawer() {
   drawer.value = !drawer.value;
 }
 
+const atBottom = ref(false);
+const isVisible = ref(false);
+
+const handleScroll = () => {
+  const st = window.pageYOffset || document.documentElement.scrollTop;
+  isVisible.value = st > window.innerHeight / 2;
+
+  const scrollPosition = window.scrollY + window.innerHeight;
+  const bottomOfPage = document.documentElement.scrollHeight;
+
+  const card = document.getElementById("my-card");
+  const cardBottom = card.getBoundingClientRect().bottom;
+
+  if (scrollPosition >= cardBottom && !atBottom.value) {
+    atBottom.value = true;
+  } else if (scrollPosition < cardBottom && atBottom.value) {
+    atBottom.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
 const cleanPath = path.replace(/\/+$/, "");
 const { data, error } = await useAsyncData(`${cleanPath}`, async () => {
   let article = queryContent("/blog").where({ _path: cleanPath }).findOne();
@@ -140,12 +169,13 @@ watch(
   <NuxtLayout>
     <v-container class="container-height">
       <v-card
+        id="my-card"
         class="px-4 py-10 mx-auto"
         theme="theme_name"
         :style="{
           width: mdAndUp ? '60vw' : '',
         }"
-        :elevation="isDark ? 2 : 1"
+        :elevation="0"
       >
         <!-- Fetch and display the Markdown document from the current path -->
         <ContentDoc>
@@ -194,47 +224,12 @@ watch(
               </v-row>
               <v-row>
                 <v-col cols="12" class="relative">
-                  <!-- Blog content -->
-                  <!-- <ContentRenderer :value="doc" /> -->
                   <ContentDoc v-slot="{ doc }">
+                    <table-of-contents :links="doc.body?.toc?.links" />
                     <article>
                       <ContentRenderer :value="doc" />
                     </article>
                   </ContentDoc>
-                </v-col>
-                <!-- class="hidden-md-flex mb-4 blog-aside-wrapper blog-aside hidden-sm-and-down" -->
-                <!-- <TableOfContents 
-                          :links="doc.body?.toc?.links" 
-                          @open="openDrawer"
-                          class="blog-post-text" 
-                        /> -->
-              </v-row>
-              <v-row>
-                <v-col cols="12">
-                  <v-card variant="outlined">
-                    <!-- Related articles -->
-                    <v-card-title class="related-style"
-                      >Continue Reading</v-card-title
-                    >
-                    <v-card-text>
-                      <v-list>
-                        <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
-                        <v-list-item
-                          v-for="post in data?.surround"
-                          :key="post?._path"
-                        >
-                          <next-posts-card
-                            style="margin-bottom: 10px"
-                            :date="post?.publishDate"
-                            :description="post?.summary"
-                            :image="post?.myImage"
-                            :path="post?._path"
-                            :title="post?.title"
-                          />
-                        </v-list-item>
-                      </v-list>
-                    </v-card-text>
-                  </v-card>
                 </v-col>
               </v-row>
             </v-container>
@@ -246,8 +241,41 @@ watch(
             <under-construction />
           </template>
         </ContentDoc>
+        <div class="text-center">
+          <comm-bar :atBottom="atBottom" />
+        </div>
       </v-card>
-      <NavScrollTopIcon class="navscroll" />
+      <v-container class="mt-5">
+        <v-row>
+          <v-col cols="12">
+            <v-card variant="outlined">
+              <!-- Related articles -->
+              <v-card-title class="related-style"
+                >Continue Reading</v-card-title
+              >
+              <v-card-text>
+                <v-list>
+                  <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
+                  <v-list-item
+                    v-for="post in data?.surround"
+                    :key="post?._path"
+                  >
+                    <next-posts-card
+                      style="margin-bottom: 10px"
+                      :date="post?.publishDate"
+                      :description="post?.summary"
+                      :image="post?.myImage"
+                      :path="post?._path"
+                      :title="post?.title"
+                    />
+                  </v-list-item>
+                </v-list>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+      <NavScrollTopIcon :isVisible="isVisible" class="navscroll" />
     </v-container>
   </NuxtLayout>
 </template>

@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 
   build: {
     analyze: true,
-    transpile: ['vuetify'],
+    transpile: ['vuetify', 'shiki'],
   },
 
   vite: {
@@ -72,8 +72,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: {
-        default: 'monokai',
-        dark: 'github-dark'
+        default: 'tokyo-night',
       },
       preload: ['java', 'js', 'ts', 'python', 'vue', 'html', 'scss']
     },
