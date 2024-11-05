@@ -241,9 +241,9 @@ watch(
             <under-construction />
           </template>
         </ContentDoc>
-        <div class="text-center">
+        <!-- <div class="text-center">
           <comm-bar :atBottom="atBottom" />
-        </div>
+        </div> -->
       </v-card>
       <v-container class="mt-5">
         <v-row>
