@@ -64,7 +64,8 @@ export default defineNuxtConfig({
             target: '_blank',
             rel: 'noopener noreferer'
           }
-        ]
+        ],
+        'remark-reading-time'
       ]
     },
     navigation: {
