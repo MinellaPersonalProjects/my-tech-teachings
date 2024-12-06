@@ -1,5 +1,5 @@
 <template>
-  <v-card variant="outlined" class="card-space" v-show="haveLinks">
+  <v-card variant="plain" class="card-space" v-show="haveLinks">
     <v-card-title>Table of Contents</v-card-title>
     <v-card-text>
       <v-list lines="one">

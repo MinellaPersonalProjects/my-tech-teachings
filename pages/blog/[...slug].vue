@@ -167,72 +167,56 @@ watch(
 </script>
 <template>
   <NuxtLayout>
-    <v-container class="container-height">
-      <v-card
+    <v-container class="pl-0">
+      <!-- <v-card
         id="my-card"
-        class="px-4 py-10 mx-auto"
+        class="mx-auto"
         theme="theme_name"
         :style="{
           width: mdAndUp ? '60vw' : '',
         }"
         :elevation="0"
-      >
+      > -->
+      <div id="my-card" class="mx-12">
         <!-- Fetch and display the Markdown document from the current path -->
         <ContentDoc>
           <template v-slot="{ doc }">
-            <v-container fluid>
-              <v-row>
-                <v-col cols="12">
-                  <div class="row-with-line"></div>
+            <header class="mb-5">
+              <v-card
+                variant="outlined"
+                class="d-flex align-center justify-center"
+              >
+                <v-card-text class="px-4 mt-10 mb-10 ml-5">
+                  <span class="italic" style="margin-bottom: 40px"
+                    >{{ doc.publishDate }} . {{ doc.readingTime?.text }}</span
+                  >
+                  <h1
+                    class="blog-post-text font-bold mb-4"
+                    style="font-size: 3rem"
+                  >
+                    {{ doc.title }}
+                  </h1>
                   <div>
-                    <v-breadcrumbs :items="items">
-                      <template v-slot:title="{ item }">
-                        <span class="breadcrumb-item">{{ item.title }}</span>
-                      </template>
-                    </v-breadcrumbs>
-                    <!-- Headline -->
-                    <h1 class="blog-post-text font-bold mb-4 text-center">
-                      {{ doc.title }}
-                    </h1>
-
-                    <!-- Excerpt -->
-                    <p class="blog-post-text text-center">
-                      {{ doc.summary }}
-                    </p>
-
-                    <!-- Border with Flex Layout -->
-                    <div class="text-center">
-                      <!-- Author -->
-                      <div>
-                        <span
-                          >By
-                          <a
-                            class="text-hover"
-                            href="https://github.com/Mogboella"
-                            >Nkem Mogbo</a
-                          >
-                        </span>
-                      </div>
-                      <div>
-                        <span class="italic" style="margin-bottom: 40px"
-                          >Published: {{ doc.publishDate }}</span
-                        >
-                      </div>
-                    </div>
+                    <span
+                      >By
+                      <a class="text-hover" href="https://github.com/Mogboella"
+                        >Nkem Mogbo</a
+                      >
+                    </span>
                   </div>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="12" class="relative">
-                  <ContentDoc v-slot="{ doc }">
-                    <table-of-contents :links="doc.body?.toc?.links" />
-                    <article>
-                      <ContentRenderer :value="doc" />
-                    </article>
-                  </ContentDoc>
-                </v-col>
-              </v-row>
-            </v-container>
+                </v-card-text>
+              </v-card>
+            </header>
+            <v-row>
+              <v-col cols="12" md="8">
+                <article class="mt-6">
+                  <ContentRenderer :value="doc" />
+                </article>
+              </v-col>
+              <v-col cols="12" md="4">
+                <table-of-contents :links="doc.body?.toc?.links" />
+              </v-col>
+            </v-row>
           </template>
           <template #not-found>
             <page-not-found />
@@ -241,47 +225,53 @@ watch(
             <under-construction />
           </template>
         </ContentDoc>
-        <!-- <div class="text-center">
-          <comm-bar :atBottom="atBottom" />
-        </div> -->
-      </v-card>
-      <v-container class="mt-5">
-        <v-row>
-          <v-col cols="12">
-            <v-card variant="outlined">
-              <!-- Related articles -->
-              <v-card-title class="related-style"
-                >Continue Reading</v-card-title
-              >
-              <v-card-text>
-                <v-list>
-                  <!-- <RelatedArticles :surround="data?.surround" class="blog-post-text" /> -->
-                  <v-list-item
-                    v-for="post in data?.surround"
-                    :key="post?._path"
-                  >
-                    <next-posts-card
-                      style="margin-bottom: 10px"
-                      :date="post?.publishDate"
-                      :description="post?.summary"
-                      :image="post?.myImage"
-                      :path="post?._path"
-                      :title="post?.title"
-                    />
-                  </v-list-item>
-                </v-list>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-      <NavScrollTopIcon :isVisible="isVisible" class="navscroll" />
+      </div>
+      <v-divider class="mt-12 mb-16"></v-divider>
+
+      <!-- Related articles -->
+      <v-row>
+        <v-col cols="12">
+          <h3 class="mb-12" style="font-weight: lighter">Read Next:</h3>
+          <v-row class="d-flex align-stretch">
+            <v-col
+              cols="3"
+              v-for="post in data?.surround"
+              :key="post?._path"
+              class="mr-5"
+            >
+              <next-posts-card
+                style="margin-bottom: 10px"
+                :date="post?.publishDate"
+                :description="post?.summary"
+                :image="post?.myImage"
+                :path="post?._path"
+                :title="post?.title"
+                :author="post?.author"
+              />
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+      <!-- <NavScrollTopIcon :isVisible="isVisible" class="navscroll" /> -->
     </v-container>
   </NuxtLayout>
 </template>
 <style scoped lang="scss">
 .container-height {
   height: 100%;
+}
+
+sticky-toc {
+  position: sticky;
+  top: 2rem; /* Adjust based on your header height */
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.table-of-contents {
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
 }
 
 .navscroll {
@@ -320,10 +310,6 @@ watch(
 
 .border-typography-primary {
   border-bottom: 2px solid black; /* Adjust as needed */
-}
-
-.dark-border-typography-primary-dark {
-  /* Define dark mode border styles if necessary */
 }
 
 /* Define other styles for your layout, including flex layout and spacing classes */
@@ -365,10 +351,6 @@ watch(
   font-family: "Futura", monospace;
   font-weight: bold;
   margin-bottom: 16px;
-}
-
-.related-style {
-  font-family: "PT Sans Caption", sans-serif;
 }
 
 .about-description {

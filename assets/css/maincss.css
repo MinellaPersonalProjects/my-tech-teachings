@@ -15,9 +15,14 @@ p {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
     margin-bottom: 0.5em;
     font-family: "Futura", monospace;
+}
+
+h5 {
+    color: color-mix(in srgb, #1a1b26 30%, #e0e0e0);
 }
 
 h1 a,
@@ -54,7 +59,7 @@ li {
 
 
 code {
-    background-color: #f5f1f1;
+    background-color: #50383829;
     padding: 2px 4px;
     margin: 3px 3px;
     border-radius: 4px;

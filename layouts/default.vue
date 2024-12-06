@@ -22,18 +22,17 @@ import AppFooter from "~/layouts/AppFooter.vue";
 </template>
 
 <style scoped>
-
 .site-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 .flex-grow {
   flex: 1; /* This will make the main content grow to push the footer down */
 }
 
-.fotter-index{
+.fotter-index {
   z-index: 2;
 }
 </style>
