@@ -55,7 +55,7 @@ const noResult = computed(() => {
             <span>Tags</span>
             <br />
             <v-card variant="text" class="mt-3">
-              <v-chip v-for="(tag, index) in tags" :key="index">{{
+              <v-chip v-for="(tag, index) in tags" :key="index" class="mr-2">{{
                 tag
               }}</v-chip>
             </v-card>
