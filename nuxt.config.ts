@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   ssr: true,
   components: true,
   alias: {
-    "@": resolve(__dirname, "/"),
+    "@": resolve(__dirname),
   },
 
   modules: ['@pinia/nuxt', '@nuxt/content', '@nuxtjs/color-mode', "nuxt-csurf", '@nuxt/image'],

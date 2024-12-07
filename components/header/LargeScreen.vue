@@ -26,6 +26,8 @@ function changeDarkMode() {
   isDarkMode.value = newTheme === "dark";
 }
 
+// const logo = require("@/assets/N.png");
+
 function getColorLightMapping(social) {
   if (social === "youtube") {
     return "#FF0000";
@@ -52,19 +54,26 @@ function getColorMapping(social) {
 <template>
   <v-row align="center" color="primary" dark>
     <v-col cols="12" lg="4" xl="4">
-      <v-btn class="btn positioning" variant="text" href="/">HOME</v-btn>
-      <v-btn class="btn positioning" variant="text" href="/about">ABOUT</v-btn>
-      <v-btn class="btn positioning" variant="text" href="/blog"
-        >ARTICLES</v-btn
-      >
+      <v-row align="center" justify="start">
+        <v-card height="50px" width="200px" variant="text">
+          <v-img
+            src="https://i.imgur.com/0eGYp7C.png"
+            cover
+            @click="router.push('/')"
+          ></v-img>
+        </v-card>
+      </v-row>
     </v-col>
 
     <v-col cols="12" lg="4" xl="4">
       <v-row align="center" justify="center">
-        <!-- <color-mode-switch :size="'w-8 h-8'" :spacing="'p-0'"/> -->
-        <h3 class="name name_positioning" @click="router.push('/')">
-          Nkem's Tech Teachings
-        </h3>
+        <v-btn class="btn positioning" variant="text" href="/">HOME</v-btn>
+        <v-btn class="btn positioning" variant="text" href="/about"
+          >ABOUT</v-btn
+        >
+        <v-btn class="btn positioning" variant="text" href="/blog"
+          >ARTICLES</v-btn
+        >
       </v-row>
     </v-col>
 

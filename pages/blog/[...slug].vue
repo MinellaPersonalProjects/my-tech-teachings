@@ -1,7 +1,7 @@
 <script setup>
 // adapted from Gonzalo Hirsch
 import { computed } from "vue";
-import { useTheme, useDisplay } from "vuetify";
+import { useDisplay } from "vuetify";
 
 const { mdAndUp, smAndUp } = useDisplay();
 
@@ -14,10 +14,6 @@ function openDrawer() {
 
 const atBottom = ref(false);
 const isVisible = ref(false);
-
-// const theme = useTheme();
-// const isDark = ref(false);
-// const theme_name = ref();
 
 const handleScroll = () => {
   const st = window.pageYOffset || document.documentElement.scrollTop;
@@ -39,11 +35,6 @@ const handleScroll = () => {
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   handleScroll();
-
-  // const savedTheme = localStorage.getItem("theme") || "light";
-  // theme.global.name.value = savedTheme;
-  // isDark.value = savedTheme === "dark";
-  // theme_name.value = savedTheme;
 });
 
 onUnmounted(() => {
@@ -162,16 +153,6 @@ useHead({
   ],
   script: jsonScripts,
 });
-
-// watch(
-//   () => theme.global.current.value.dark,
-//   (dark) => {
-//     isDark.value = dark;
-//     theme_name.value = dark ? "light" : "dark";
-
-//     localStorage.setItem("theme", theme_name.value);
-//   }
-// );
 </script>
 <template>
   <NuxtLayout>

@@ -22,22 +22,44 @@ defineProps({
     type: String,
     default: "/",
   },
+  tags: {
+    type: Array,
+    default: () => [],
+  },
+  article: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const { smAndUp } = useDisplay();
+
 </script>
 <template>
-  <v-card height="60vh" align-top :to="path" variant="outlined">
-    <v-img :src="image" height="200" cover alt="Post Image" />
-    <v-card-text>
+  <v-card height="45vh" align-top :to="path" variant="text">
+    <v-img
+      :src="image"
+      :href="path"
+      height="200"
+      cover
+      alt="Post Image"
+      rounded
+      style="border: 2px solid #ccc; border-radius: 8px"
+    />
+
+    <v-card-text class="pl-0">
       <v-row align-content="center">
         <v-col cols="12">
           <h2 :href="path" class="main-web-text-style">{{ title }}</h2>
+          <v-chip
+            variant="outlined"
+            class="mr-2"
+            v-for="(tag, index) in tags"
+            :key="index"
+            >{{ tag }}</v-chip
+          >
         </v-col>
-        <v-col cols="12">
-          <p class="main-web-text-style">{{ date }}</p>
-        </v-col>
-        <v-col cols="12" v-show="smAndUp">
+        <v-col cols="12" v-if="smAndUp && article" class="pt-0">
           <span :href="path" class="main-web-text-style">{{
             description
           }}</span>

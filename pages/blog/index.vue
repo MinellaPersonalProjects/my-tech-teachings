@@ -39,6 +39,7 @@ const noResult = computed(() => {
         <v-col cols="12" lg="12" md="12" sm="12" xl="6">
           <posts-search
             :blog_data="blog_data"
+            :blog_link="'/blog'"
             @submit="submitSearch"
             @search="setSearch"
           />
@@ -46,7 +47,11 @@ const noResult = computed(() => {
         <v-col cols="12"> </v-col>
         <v-col cols="12">
           <v-container v-if="selectedItem.length > 0">
-            <posts-list :data="selectedItem" :sectiontitle="'Search Results'" />
+            <posts-list
+              :data="selectedItem"
+              :sectiontitle="'Search Results'"
+              :article="true"
+            />
             <posts-pagination
               v-if="data_count(selectedItem) > 1"
               class="mt-8"
@@ -66,14 +71,25 @@ const noResult = computed(() => {
           <v-container v-else>
             <ContentQuery
               path="/blog"
-              :only="['title', 'summary', 'publishDate', 'myImage', '_path']"
+              :only="[
+                'title',
+                'summary',
+                'publishDate',
+                'myImage',
+                '_path',
+                'tags',
+              ]"
               :sort="{
                 publishDateTime: -1,
               }"
               :limit="blogCountLimit"
               v-slot="{ data }"
             >
-              <posts-list :data="data" :sectiontitle="'Latest Posts'" />
+              <posts-list
+                :data="data"
+                :sectiontitle="'Latest Posts'"
+                :article="true"
+              />
             </ContentQuery>
             <posts-pagination
               v-if="data_count(blog_data) > 1"

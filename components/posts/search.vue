@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 const search = ref("");
 const selectedItem = ref({});
 const emit = defineEmits(["submit", "search"]);
-const props = defineProps(["blog_data"]);
+const props = defineProps(["blog_data", "blog_link"]);
 const router = useRouter();
 
 function matchesSearch(title) {
@@ -20,7 +20,7 @@ function matchesTags(tags) {
 
 function filterItems() {
   if (search.value === "") {
-    router.push("/blog");
+    router.push(`${blog_link}`);
   }
 
   if (search.value != null) {
@@ -46,7 +46,7 @@ const clearAndNavigate = () => {
 <template>
   <v-text-field
     v-model="search"
-    placeholder="Search for Blog Topic or Tag"
+    label="Search"
     clearable
     prepend-inner-icon="mdi-magnify"
     variant="outlined"
