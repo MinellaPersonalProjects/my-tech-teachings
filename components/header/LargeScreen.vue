@@ -2,6 +2,7 @@
 import { useDarkModeStore } from "~/store/darkMode";
 import { useSocialsStore } from "~/store/socials";
 import { useTheme } from "vuetify";
+import { ref, computed } from "vue";
 
 const theme = useTheme();
 
@@ -9,9 +10,20 @@ const router = useRouter();
 const store = useDarkModeStore();
 const socials = useSocialsStore();
 
+const isDarkMode = ref(false);
+isDarkMode.value = computed(() => {
+  if (typeof window !== "undefined") {
+    const current_theme = localStorage.getItem("theme");
+    return current_theme === "dark";
+  }
+  return false;
+}).value;
+
 function changeDarkMode() {
-  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
-  store.toggleDarkMode();
+  const newTheme = theme.global.current.value.dark ? "light" : "dark";
+  theme.global.name.value = newTheme;
+  localStorage.setItem("theme", newTheme);
+  isDarkMode.value = newTheme === "dark";
 }
 
 function getColorLightMapping(social) {
@@ -42,7 +54,9 @@ function getColorMapping(social) {
     <v-col cols="12" lg="4" xl="4">
       <v-btn class="btn positioning" variant="text" href="/">HOME</v-btn>
       <v-btn class="btn positioning" variant="text" href="/about">ABOUT</v-btn>
-      <v-btn class="btn positioning" variant="text" href="/blog">ARTICLES</v-btn>
+      <v-btn class="btn positioning" variant="text" href="/blog"
+        >ARTICLES</v-btn
+      >
     </v-col>
 
     <v-col cols="12" lg="4" xl="4">
@@ -58,13 +72,13 @@ function getColorMapping(social) {
       <v-row align="center" justify="end">
         <v-btn
           @click="changeDarkMode"
-          :style="{ color: !store.isDarkMode ? 'black' : 'cornflowerblue' }"
+          :style="{ color: !isDarkMode ? 'black' : 'cornflowerblue' }"
           style="margin-top: 10px"
           variant="plain"
           icon
         >
           <v-icon icon="x-small">{{
-            !store.isDarkMode ? "mdi-brightness-7" : "mdi-brightness-2"
+            !isDarkMode ? "mdi-brightness-7" : "mdi-brightness-2"
           }}</v-icon>
         </v-btn>
         <v-divider

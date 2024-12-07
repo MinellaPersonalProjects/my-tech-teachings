@@ -189,6 +189,19 @@ span.line.highlighted {
     transition-timing-function: ease-in;
 }
 
+.sticky-toc {
+    position: -webkit-sticky;
+    /* For Safari */
+    position: sticky;
+    top: 20px;
+    /* Adjust this value to your needs */
+    overflow-y: auto;
+    max-height: 80vh;
+    /* Limits the height of the table of contents */
+    padding-right: 20px;
+    /* Optional: adds space on the right side */
+}
+
 .svg-border-waves .v-image {
     bottom: 0;
     left: 0;
