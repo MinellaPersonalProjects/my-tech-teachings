@@ -1,7 +1,13 @@
 <template>
   <NuxtLayout>
-    <v-container>
-      <v-card>
+    <v-container
+      fluid
+      style="
+        background-color: #f5f5dc6d;
+        background-size: cover;
+      "
+    >
+      <v-card variant="text">
         <v-card-text>
           <about-content />
           <about-contact-cards />

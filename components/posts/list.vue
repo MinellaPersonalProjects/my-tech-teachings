@@ -2,10 +2,9 @@
 const props = defineProps(["data", "sectiontitle", "article"]);
 </script>
 <template>
-  <v-row>
+  <v-row class="d-flex align-stretch">
     <v-col cols="12" md="4" v-for="post in data" :key="post.slug">
       <top-posts-card
-        style="margin-bottom: 10px"
         :date="post.publishDate"
         :description="post.summary"
         :image="post.myImage"

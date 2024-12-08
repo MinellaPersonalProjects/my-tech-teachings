@@ -33,10 +33,9 @@ defineProps({
 });
 
 const { smAndUp } = useDisplay();
-
 </script>
 <template>
-  <v-card height="45vh" align-top :to="path" variant="text">
+  <v-card height="100%" align-top :to="path" variant="text">
     <v-img
       :src="image"
       :href="path"
