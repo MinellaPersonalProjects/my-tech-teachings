@@ -7,7 +7,7 @@ import AppFooter from "~/layouts/AppFooter.vue";
 
 <template>
   <div class="site-wrapper">
-    <header>
+    <header class="pb-1">
       <real-header />
     </header>
 
