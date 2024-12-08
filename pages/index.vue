@@ -1,4 +1,7 @@
 <script setup>
+import { useDisplay } from "vuetify";
+
+const { mdAndUp } = useDisplay();
 </script>
 <template>
   <NuxtLayout>
@@ -11,14 +14,27 @@
               background-image: url('https://i.imgur.com/uqhgY6e.png');
               background-size: cover;
             "
+            class="pa-0"
           >
             <v-row>
-              <v-col cols="12" md="5" lg="5" xl="6" class="ml-10">
-                <h1 style="font-size: 100px">
+              <v-col cols="12">
+                <h1 v-if="mdAndUp" style="font-size: 100px; text-align: left">
                   Welcome to Nkem's Tech Teachings
                 </h1>
+                <h1 v-else style="font-size: 60px; text-align: left">
+                  Welcome to Nkem's Tech Teachings
+                </h1>
+                <h3
+                  style="
+                    font-size: 30px;
+                    text-align: right;
+                    padding-right: 10px;
+                  "
+                >
+                  <i>Home of Your Resident Code Enthusiast</i>
+                </h3>
               </v-col>
-              <v-row align="center" justify="center">
+              <!-- <v-row align="center" justify="center">
                 <v-col cols="12" md="6" lg="6" xl="6">
                   <v-card
                     height="80%"
@@ -31,7 +47,7 @@
                     <v-img src="https://i.imgur.com/Xy3RenC.png"></v-img>
                   </v-card>
                 </v-col>
-              </v-row>
+              </v-row> -->
             </v-row>
           </section>
         </v-col>
@@ -54,5 +70,18 @@
 <style lang="scss" scoped>
 .sect1 {
   background-color: #f5f5dc6d;
+}
+
+/* Small screens and below */
+.responsive-title {
+  font-size: 60px;
+  text-align: left;
+}
+
+/* Medium screens and above */
+@media (min-width: 768px) {
+  .responsive-title {
+    font-size: 100px;
+  }
 }
 </style>
