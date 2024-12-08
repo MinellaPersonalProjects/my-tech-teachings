@@ -47,7 +47,7 @@ const { data, error } = await useAsyncData(`${cleanPath}`, async () => {
   let surround = queryContent("/blog")
     .sort({ publishDateTime: -1 })
     .sort({ tags: 1 })
-    .only(["_path", "title", "summary"])
+    .only(["_path", "title", "summary", "myImage", "publishDate"])
     .findSurround(cleanPath, { before: 1, after: 1 });
 
   return {

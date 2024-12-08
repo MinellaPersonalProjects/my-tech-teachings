@@ -60,7 +60,7 @@ defineProps({
         <template v-slot:prepend>
           <v-avatar
             color="grey-darken-3"
-            image="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+            image="https://avataaars.io/?avatarStyle=Circle&topType=LongHairCurly&accessoriesType=Round&hairColor=Brown&facialHairType=Blank&clotheType=Hoodie&clotheColor=PastelGreen&eyeType=Happy&eyebrowType=Default&mouthType=Twinkle&skinColor=Light"
           ></v-avatar>
         </template>
 

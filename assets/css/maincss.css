@@ -37,7 +37,6 @@ h6 a {
 
 a {
     color: inherit;
-    text-decoration: none;
 }
 
 section {
@@ -151,6 +150,18 @@ span.line.highlighted {
     font-family: "Futura", monospace;
     margin-bottom: 50px;
     margin-top: 30px;
+}
+
+.responsive-title {
+    font-size: 60px;
+    text-align: left;
+}
+
+/* Medium screens and above */
+@media (min-width: 768px) {
+    .responsive-title {
+        font-size: 100px;
+    }
 }
 
 .text-hover:hover {

@@ -1,8 +1,3 @@
-<script setup>
-import { useDisplay } from "vuetify";
-
-const { mdAndUp } = useDisplay();
-</script>
 <template>
   <NuxtLayout>
     <v-container fluid class="pa-0">
@@ -18,12 +13,10 @@ const { mdAndUp } = useDisplay();
           >
             <v-row>
               <v-col cols="12">
-                <h1 v-if="mdAndUp" style="font-size: 100px; text-align: left">
+                <h1 class="responsive-title">
                   Welcome to Nkem's Tech Teachings
                 </h1>
-                <h1 v-else style="font-size: 60px; text-align: left">
-                  Welcome to Nkem's Tech Teachings
-                </h1>
+
                 <h3
                   style="
                     font-size: 30px;
@@ -34,20 +27,6 @@ const { mdAndUp } = useDisplay();
                   <i>Home of Your Resident Code Enthusiast</i>
                 </h3>
               </v-col>
-              <!-- <v-row align="center" justify="center">
-                <v-col cols="12" md="6" lg="6" xl="6">
-                  <v-card
-                    height="80%"
-                    width="100%"
-                    class="ml-0"
-                    rounded="circle"
-                    style="background-color: transparent"
-                    elevation-16
-                  >
-                    <v-img src="https://i.imgur.com/Xy3RenC.png"></v-img>
-                  </v-card>
-                </v-col>
-              </v-row> -->
             </v-row>
           </section>
         </v-col>
@@ -70,18 +49,5 @@ const { mdAndUp } = useDisplay();
 <style lang="scss" scoped>
 .sect1 {
   background-color: #f5f5dc6d;
-}
-
-/* Small screens and below */
-.responsive-title {
-  font-size: 60px;
-  text-align: left;
-}
-
-/* Medium screens and above */
-@media (min-width: 768px) {
-  .responsive-title {
-    font-size: 100px;
-  }
 }
 </style>
