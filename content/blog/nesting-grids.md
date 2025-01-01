@@ -59,7 +59,7 @@ Within our top `v-col`, we're going to add another `v-row` and further divide th
          </v-col> // [!code ++]
         </v-row>
       </v-col>
-      <v-col cols="12">
+      <v-col cols="12"> 
         <!-- skeleton loader -->
       </v-col>
     </v-row>

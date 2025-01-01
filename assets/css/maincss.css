@@ -103,8 +103,24 @@ span.line.diff.remove {
     background-color: rgba(244, 63, 93, 0.486);
 }
 
+span.line.diff.remove::before {
+    content: '-';
+    background-color: rgba(244, 63, 93, 0.486);
+    color: rgb(185, 185, 185);
+    padding-left: 1.0em;
+    font-weight: bold;
+}
+
 span.line.diff.add {
     background-color: rgba(16, 185, 129, 0.252);
+}
+
+span.line.diff.add::before {
+    content: '+';
+    background-color: rgba(16, 185, 129, 0.252);
+    color: rgb(185, 185, 185);
+    padding-left: 1.0em;
+    font-weight: bold;
 }
 
 span.line.highlight,
