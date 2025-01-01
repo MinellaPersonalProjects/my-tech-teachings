@@ -25,8 +25,6 @@ In our example above, if you notice it is made of two big rows and within one of
 
 For our code, we'll begin by creating two rows
 
-![Rowzzz](https://i.imgur.com/BQyzo9b.png)
-
 ```html
 <v-container>
     <v-row>
@@ -40,23 +38,25 @@ For our code, we'll begin by creating two rows
   </v-container>
 ```
 
+Here's how it'll look on the frontend :
+
+![Rowzzz](https://i.imgur.com/BQyzo9b.png)
+
 ## Second Division
 
 Within our top `v-col`, we're going to add another `v-row` and further divide that row into two columns
-
-![Imgur](https://i.imgur.com/dZxx6EO.png)
 
 ```html
 <v-container>
     <v-row>
       <v-col cols="12">
-        <v-row>
-          <v-col cols="6">
-            <!-- skeleton loader -->
-          </v-col>
-          <v-col cols="6">
-            <!-- skeleton loader -->
-          </v-col>
+         <v-row> // [!code ++]
+          <v-col cols="6"> // [!code ++]
+            <!-- skeleton loader --> // [!code ++]
+         </v-col> // [!code ++]
+         <v-col cols="6"> // [!code ++]
+            <!-- skeleton loader --> // [!code ++]
+         </v-col> // [!code ++]
         </v-row>
       </v-col>
       <v-col cols="12">
@@ -66,11 +66,14 @@ Within our top `v-col`, we're going to add another `v-row` and further divide th
   </v-container>
 ```
 
+Then on the frontend it'll look like :
+
+![Imgur](https://i.imgur.com/dZxx6EO.png)
+
 ## Even More Rows
 
 To make this even more fun, we're going to add another `v-row` within our first `v-col` to make two smaller rows
 
-![Imgur](https://i.imgur.com/fcNgkhp.png)
 
 ```html
 <v-container>
@@ -78,14 +81,13 @@ To make this even more fun, we're going to add another `v-row` within our first 
       <v-col cols="12">
         <v-row>
           <v-col cols="6">
-            <v-row>
-              <v-col cols="12">
-                <!-- skeleton loader -->
-              </v-col>
-              <v-col cols="12">
-                <!-- skeleton loader -->
-              </v-col>
-            </v-row>
+            <v-row> // [!code ++]
+             <v-col cols="6"> // [!code ++]
+               <!-- skeleton loader --> // [!code ++]
+            </v-col> // [!code ++]
+             <v-col cols="6"> // [!code ++]
+               <!-- skeleton loader --> // [!code ++]
+             </v-col> // [!code ++]
             </v-col>
           <v-col cols="6">
             <!-- skeleton loader -->
@@ -99,9 +101,13 @@ To make this even more fun, we're going to add another `v-row` within our first 
   </v-container>
 ```
 
+It'll look like this : 
+
+![Imgur](https://i.imgur.com/fcNgkhp.png)
+
 ## Final Result
 
-This is what our full code would look like:
+Now when we put everything together we'll have :
 
 ```html
 <v-container>
