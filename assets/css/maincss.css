@@ -104,7 +104,7 @@ span.line.diff.remove {
 }
 
 span.line.diff.add {
-    background-color: rgba(16, 185, 129, 0.431);
+    background-color: rgba(16, 185, 129, 0.252);
 }
 
 span.line.highlight,

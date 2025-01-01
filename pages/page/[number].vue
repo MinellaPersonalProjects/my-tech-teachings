@@ -18,6 +18,11 @@ const getPageLimit = (totalPosts) => {
   return Math.ceil(totalPosts / blogCountLimit);
 };
 
+const tags = computed(() => {
+  const allTags = blogs.value?.flatMap((post) => post.tags) || [];
+  return [...new Set(allTags)];
+});
+
 const router = useRouter();
 let pageNo;
 try {
@@ -58,35 +63,7 @@ const noResult = computed(() => {
     <v-container fluid class="pa-0">
       <v-row>
         <v-col cols="12">
-          <section
-            style="
-              background-color: #f5f5dc6d;
-              background-image: url('https://i.imgur.com/uqhgY6e.png');
-              background-size: cover;
-            "
-          >
-            <v-row no-gutters>
-              <v-col cols="12" md="5" lg="5" xl="6" class="ml-10">
-                <h1 style="font-size: 100px">
-                  Welcome to Nkem's Tech Teachings
-                </h1>
-              </v-col>
-              <v-row align="center" justify="center">
-                <v-col cols="12" md="6" lg="6" xl="6">
-                  <v-card
-                    height="80%"
-                    width="100%"
-                    class="ml-0"
-                    rounded="circle"
-                    variant="outlined"
-                    color="gray"
-                  >
-                    <v-img src="https://i.imgur.com/Xy3RenC.png"></v-img>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-row>
-          </section>
+          <hero-bar />
         </v-col>
         <v-col cols="12">
           <section>
@@ -135,6 +112,7 @@ const noResult = computed(() => {
                                   <v-chip
                                     v-for="(tag, index) in tags"
                                     :key="index"
+                                    class="mr-2"
                                     >{{ tag }}</v-chip
                                   >
                                 </v-card>
@@ -180,7 +158,7 @@ const noResult = computed(() => {
                                   <posts-pagination
                                     v-if="data_count(data) > 1"
                                     class="mt-8"
-                                    :currentPage="1"
+                                    :currentPage="getPageNumber()"
                                     :totalPages="data_count(data)"
                                     :nextPage="data_count(data) > 1"
                                     baseUrl="/"
