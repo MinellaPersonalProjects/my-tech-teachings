@@ -1,20 +1,30 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
-const props = defineProps(["isVisible"]);
+const isVisible = ref(false);
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-// const handleScroll = () => {
-//   const st = window.pageYOffset || document.documentElement.scrollTop;
-//   isVisible.value = st > window.innerHeight / 2;
-// };
+const handleScroll = () => {
+  const st = window.pageYOffset || document.documentElement.scrollTop;
+  isVisible.value = st > window.innerHeight / 2;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
-  <v-fab
+  <v-btn
+    v-if="isVisible"
     @click="scrollToTop"
     class="scroll-to-top"
     color="#007BFF"
@@ -22,7 +32,7 @@ const scrollToTop = () => {
     icon
   >
     <Icon icon="line-md:arrow-up" />
-  </v-fab>
+  </v-btn>
 </template>
 
 <style scoped>

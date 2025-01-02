@@ -78,14 +78,7 @@ const noResult = computed(() => {
         <!-- Query for the given blog page number -->
         <ContentQuery
           path="/blog"
-          :only="[
-            'title',
-            'summary',
-            'publishDate',
-            'myImage',
-            '_path',
-            'tags',
-          ]"
+          :only="['title', 'summary', 'publishDate', 'myImage', '_path']"
           :sort="{
             publishDateTime: -1,
           }"
@@ -98,7 +91,6 @@ const noResult = computed(() => {
               <v-col cols="12" lg="12" md="12" sm="12" xl="6">
                 <posts-search
                   :blog_data="blog_data"
-                  :blog_link="'/blog'"
                   @submit="submitSearch"
                   @search="setSearch"
                 />
@@ -107,7 +99,6 @@ const noResult = computed(() => {
                 <posts-list
                   :data="selectedItem"
                   :sectiontitle="'Search Results'"
-                  :article="true"
                 />
               </v-container>
               <v-container v-else-if="noResult">
@@ -117,11 +108,7 @@ const noResult = computed(() => {
                 </h1>
               </v-container>
               <v-container v-else>
-                <posts-list
-                  :data="data"
-                  :sectiontitle="'Latest Posts'"
-                  :article="true"
-                />
+                <posts-list :data="data" :sectiontitle="'Latest Posts'" />
                 <ContentQuery path="/blog" :only="['title']">
                   <template v-slot="{ data }">
                     <posts-pagination
@@ -146,7 +133,6 @@ const noResult = computed(() => {
             <!-- Show hero and message -->
             <posts-search
               :blog_data="data"
-              :blog_link="'/blog'"
               @submit="submitSearch"
               @search="setSearch"
             />

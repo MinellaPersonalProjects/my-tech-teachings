@@ -16,13 +16,13 @@ In the first part of our three-part series on Mastering Vuetify Grids, we covere
 
 For this tutorial, we'll be looking through a variety of code samples and how they would look on your webpage. This will give you the building blocks for more complex applications and lay a stronger foundation to help you understand Vuetify Grids.
 
-## Setup
+# Setup
 
 Follow along the different code examples given in the tutorial by running the command `yarn create vuetify` and under the _src > components > HelloWorld.vue_, delete everything within the `<template></template>` tags and replace the items between with the examples we discuss. You can view the expected result as well in this tutorial, to make sure everything looks right.
 
 Now we're ready to code!
 
-## Your First Grid Column
+# Your First Grid Column
 
 We are going to make a big block that stretches across the screen, so you're content grabs the attention it deserves
 
