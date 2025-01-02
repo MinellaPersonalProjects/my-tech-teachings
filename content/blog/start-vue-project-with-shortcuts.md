@@ -39,11 +39,11 @@ yarn create vuetify
 
 You'll see a message like this :
 
-![Imgur\_1](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782164/1_-_avyri9S_lfjae5.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782164/1_-_avyri9S_lfjae5.png" alt="img1" />
 
-Next you'll have to choose a preset based on what you want available in your app ![Imgur\_2](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782165/2_-_YeggS2X_so1m8w.png)
+Next you'll have to choose a preset based on what you want available in your app <img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782165/2_-_YeggS2X_so1m8w.png" alt="img2"/>
 
-Finally, you can choose which preset you want to use to install dependencies ![Imgur\_3](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782166/3_-_SXZEoh5_v8gpp5.png)
+Finally, you can choose which preset you want to use to install dependencies <img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782166/3_-_SXZEoh5_v8gpp5.png" alt="img3"/>
 
 ## Project Structure
 
@@ -107,6 +107,6 @@ yarn dev
 
 Once you run the command, you'll see an output in your terminal that resembles the following:
 
-![stars-vue-project-from-scratch images](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782075/mFgAoiD_zp0y7a.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782075/mFgAoiD_zp0y7a.png" alt="output"/>
 
 If you copy the URL into your web browser, you'll see your Vue app live in your browser. You can play around with the code and gain more familiarity with the different aspects of a vuetify project. Happy Coding !

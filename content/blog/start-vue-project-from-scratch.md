@@ -263,7 +263,7 @@ or
 
 Once you run the command, you'll see an output in your terminal that resembles the following:
 
-![stars-vue-project-from-scratch images](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782075/mFgAoiD_zp0y7a.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782075/mFgAoiD_zp0y7a.png" alt="mainImg"/>
 
 If you copy the URL into your web browser, you'll see your Vue app live in your browser
 
