@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@pinia/nuxt', '@nuxt/content', '@nuxtjs/color-mode', "nuxt-csurf", '@nuxt/image'],
+  modules: ['@pinia/nuxt', '@nuxt/content', '@nuxtjs/color-mode', "nuxt-csurf", '@nuxt/image', 'nuxt-gtag'],
 
   plugins: [
     '~/plugins/vuetify.ts'
@@ -33,6 +33,20 @@ export default defineNuxtConfig({
   build: {
     analyze: true,
     transpile: ['vuetify', 'shiki'],
+  },
+
+  gtag: {
+    id: process.env.GTM_ID,
+    initCommands: [
+      // Setup up consent mode
+      ['consent', 'default', {
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      }]
+    ]
   },
 
   vite: {

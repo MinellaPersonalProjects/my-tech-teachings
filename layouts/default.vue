@@ -18,6 +18,8 @@ import AppFooter from "~/layouts/AppFooter.vue";
     <footer class="bg-grey-darken-1 fotter-index">
       <app-footer />
     </footer>
+
+    <consent-banner/>
   </div>
 </template>
 
