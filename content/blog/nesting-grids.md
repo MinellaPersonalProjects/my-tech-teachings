@@ -17,7 +17,7 @@ If you're coming from the earlier parts of this tutorial, you probably have a ba
 
 Assume that in every `v-col` you create, you are essentially making another mini grid. So you can essentially apply the basic styling addressed in our previous tutorials in every single v-col. This 'grid within a grid' approach allows for more complex and flexible layouts, as each column can contain its own set of rows and columns, just like the main grid. This can get confusing, so don't worry if it doesn't make sense. To help you understand, let's try creating this dashboard style skeleton loader using what we've learned so far :
 
-![FullGif](https://i.imgur.com/tUP4Ne9.gif)
+<img src="https://i.imgur.com/tUP4Ne9.gif" alt="FullGif"/>
 
 In our example above, if you notice it is made of two big rows and within one of those rows, it is divided further.
 
@@ -40,7 +40,7 @@ For our code, we'll begin by creating two rows
 
 Here's how it'll look on the frontend :
 
-![Rowzzz](https://i.imgur.com/BQyzo9b.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735779920/2_ox9gpa.png" alt="Rowzzz"/>
 
 ## Second Division
 
@@ -68,7 +68,7 @@ Within our top `v-col`, we're going to add another `v-row` and further divide th
 
 Then on the frontend it'll look like :
 
-![Imgur](https://i.imgur.com/dZxx6EO.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735779920/3_mit1cf.png" alt="secDiv"/>
 
 ## Even More Rows
 
@@ -103,7 +103,7 @@ To make this even more fun, we're going to add another `v-row` within our first 
 
 It'll look like this : 
 
-![Imgur](https://i.imgur.com/fcNgkhp.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735779920/4_zcytqd.png" alt="MoreRows" />
 
 ## Final Result
 

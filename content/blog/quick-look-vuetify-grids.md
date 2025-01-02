@@ -30,7 +30,7 @@ The Vuetify Grid is made up of three major components : the Containers, Rows and
 
 The general understanding of a common grid is that it is made of rows and columns. However, the row component of vuetify doesn't really mean a row, it's mostly a wrapper for the columns. The real bulk of the content styling has more to do with how your columns are defined.
 
-![rowsAndCols](https://i.imgur.com/eFB0NeE.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735780972/4_-_eFB0NeE_gwe1w6.png" alt="imageVal" />
 
 ## Understanding the 12 Point V-Row System
 
@@ -38,13 +38,13 @@ Think of a v-row like a shelf with 12 equal spaces and v-col as a box.
 
 Depending on the size of your box, you can fill one or more spaces in the shelf but the total space you can use adds up to 12\. You can determine the full width of your columns using a tag `cols=”x”` where _x_ is a number between 1-12.
 
-![fillSpace](https://i.imgur.com/vOmq5DV.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735780971/1_-_vOmq5DV_agyqmq.png" alt="imageVal" />
 
 So what happens if the total number of spaces your columns take is more than 12 ?
 
 _It goes to the next line_
 
-![nextRow](https://i.imgur.com/V9XOFJL.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735780972/3_-_V9XOFJL_mjjw66.png" alt="imageVal" />
 
 Let's practice with some code.
 
@@ -60,7 +60,7 @@ Everything starts with a `<v-container>`. It's your big box.
 
 You can use a special feature or tag called **fluid** to make this box stretch all the way across the screen. If you don't use the **fluid** tag, your content will be stuck in the middle of the screen with large spaces beside it.
 
-![containers](https://i.imgur.com/NmJTrPE.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735780971/2_-_NmJTrPE_tyddjk.png" alt="imageVal" />
 
 Then we've got the row. Each row is marked by `<v-row></v-row>`
 
@@ -90,6 +90,6 @@ By default, there's some space between the columns, like a little gap. You can m
 
 This is what your code looks like,
 
-![fullGrid](https://i.imgur.com/9b1tHRg.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735781160/ZH7aOpf_vsoagq.png" alt="imageVal" />
 
 It may look small but be patient, now you have the basics down, you can create so many fun styles by changing a few values. Head on to [Part 2](/blog/styling-vuetify-grids) of this tutorial to gain more advanced mastery of the Vuetify Grid System.

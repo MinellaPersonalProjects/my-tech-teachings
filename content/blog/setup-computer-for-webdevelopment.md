@@ -38,7 +38,7 @@ However, with a code editor like Sublime Text or Atom, you'll have to use your c
 
 For our tutorial, we are using the VS Code on Mac. To access the terminal , click Terminal in the menu bar and create a New Terminal or you can use the keys **CTRL+Return+`**
 
-![setup-computer-for-webdev](https://i.imgur.com/3kyXR4f.png)
+<img src="https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782034/3kyXR4f_culggr.png" alt="cmdl"/>
 
 A terminal window, will open up below and there you can begin typing in commands.
 

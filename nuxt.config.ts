@@ -10,6 +10,14 @@ export default defineNuxtConfig({
     "@": resolve(__dirname),
   },
 
+  image: {
+    // Disable Netlify image optimization for external URLs
+    domains: ['res.cloudinary.com', 'imgur.com'],
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/dgdsc8fxf/image/upload/'
+    }
+  },
+
   modules: ['@pinia/nuxt', '@nuxt/content', '@nuxtjs/color-mode', "nuxt-csurf", '@nuxt/image'],
 
   plugins: [
