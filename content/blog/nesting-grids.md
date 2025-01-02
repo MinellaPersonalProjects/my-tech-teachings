@@ -40,7 +40,7 @@ For our code, we'll begin by creating two rows
 
 Here's how it'll look on the frontend :
 
-![Rowzzz](https://i.imgur.com/BQyzo9b.png)
+![Rowzzz](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735779920/2_ox9gpa.png)
 
 ## Second Division
 
@@ -68,7 +68,7 @@ Within our top `v-col`, we're going to add another `v-row` and further divide th
 
 Then on the frontend it'll look like :
 
-![Imgur](https://i.imgur.com/dZxx6EO.png)
+![Cols](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735779920/3_mit1cf.png)
 
 ## Even More Rows
 
