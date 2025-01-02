@@ -1,17 +1,2 @@
 [build]
 functions = "netlify/functions"
-
-[[redirects]]
-  from = "/.netlify/images*"
-  to = ":splat"
-  status = 200
-  force = true
-  query = { url = "https://i.imgur.com/*" }
-
-[[redirects]]
-  from = "/.netlify/images*"
-  to = ":splat"
-  status = 200
-  force = true
-  query = { url = "https://res.cloudinary.com/*" }
-
