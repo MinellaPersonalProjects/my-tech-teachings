@@ -103,7 +103,7 @@ To make this even more fun, we're going to add another `v-row` within our first 
 
 It'll look like this : 
 
-![Imgur](https://i.imgur.com/fcNgkhp.png)
+![More Rows](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735779920/4_zcytqd.png)
 
 ## Final Result
 
