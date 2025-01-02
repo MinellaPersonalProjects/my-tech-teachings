@@ -21,12 +21,10 @@ Assume that in every `v-col` you create, you are essentially making another mini
 
 In our example above, if you notice it is made of two big rows and within one of those rows, it is divided further.
 
-# Two Rows
+## Two Rows
 
 For our code, we'll begin by creating two rows
 
-![Rowzzz](https://i.imgur.com/BQyzo9b.png)
-
 ```html
 <v-container>
     <v-row>
@@ -40,37 +38,42 @@ For our code, we'll begin by creating two rows
   </v-container>
 ```
 
-# Second Division
+Here's how it'll look on the frontend :
+
+![Rowzzz](https://i.imgur.com/BQyzo9b.png)
+
+## Second Division
 
 Within our top `v-col`, we're going to add another `v-row` and further divide that row into two columns
 
-![Imgur](https://i.imgur.com/dZxx6EO.png)
-
 ```html
 <v-container>
     <v-row>
       <v-col cols="12">
-        <v-row>
-          <v-col cols="6">
-            <!-- skeleton loader -->
-          </v-col>
-          <v-col cols="6">
-            <!-- skeleton loader -->
-          </v-col>
+         <v-row> // [!code ++]
+          <v-col cols="6"> // [!code ++]
+            <!-- skeleton loader --> // [!code ++]
+         </v-col> // [!code ++]
+         <v-col cols="6"> // [!code ++]
+            <!-- skeleton loader --> // [!code ++]
+         </v-col> // [!code ++]
         </v-row>
       </v-col>
-      <v-col cols="12">
+      <v-col cols="12"> 
         <!-- skeleton loader -->
       </v-col>
     </v-row>
   </v-container>
 ```
 
-# Even More Rows
+Then on the frontend it'll look like :
+
+![Imgur](https://i.imgur.com/dZxx6EO.png)
+
+## Even More Rows
 
 To make this even more fun, we're going to add another `v-row` within our first `v-col` to make two smaller rows
 
-![Imgur](https://i.imgur.com/fcNgkhp.png)
 
 ```html
 <v-container>
@@ -78,14 +81,13 @@ To make this even more fun, we're going to add another `v-row` within our first 
       <v-col cols="12">
         <v-row>
           <v-col cols="6">
-            <v-row>
-              <v-col cols="12">
-                <!-- skeleton loader -->
-              </v-col>
-              <v-col cols="12">
-                <!-- skeleton loader -->
-              </v-col>
-            </v-row>
+            <v-row> // [!code ++]
+             <v-col cols="6"> // [!code ++]
+               <!-- skeleton loader --> // [!code ++]
+            </v-col> // [!code ++]
+             <v-col cols="6"> // [!code ++]
+               <!-- skeleton loader --> // [!code ++]
+             </v-col> // [!code ++]
             </v-col>
           <v-col cols="6">
             <!-- skeleton loader -->
@@ -99,9 +101,13 @@ To make this even more fun, we're going to add another `v-row` within our first 
   </v-container>
 ```
 
-# Final Result
+It'll look like this : 
 
-This is what our full code would look like:
+![Imgur](https://i.imgur.com/fcNgkhp.png)
+
+## Final Result
+
+Now when we put everything together we'll have :
 
 ```html
 <v-container>
@@ -152,6 +158,6 @@ This is what our full code would look like:
 
 I just replaced the `<!-- skeleton loader -->` placeholders with an actual vuetify skeleton loader, once you run this code, you'll be able to see your complete nested grid.
 
-# Conclusion
+## Conclusion
 
 This post concludes my three part series on vuetify grids, I hope at the end of this you have a deeper understanding of Vuetify Grids and can make fancier looking web apps. If you haven't already, make sure to read [Part 1](/blog/quick-look-vuetify-grids) and [Part 2](/blog/styling-vuetify-grids) of this tutorial. Enjoy coding !!

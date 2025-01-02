@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   ssr: true,
   components: true,
   alias: {
-    "@": resolve(__dirname, "/"),
+    "@": resolve(__dirname),
   },
 
   modules: ['@pinia/nuxt', '@nuxt/content', '@nuxtjs/color-mode', "nuxt-csurf", '@nuxt/image'],
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 
   build: {
     analyze: true,
-    transpile: ['vuetify'],
+    transpile: ['vuetify', 'shiki'],
   },
 
   vite: {
@@ -64,7 +64,8 @@ export default defineNuxtConfig({
             target: '_blank',
             rel: 'noopener noreferer'
           }
-        ]
+        ],
+        'remark-reading-time'
       ]
     },
     navigation: {
@@ -72,8 +73,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: {
-        default: 'monokai',
-        dark: 'github-dark'
+        default: 'tokyo-night',
       },
       preload: ['java', 'js', 'ts', 'python', 'vue', 'html', 'scss']
     },
