@@ -38,7 +38,7 @@ We are going to make a big block that stretches across the screen, so you're con
     </v-container>
 ```
 
-![Image](https://i.imgur.com/ZH7aOpf.png)
+![Image](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782286/ZH7aOpf_cmtc1r.png)
 
 ## Creating Two Columns Side by Side
 
@@ -61,7 +61,7 @@ Now we need to pair two elements in harmony by placing two blocks next to each o
     </v-container>
 ```
 
-![Imgur](https://i.imgur.com/8OVVlIY.png)
+![Imgur](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782309/8OVVlIY_oxit8q.png)
 
 ## Stacking Columns on Top of Each Other
 
@@ -84,7 +84,7 @@ Want to stack blocks on top of each other? If you want it to have two rows on to
     </v-container>
 ```
 
-![Imgur](https://i.imgur.com/UvIeiaf.png)
+![Imgur](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782339/UvIeiaf_p4ding.png)
 
 ## Adjusting Spacing with Margins and Padding
 
@@ -109,7 +109,7 @@ There are a variety of ways to declare margins and padding for a Vuetify Element
     </v-container>
 ```
 
-![Imgur](https://i.imgur.com/ynmkHSh.png)
+![Imgur](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782372/ynmkHSh_xifxcz.png)
 
 ## Change Your Column Size to Take Less Space
 
@@ -127,7 +127,7 @@ Not every element needs to stretch to the end of the row width. If we want the r
     </v-container>
 ```
 
-![Imgur](https://i.imgur.com/kViM4LP.png)
+![Imgur](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782396/kViM4LP_so0mqd.png)
 
 ## Make Columns Tall by Changing Height
 
@@ -145,7 +145,7 @@ You may be wondering why the previous examples were so thin, but if you want on 
     </v-container>
 ```
 
-![Imgur](https://i.imgur.com/30tFyOv.png)
+![Imgur](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782418/30tFyOv_x8yqvz.png)
 
 ## Tall and Short Neighbors: Mixing Up Column Heights
 
@@ -168,7 +168,7 @@ If you have two rows but you want them to look different , you can just change t
     </v-container>
 ```
 
-![Imgur](https://i.imgur.com/OVMznkn.png)
+![Imgur](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782441/OVMznkn_ypfeli.png)
 
 ## The Big Block: Making a Row Stand Out
 
@@ -191,7 +191,7 @@ Just like a headline in a newspaper, sometimes we want our content to be the mai
     </v-container>
 ```
 
-![Imgur](https://i.imgur.com/nQmlfKT.png)
+![Imgur](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735782463/nQmlfKT_nft7u6.png)
 
 ## Make Column Responsive Based on Screen Size
 

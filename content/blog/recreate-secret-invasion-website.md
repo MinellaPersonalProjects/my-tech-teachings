@@ -44,7 +44,7 @@ Next you can go into your newly created vuetify app folder.
 
 ## Create Component to Enter Secret Password
 
-![Enter Password](https://i.imgur.com/7famnqa.png)
+![Enter Password](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735781817/2_-_7famnqa_eh3cmf.png)
 
 Under the **src/components** folder, create a new file called **EnterPassword.vue**. Then we'll set up the layout for to allow us to enter the secret password.
 
@@ -208,7 +208,7 @@ Now we have to create a component to show that Access was Granted after entering
 
 The code creates a border box with the text **"Access Granted"** in the middle of the webpage.
 
-![Access Granted](https://i.imgur.com/ORg8u3P.png)
+![Access Granted](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735781818/3_-_ORg8u3P_ckro7c.png)
 
 ## Load File Component
 
@@ -366,7 +366,7 @@ The function is tied to vuetify's custom component, the v-progress linear, which
 
 The final result is :
 
-![Loading](https://i.imgur.com/EJ9IubS.gif)
+![Loading](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735781817/1_-_EJ9IubS_hfbbkx.gif)
 
 ## Access Granted View
 
@@ -451,7 +451,7 @@ Finally, our code is ready to run. You can test the new app out by running the c
 
 Now, you can see your features in action
 
-![WalkThrough](https://i.imgur.com/aowsIDb.gif)
+![WalkThrough](https://res.cloudinary.com/dgdsc8fxf/image/upload/v1735781819/4_-_aowsIDb_qgeidf.gif)
 
 The full tutorial code is located on [GitHub](https://github.com/MinellaPersonalProjects/secretweb_frontend)
 
