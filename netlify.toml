@@ -1,17 +1,17 @@
 [build]
 functions = "netlify/functions"
 
-[[headers]]
-  for = "/.netlify/images/*"  # Match your image paths here
-  [headers.values]
-    Access-Control-Allow-Origin = "https://i.imgur.com"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
+[[redirects]]
+  from = "/.netlify/images*"
+  to = ":splat"
+  status = 200
+  force = true
+  query = { url = "https://i.imgur.com/*" }
 
-[[headers]]
-  for = "/.netlify/images/*"  # Match your image paths here
-  [headers.values]
-    Access-Control-Allow-Origin = "https://res.cloudinary.com"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type"
+[[redirects]]
+  from = "/.netlify/images*"
+  to = ":splat"
+  status = 200
+  force = true
+  query = { url = "https://res.cloudinary.com/*" }
 
