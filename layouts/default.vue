@@ -15,7 +15,7 @@ import AppFooter from "~/layouts/AppFooter.vue";
       <slot />
     </main>
 
-    <footer class="bg-grey-darken-1 fotter-index">
+    <footer class="fotter-index">
       <app-footer />
     </footer>
   </div>

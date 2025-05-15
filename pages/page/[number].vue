@@ -62,7 +62,7 @@ const noResult = computed(() => {
   <NuxtLayout>
     <v-container fluid class="pa-0">
       <v-row>
-        <v-col cols="12">
+        <v-col cols="12" class="py-16 px-4 bg-primary bg-opacity-10">
           <hero-bar />
         </v-col>
         <v-col cols="12">

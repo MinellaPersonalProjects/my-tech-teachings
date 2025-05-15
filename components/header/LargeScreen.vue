@@ -52,7 +52,12 @@ function getColorMapping(social) {
 </script>
 
 <template>
-  <v-row align="center" color="primary" dark>
+  <v-row
+    align="center"
+    color="primary"
+    dark
+    class="my-2"
+  >
     <v-col cols="12" lg="4" xl="4">
       <v-row align="center" justify="start">
         <v-card height="50px" width="200px" variant="text">
@@ -78,7 +83,7 @@ function getColorMapping(social) {
     </v-col>
 
     <v-col cols="12" sm="10" md="10" lg="3" xl="3" class="text-right">
-      <v-row align="center" justify="end">
+      <v-row align="center" justify="end" >
         <v-btn
           @click="changeDarkMode"
           :style="{ color: !isDarkMode ? 'black' : 'cornflowerblue' }"
